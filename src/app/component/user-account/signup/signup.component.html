@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
+              <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+                <h3 class="login-heading mb-4">Đăng ký thành viên nhận ngay ưu đãi!</h3>
+
+                <mat-error class="alert alert-warning" >{{status}}</mat-error>
+
+                <!--          Name-->
+                <mat-form-field appearance="outline" style="width: 350px">
+                  <mat-label>Name</mat-label>
+                  <input name="name"
+                         [(ngModel)]="form.name"
+                         matInput
+                         placeholder="Placeholder"
+                         required
+                         minlength="6"
+                         maxlength="30"
+                         #name="ngModel">
+                  <mat-error *ngIf="name.hasError('required')">The nam is required!</mat-error>
+                  <mat-error *ngIf="name.hasError('minlength')">Ten toi thieu 6 ky tu!</mat-error>
+                  <mat-error *ngIf="name.hasError('maxlength')">Ten toi da 30 ky tu!</mat-error>
+                  <mat-icon color="accent" matSuffix>person_outline</mat-icon>
+                </mat-form-field>
+                <br>
+                <!--          Username-->
+                <mat-form-field appearance="outline" style="width: 350px">
+                  <mat-label>Username</mat-label>
+                  <input name="username"
+                         [(ngModel)]="form.username"
+                         matInput
+                         placeholder="Placeholder"
+                         required
+                         minlength="6"
+                         maxlength="30"
+                         #username="ngModel">
+                  <mat-error *ngIf="username.hasError('required')">The username is required!</mat-error>
+                  <mat-error *ngIf="username.hasError('minlength')">Username toi thieu 6 ky tu!</mat-error>
+                  <mat-error *ngIf="username.hasError('maxlength')">Username toi da 30 ky tu!</mat-error>
+                  <mat-icon color="accent" matSuffix>person_outline</mat-icon>
+                </mat-form-field>
+                <br>
+                <!--          Email-->
+                <mat-form-field appearance="outline" style="width: 350px">
+                  <mat-label>Email</mat-label>
+                  <input name="email"
+                         matInput
+                         required
+                         email=""
+                         [(ngModel)]="form.email"
+                         placeholder="Placeholder"
+                         #email="ngModel">
+                  <mat-error *ngIf="email.hasError('required')">The email is required!</mat-error>
+                  <mat-error *ngIf="email.hasError('email')">The email invalid! Ex: cuongdepzai@gmail.com</mat-error>
+                  <mat-icon color="accent" matSuffix>email</mat-icon>
+                </mat-form-field>
+                <br>
+                <!--          Password-->
+                <mat-form-field appearance="outline" style="width: 350px">
+                  <mat-label>Enter your Password</mat-label>
+                  <input [type]="hide ? 'password' : 'text'"
+                         name="password"
+                         [(ngModel)]="form.password"
+                         matInput
+                         placeholder="Placeholder"
+                         required
+                         minlength="6"
+                         maxlength="30"
+                         #password="ngModel"
+                  >
+                  <button color="accent" mat-icon-button matSuffix (click)="hide = !hide"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="password.hasError('required')">The password is required!</mat-error>
+                  <mat-error *ngIf="password.hasError('minlength')">Vui long nhap toi thieu 6 ky tu!</mat-error>
+                  <mat-error *ngIf="password.hasError('maxlength')">Mat khau toi da 30 ky tu!</mat-error>
+                </mat-form-field>
+                <br>
+
+
+                <!--                <div class="form-label-group">-->
+                <!--                  <input type="email" id="inputEmail" class="form-control"-->
+                <!--                         placeholder="Email address">-->
+                <!--                  <label for="inputEmail">Email address / Mobile</label>-->
+                <!--                </div>-->
+                <!--                <div class="form-label-group">-->
+                <!--                  <input type="password" id="inputPassword" class="form-control"-->
+                <!--                         placeholder="Password">-->
+                <!--                  <label for="inputPassword">Password</label>-->
+                <!--                </div>-->
+                <!--                <div class="form-label-group mb-4">-->
+                <!--                  <input type="text" id="ptext" class="form-control" placeholder="Promocode">-->
+                <!--                  <label for="ptext">Promocode</label>-->
+                <!--                </div>-->
+                <button mat-stroked-button color="accent"  style="width: 150px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">SignUp
+                </button>
+                <div class="text-center pt-3">
+                  Bạn đã có tài khoản? <a class="font-weight-bold" href="login.html">Đăng nhập ngay</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
