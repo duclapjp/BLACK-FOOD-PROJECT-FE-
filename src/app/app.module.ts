@@ -23,6 +23,10 @@ import { OrderBillComponent } from './component/order/order-bill/order-bill.comp
 import { OrderHistoryComponent } from './component/order/order-history/order-history.component';
 import { OrderSuccessComponent } from './component/order/order-success/order-success.component';
 import { OrderMapComponent } from './component/order/order-map/order-map.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment.prod";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { OrderMapComponent } from './component/order/order-map/order-map.compone
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

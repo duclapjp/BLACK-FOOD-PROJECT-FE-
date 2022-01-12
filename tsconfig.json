@@ -17,6 +17,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
+    //    bo qua check lib
+    "skipLibCheck": true,
     "module": "es2020",
     "lib": [
       "es2020",
