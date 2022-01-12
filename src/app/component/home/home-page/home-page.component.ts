@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenService} from "../../../service/token.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private tokenService: TokenService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    this.tokenService.logout();
+    this.router.navigate(['/']).then(()=> {
+      window.location.reload();
+    })
+  }
 }

@@ -23,6 +23,14 @@ export class AuthService {
     return this.http.post<SignUpForm>(API_LOCAL+'signup', signUpForm);
   }
 
+  signIn (signInForm: SignUpForm):Observable<any>{
+    return this.http.post(API_LOCAL+'login', signInForm);
+  }
+  // @ts-ignore
+  updateAvatar(changeAvatar: ChangeAvatar):Observable<any>{
+    return this.http.put(API_LOCAL+'users/change-avatar',changeAvatar);
+  }
+
   handleError(err: any){
     if (err.error instanceof Error) {
       console.log(`Client-side error: ${err.error.message}`);
