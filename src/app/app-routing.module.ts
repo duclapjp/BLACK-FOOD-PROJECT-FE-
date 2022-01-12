@@ -15,10 +15,9 @@ import {RestaurantDetailComponent} from "./component/restaurant/restaurant-detai
 const routes: Routes = [
   {path: 'signup', component:SignupComponent},
   {path: 'login', component:LoginComponent},
-  {path: '', component:LoginComponent},
+  {path: '', component:HomePageComponent},
   {path: 'upload-file', component:UploadFileComponent},
   {path: 'food-detail', component:FoodDetailComponent},
-  {path: 'home-page', component:HomePageComponent},
   {path: 'not-found', component:NotFoundComponent},
   {path: 'order-bill', component:OrderBillComponent},
   {path: 'order-detail', component:OrderBillComponent},

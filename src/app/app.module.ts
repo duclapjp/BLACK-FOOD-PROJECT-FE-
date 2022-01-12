@@ -27,6 +27,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatProgressSpinnerModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit,OnDestroy {
         this.tokenService.setUserId(data.id)
         console.log('jwtResponse: ' +JSON.stringify(data))
         // Chuyen trang sau do reload
-        this.router.navigate(["/home-page"]).then(()=>{
+        this.router.navigate([""]).then(()=>{
           window.location.reload();
         });
       }

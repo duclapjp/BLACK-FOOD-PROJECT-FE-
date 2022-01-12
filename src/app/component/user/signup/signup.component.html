@@ -7,9 +7,12 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
               <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
-                <h3 class="login-heading mb-4">Đăng ký thành viên nhận ngay ưu đãi!</h3>
+                <mat-card-title style="text-align: center" >BLAC-K FOOD</mat-card-title>
+                <hr>
 
-                <mat-error class="alert alert-warning" >{{status}}</mat-error>
+                <mat-error class="alert alert-warning" style="margin-top: 10px" >{{status}}</mat-error>
+
+
 
                 <!--          Name-->
                 <mat-form-field appearance="outline" style="width: 350px">
@@ -83,27 +86,13 @@
                   <mat-error *ngIf="password.hasError('maxlength')">Mat khau toi da 30 ky tu!</mat-error>
                 </mat-form-field>
                 <br>
-
-
-                <!--                <div class="form-label-group">-->
-                <!--                  <input type="email" id="inputEmail" class="form-control"-->
-                <!--                         placeholder="Email address">-->
-                <!--                  <label for="inputEmail">Email address / Mobile</label>-->
-                <!--                </div>-->
-                <!--                <div class="form-label-group">-->
-                <!--                  <input type="password" id="inputPassword" class="form-control"-->
-                <!--                         placeholder="Password">-->
-                <!--                  <label for="inputPassword">Password</label>-->
-                <!--                </div>-->
-                <!--                <div class="form-label-group mb-4">-->
-                <!--                  <input type="text" id="ptext" class="form-control" placeholder="Promocode">-->
-                <!--                  <label for="ptext">Promocode</label>-->
-                <!--                </div>-->
                 <button mat-stroked-button color="accent"  style="width: 150px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">SignUp
                 </button>
                 <div class="text-center pt-3">
-                  Bạn đã có tài khoản? <a class="font-weight-bold" href="login.html">Đăng nhập ngay</a>
+                  Bạn đã có tài khoản? <a class="font-weight-bold" routerLink="/">Đăng nhập ngay</a>
                 </div>
+                <hr>
+                <h3 class="login-heading mb-4" style="color: #dd646e; font-size: 20px">Đăng ký thành viên nhận ngay ưu đãi!</h3>
               </form>
             </div>
           </div>

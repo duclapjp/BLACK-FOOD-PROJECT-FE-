@@ -6,31 +6,11 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
-              <h3 class="login-heading mb-4">Wellcome back!</h3>
-<!--              <form>-->
-<!--                <div class="form-label-group">-->
-<!--                  <input type="email" id="inputEmail" class="form-control"-->
-<!--                         placeholder="Email address">-->
-<!--                  <label for="inputEmail">Email</label>-->
-<!--                </div>-->
-<!--                <div class="form-label-group">-->
-<!--                  <input type="password" id="inputPassword" class="form-control"-->
-<!--                         placeholder="Password">-->
-<!--                  <label for="inputPassword">Password</label>-->
-<!--                </div>-->
-<!--                <div class="custom-control custom-checkbox mb-3">-->
-<!--                  <input type="checkbox" class="custom-control-input" id="customCheck1">-->
-<!--                  <label class="custom-control-label" for="customCheck1">Nhớ mật khẩu</label>-->
-<!--                </div>-->
-<!--                <a href="../../../../index.html"-->
-<!--                   class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Đăng nhập</a>-->
-<!--                <div class="text-center pt-3">-->
-<!--                  Bạn chưa có tài khoản? <a class="font-weight-bold" href="register.html">Đăng ký ngay</a>-->
-<!--                </div>-->
-<!--              </form>-->
               <form class="form-login" #f="ngForm" (ngSubmit)="f.form.valid && login()">
-                <mat-error class="alert alert-primary" >{{status}}</mat-error>
-                <mat-card-title style="text-align: center">Login</mat-card-title>
+                <mat-card-title style="text-align: center" >BLAC-K FOOD</mat-card-title>
+                <hr>
+
+                <mat-error class="alert alert-primary" style="margin-top: 10px" >{{status}}</mat-error>
                 <!--          Username-->
                 <mat-form-field appearance="outline" style="width: 350px">
                   <mat-label>Username</mat-label>
@@ -61,26 +41,36 @@
                   </button>
                   <mat-error *ngIf="password.hasError('required')">The password is required!</mat-error>
                 </mat-form-field>
+                <div style="text-align: left"><mat-checkbox  class="example-margin"
+                >
+                  Remember me
+                </mat-checkbox></div>
+
                 <br>
                 <button  mat-stroked-button color = "accent"  class="mat-button-toggle-group btn-outline-primary">Login
                   <mat-icon color="accent" matSuffix>login</mat-icon>
                 </button>
+
+                <hr class="my-4">
+                <p class="text-center">ĐĂNG NHẬP BẰNG TÀI KHOẢN MXH</p>
+                <div class="row">
+                  <div class="col pr-2">
+                    <button
+                      class="btn pl-1 pr-1 btn-lg btn-google font-weight-normal text-white btn-block text-uppercase"
+                      type="submit"><i class="fab fa-google mr-2"></i> Google</button>
+                  </div>
+                  <div class="col pl-2">
+                    <button
+                      class="btn pl-1 pr-1 btn-lg btn-facebook font-weight-normal text-white btn-block text-uppercase"
+                      type="submit"><i class="fab fa-facebook-f mr-2"></i> Facebook</button>
+                  </div>
+                  <div class="text-center pt-3 m-auto" >
+                    Bạn chưa có tài khoản? <a class="font-weight-bold"  routerLink="/signup">Đăng ký ngay</a>
+                  </div>
+                </div>
               </form>
 
-              <hr class="my-4">
-              <p class="text-center">ĐĂNG NHẬP BẰNG TÀI KHOẢN MXH</p>
-              <div class="row">
-                <div class="col pr-2">
-                  <button
-                    class="btn pl-1 pr-1 btn-lg btn-google font-weight-normal text-white btn-block text-uppercase"
-                    type="submit"><i class="fab fa-google mr-2"></i> Google</button>
-                </div>
-                <div class="col pl-2">
-                  <button
-                    class="btn pl-1 pr-1 btn-lg btn-facebook font-weight-normal text-white btn-block text-uppercase"
-                    type="submit"><i class="fab fa-facebook-f mr-2"></i> Facebook</button>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

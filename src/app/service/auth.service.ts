@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment.prod";
 
 import {Observable} from "rxjs";
 import {SignUpForm} from "../model/SignUpForm";
+import {JwtResponse} from "../model/JwtResponse";
 
 
 
@@ -23,8 +24,8 @@ export class AuthService {
     return this.http.post<SignUpForm>(API_LOCAL+'signup', signUpForm);
   }
 
-  signIn (signInForm: SignUpForm):Observable<any>{
-    return this.http.post(API_LOCAL+'login', signInForm);
+  signIn (signInForm: SignUpForm):Observable<JwtResponse>{
+    return this.http.post<JwtResponse>(API_LOCAL+'login', signInForm);
   }
   // @ts-ignore
   updateAvatar(changeAvatar: ChangeAvatar):Observable<any>{
