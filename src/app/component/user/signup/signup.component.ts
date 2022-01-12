@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit,OnDestroy {
       this.form.email,
       this.form.password
     )
-    console.log('user-account: ' +this.signUpForm);
+    console.log('user: ' +this.signUpForm);
 
     this.subscription = this.authService.signup(this.signUpForm).subscribe(data => {
       if (JSON.stringify(data) == JSON.stringify(this.error1)){
