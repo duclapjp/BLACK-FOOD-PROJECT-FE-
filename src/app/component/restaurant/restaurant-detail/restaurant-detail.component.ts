@@ -26,5 +26,4 @@ export class RestaurantDetailComponent implements OnInit {
       })
     })
   }
-
 }
