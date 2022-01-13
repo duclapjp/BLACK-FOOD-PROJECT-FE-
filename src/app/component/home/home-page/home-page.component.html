@@ -19,35 +19,25 @@
             <a class="nav-link" *ngIf="!checkLogin" routerLink="/singup">Đăng ký <span class="sr-only"></span></a>
           </li>
           <li class="nav-item dropdown dropdown-cart"  *ngIf="checkLogin">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="display: flex;align-items: center;"
+            <a class="nav-link dropdown-toggle" routerLink="/user-profile" role="button" data-toggle="dropdown" style="display: flex;align-items: center;"
                aria-haspopup="true" aria-expanded="false">
-              <mat-icon>person</mat-icon>  {{userName}}
+              <mat-icon >person</mat-icon>  {{user.name}}
               <span class="badge badge-success">5</span>
             </a>
             <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
               <div class="dropdown-cart-top-body border-top p-4">
-                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
-                  Sub
-                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
-                  Salad x 1 <span class="float-right text-secondary">209.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh
-                  Sub 6"
-                  (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
-                  Sub
-                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas
-                  Salad
-                  x 1 <span class="float-right text-secondary">209.000</span></p>
-              </div>
-              <div class="dropdown-cart-top-footer border-top p-4">
-                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                  class="float-right text-dark">499.000</span></p>
-                <!-- <small class="text-info">Extra charges may apply</small> -->
-              </div>
-              <div class="dropdown-cart-top-footer border-top p-2">
-                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
+                <p class="mb-2"><mat-icon color="warn">account_balance_wallet</mat-icon>
+                   <span class="float-right text-secondary">{{user.amount|currency}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">cake</mat-icon>
+                   <span class="float-right text-secondary">{{user.dob|date}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">phone_iphone</mat-icon>
+                   <span class="float-right text-secondary">{{user.phone}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">place</mat-icon>
+                   <span class="float-right text-secondary">{{user.address}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">email</mat-icon>
+                   <span class="float-right text-secondary">{{user.email}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">control_point</mat-icon>
+                   <span class="float-right text-secondary">{{user.point}}</span></p>
               </div>
             </div>
           </li>
