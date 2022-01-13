@@ -16,6 +16,9 @@ import {RestaurantDeleteComponent} from "./component/restaurant/restaurant-delet
 import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit/restaurant-edit.component";
 import {RestaurantOrderListComponent} from "./component/restaurant/restaurant-order-list/restaurant-order-list.component";
 import {RestaurantHomepageComponent} from "./component/restaurant/restaurant-homepage/restaurant-homepage.component";
+import {
+  RestaurantCreateFoodComponent
+} from "./component/restaurant/restaurant-create-food/restaurant-create-food.component";
 
 
 const routes: Routes = [
@@ -36,7 +39,8 @@ const routes: Routes = [
   {path: 'restaurant-create', component:RestaurantCreateComponent},
   {path: 'restaurant-delete',component:RestaurantDeleteComponent},
   {path: 'restaurant-edit',component:RestaurantEditComponent},
-  {path:'restaurant-homepage', component:RestaurantHomepageComponent}
+  {path:'restaurant-homepage', component:RestaurantHomepageComponent},
+  {path:'restaurant-create-food', component:RestaurantCreateFoodComponent},
 ];
 
 @NgModule({
