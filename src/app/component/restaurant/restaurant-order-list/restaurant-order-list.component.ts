@@ -4,6 +4,7 @@ import {FoodOrder} from "../../../model/food-order";
 import {FoodOrderService} from "../../../service/foodOrder.service";
 import {ActivatedRoute} from "@angular/router";
 import {TokenService} from "../../../service/token.service";
+import {Food} from "../../../model/food";
 
 @Component({
   selector: 'app-restaurant-order-list',
@@ -12,6 +13,7 @@ import {TokenService} from "../../../service/token.service";
 })
 export class RestaurantOrderListComponent implements OnInit {
   orderList: FoodOrder[] =[]
+  food: Food[]=[];
   id:number =0
   constructor(private foodOrderService: FoodOrderService,
               private tokenService: TokenService) {

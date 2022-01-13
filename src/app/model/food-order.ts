@@ -1,3 +1,5 @@
+import {Food} from "./food";
+
 export interface FoodOrder {
   id: number;
   time: any;
@@ -5,5 +7,5 @@ export interface FoodOrder {
   note: string;
   generalStatus:any;
   user: any;
-  food: any[]
+  food: Food[]
 }

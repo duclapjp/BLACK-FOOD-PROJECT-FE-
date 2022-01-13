@@ -106,9 +106,8 @@
                       <img class="mr-4" src="#" alt="Generic placeholder image">
                       <div class="media-body">
                                                     <span class="float-right text-info"><i class="icofont-check-circled text-success"></i></span>
-                        <h6 class="mb-2">
-                          <a href="detail.html" class="text-black">Gus's World Famous
-                            Fried Chicken
+                        <h6 class="mb-2" *ngFor="let food of food">
+                          <a href="detail.html" class="text-black">{{food.name}}
                           </a>
                         </h6>
                         <p class="text-gray mb-1"><i class="icofont-location-arrow"></i> 730
