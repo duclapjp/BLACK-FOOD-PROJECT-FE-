@@ -1,19 +1,45 @@
 <div class="homepage-header">
   <div class="overlay"></div>
   <nav class="navbar navbar-expand-lg navbar-dark osahan-nav">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><img alt="logo" src="../src/osahan-eat-viethoa/img/favicon.png"></a>
+    <div class="container" style="padding: 0px;">
+      <a class="navbar-brand" routerLink="/"   style="font-size: 30px;font-weight: 500;">BLAC-K FOOD</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-family: system-ui">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" *ngIf="!checkLogin" routerLink="/login">Đăng nhập <span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="home.html">Đăng ký <span class="sr-only"></span></a>
+            <a class="nav-link" *ngIf="!checkLogin" routerLink="/singup">Đăng ký <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item dropdown dropdown-cart"  *ngIf="checkLogin">
+            <a class="nav-link dropdown-toggle" routerLink="/user-profile" role="button" data-toggle="dropdown" style="display: flex;align-items: center;"
+               aria-haspopup="true" aria-expanded="false">
+              <mat-icon >person</mat-icon>  {{user.name}}
+              <span class="badge badge-success">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
+              <div class="dropdown-cart-top-body border-top p-4">
+                <p class="mb-2"><mat-icon color="warn">account_balance_wallet</mat-icon>
+                   <span class="float-right text-secondary">{{user.amount|currency}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">cake</mat-icon>
+                   <span class="float-right text-secondary">{{user.dob|date}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">phone_iphone</mat-icon>
+                   <span class="float-right text-secondary">{{user.phone}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">place</mat-icon>
+                   <span class="float-right text-secondary">{{user.address}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">email</mat-icon>
+                   <span class="float-right text-secondary">{{user.email}}</span></p>
+                <p class="mb-2"><mat-icon color="warn">control_point</mat-icon>
+                   <span class="float-right text-secondary">{{user.point}}</span></p>
+              </div>
+            </div>
           </li>
           <li class="nav-item dropdown dropdown-cart">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -48,6 +74,75 @@
               </div>
             </div>
           </li>
+          <li class="nav-item dropdown dropdown-cart" >
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="display: flex;align-items: center;"
+               aria-haspopup="true" aria-expanded="false">
+              <mat-icon>notifications</mat-icon>
+              <span class="badge badge-danger">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
+              <div class="dropdown-cart-top-body border-top p-4">
+                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
+                  Sub
+                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
+                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
+                  Salad x 1 <span class="float-right text-secondary">209.000</span></p>
+                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh
+                  Sub 6"
+                  (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
+                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
+                  Sub
+                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
+                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas
+                  Salad
+                  x 1 <span class="float-right text-secondary">209.000</span></p>
+              </div>
+              <div class="dropdown-cart-top-footer border-top p-4">
+                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
+                  class="float-right text-dark">499.000</span></p>
+                <!-- <small class="text-info">Extra charges may apply</small> -->
+              </div>
+              <div class="dropdown-cart-top-footer border-top p-2">
+                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
+              </div>
+            </div>
+          </li>
+<!--          <li class="nav-item active">-->
+<!--            <a class="nav-link" style="align-items: center;display: flex;" ><mat-icon>notifications</mat-icon><span class="badge badge-danger">5</span><span class="sr-only">(current)</span></a>-->
+<!--            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">-->
+<!--              <div class="dropdown-cart-top-body border-top p-4">-->
+<!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka-->
+<!--                  Sub-->
+<!--                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>-->
+<!--                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas-->
+<!--                  Salad x 1 <span class="float-right text-secondary">209.000</span></p>-->
+<!--                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh-->
+<!--                  Sub 6"-->
+<!--                  (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>-->
+<!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka-->
+<!--                  Sub-->
+<!--                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>-->
+<!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas-->
+<!--                  Salad-->
+<!--                  x 1 <span class="float-right text-secondary">209.000</span></p>-->
+<!--              </div>-->
+<!--              <div class="dropdown-cart-top-footer border-top p-4">-->
+<!--                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span-->
+<!--                  class="float-right text-dark">499.000</span></p>-->
+<!--                &lt;!&ndash; <small class="text-info">Extra charges may apply</small> &ndash;&gt;-->
+<!--              </div>-->
+<!--              <div class="dropdown-cart-top-footer border-top p-2">-->
+<!--                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </li>-->
+          <li class="nav-item active">
+            <a class="nav-link"  ><mat-icon>help
+            </mat-icon><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link"  (click)="logout()" *ngIf="checkLogin" >Đăng xuất <span class="sr-only">(current)</span></a>
+          </li>
         </ul>
       </div>
     </div>
@@ -59,23 +154,21 @@
         <div class="col-lg-8 mx-auto">
           <div class="homepage-search-title text-center">
             <h1 class="mb-2 display-4 text-shadow text-white font-weight-normal"><span
-              class="font-weight-bold">Món ngon dành riêng cho bạn 🇮🇳
+              class="font-weight-bold">Don't need Black Friday when you have BLAC-K Food
                                 </span></h1>
-            <h5 class="mb-5 text-shadow text-white-50 font-weight-normal">Danh sách nhà hàng với nhiều
-              món ngon ưu đãi</h5>
           </div>
-          <div class="homepage-search-form">
+          <div class="homepage-search-form" style="margin-top: 20px;">
             <form class="form-noborder">
               <div class="form-row">
                 <div class="col-lg-3 col-md-3 col-sm-12 form-group">
                   <div class="location-dropdown">
-                    <i class="icofont-location-arrow"></i>
+<!--                    <i class="icofont-location-arrow"></i>-->
                     <select class="custom-select form-control-lg">
-                      <option> Tìm kiếm nhanh </option>
-                      <option> Ăn sáng </option>
-                      <option> Ăn trưa </option>
-                      <option> Ăn tối </option>
-                      <option> Cafés </option>
+                      <option> Quick Search </option>
+                      <option> Breakfast </option>
+                      <option> Lunch </option>
+                      <option> Dinner </option>
+                      <option> Coffee </option>
                     </select>
                   </div>
                 </div>
@@ -92,7 +185,7 @@
               </div>
             </form>
           </div>
-          <h6 class="mt-4 text-shadow text-white font-weight-normal">Ví dụ. Pizzas, Gà rán,
+          <h6 class="mt-4 text-shadow text-white font-weight-normal">Ex. Pizzas, Fried Chicken,
             Nem chua...</h6>
           <div class="owl-carousel owl-carousel-category owl-theme">
             <div class="item">
@@ -712,4 +805,4 @@
     </small>
   </div>
 </footer>
-<button (click)="logout()" >LogOut</button>
+

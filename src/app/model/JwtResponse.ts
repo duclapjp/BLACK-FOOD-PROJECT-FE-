@@ -4,6 +4,7 @@ export class JwtResponse{
   name:string;
   avatar: string;
   roles: any
+  message: any;
 
 
   constructor(id: number, token: string, name: string, avatar: string, roles: any) {

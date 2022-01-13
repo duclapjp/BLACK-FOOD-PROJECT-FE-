@@ -11,6 +11,7 @@ import {OrderHistoryComponent} from "./component/order/order-history/order-histo
 import {OrderMapComponent} from "./component/order/order-map/order-map.component";
 import {OrderSuccessComponent} from "./component/order/order-success/order-success.component";
 import {RestaurantDetailComponent} from "./component/restaurant/restaurant-detail/restaurant-detail.component";
+import {UserProfileComponent} from "./component/user/user-profile/user-profile.component";
 import {RestaurantCreateComponent} from "./component/restaurant/restaurant-create/restaurant-create.component";
 import {RestaurantDeleteComponent} from "./component/restaurant/restaurant-delete/restaurant-delete.component";
 import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit/restaurant-edit.component";
@@ -19,15 +20,17 @@ import {RestaurantHomepageComponent} from "./component/restaurant/restaurant-hom
 import {
   RestaurantCreateFoodComponent
 } from "./component/restaurant/restaurant-create-food/restaurant-create-food.component";
-
+import {RestaurantEditFoodComponent} from "./component/restaurant/restaurant-edit-food/restaurant-edit-food.component";
+import {
+  RestaurantDeleteFoodComponent
+} from "./component/restaurant/restaurant-delete-food/restaurant-delete-food.component";
 
 const routes: Routes = [
   {path: 'signup', component:SignupComponent},
   {path: 'login', component:LoginComponent},
-  {path: '', component:LoginComponent},
+  {path: '', component:HomePageComponent},
   {path: 'upload-file', component:UploadFileComponent},
   {path: 'food-detail', component:FoodDetailComponent},
-  {path: 'home-page', component:HomePageComponent},
   {path: 'not-found', component:NotFoundComponent},
   {path: 'order-bill', component:OrderBillComponent},
   {path: 'order-detail', component:OrderBillComponent},
@@ -35,12 +38,15 @@ const routes: Routes = [
   {path: 'order-map', component:OrderMapComponent},
   {path: 'order-success', component:OrderSuccessComponent},
   {path: 'restaurant-detail', component:RestaurantDetailComponent},
+  {path: 'user-profile', component:UserProfileComponent},
   {path: 'restaurant-order-list', component:RestaurantOrderListComponent},
   {path: 'restaurant-create', component:RestaurantCreateComponent},
   {path: 'restaurant-delete',component:RestaurantDeleteComponent},
   {path: 'restaurant-edit',component:RestaurantEditComponent},
   {path:'restaurant-homepage', component:RestaurantHomepageComponent},
   {path:'restaurant-create-food', component:RestaurantCreateFoodComponent},
+  {path:'restaurant-edit-food/:id', component:RestaurantEditFoodComponent},
+  {path:'restaurant-delete-food/:id', component:RestaurantDeleteFoodComponent},
 ];
 
 @NgModule({

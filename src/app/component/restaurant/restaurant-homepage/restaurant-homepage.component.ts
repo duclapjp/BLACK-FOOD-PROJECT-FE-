@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FoodService} from "../../../service/food.service";
+import {Food} from "../../../model/food";
 
 @Component({
   selector: 'app-restaurant-homepage',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantHomepageComponent implements OnInit {
 
-  constructor() { }
+  foods: Food[] =[]
+  constructor(
+    private foodService: FoodService
+  ) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
+    this.foodService.findAll().subscribe(foods => {
+      this.foods = foods;
+      console.log('foods: '+ this.foods);
+    })
   }
 
 }

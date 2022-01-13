@@ -27,6 +27,8 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { UserProfileComponent } from './component/user/user-profile/user-profile.component';
 import { RestaurantCreateComponent } from './component/restaurant/restaurant-create/restaurant-create.component';
 import { RestaurantDeleteComponent } from './component/restaurant/restaurant-delete/restaurant-delete.component';
 import { RestaurantEditComponent } from './component/restaurant/restaurant-edit/restaurant-edit.component';
@@ -35,6 +37,8 @@ import {RestaurantOrderListComponent} from "./component/restaurant/restaurant-or
 import { RestaurantHomepageComponent } from './component/restaurant/restaurant-homepage/restaurant-homepage.component';
 import { RestaurantClaimComponent } from './component/restaurant/restaurant-claim/restaurant-claim.component';
 import { RestaurantCreateFoodComponent } from './component/restaurant/restaurant-create-food/restaurant-create-food.component';
+import { RestaurantEditFoodComponent } from './component/restaurant/restaurant-edit-food/restaurant-edit-food.component';
+import { RestaurantDeleteFoodComponent } from './component/restaurant/restaurant-delete-food/restaurant-delete-food.component';
 
 
 
@@ -53,6 +57,7 @@ import { RestaurantCreateFoodComponent } from './component/restaurant/restaurant
     OrderHistoryComponent,
     OrderSuccessComponent,
     OrderMapComponent,
+    UserProfileComponent,
     RestaurantCreateComponent,
     RestaurantDeleteComponent,
     RestaurantEditComponent,
@@ -60,7 +65,10 @@ import { RestaurantCreateFoodComponent } from './component/restaurant/restaurant
     RestaurantOrderListComponent,
     RestaurantHomepageComponent,
     RestaurantClaimComponent,
-    RestaurantCreateFoodComponent
+    RestaurantCreateFoodComponent,
+    RestaurantHomepageComponent,
+    RestaurantEditFoodComponent,
+    RestaurantDeleteFoodComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -77,6 +85,7 @@ import { RestaurantCreateFoodComponent } from './component/restaurant/restaurant
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatProgressSpinnerModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

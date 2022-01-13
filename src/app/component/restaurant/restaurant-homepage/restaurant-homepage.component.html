@@ -46,6 +46,9 @@
     </div>
   </div>
 </nav>
+
+
+
 <section class="restaurant-detailed-banner">
   <div class="text-center">
     <img class="img-fluid cover" src="img/mall-dedicated-banner.png">
@@ -130,7 +133,7 @@
                  aria-labelledby="pills-order-online-tab">
               <div id="#menu" class="row">
                 <!-- <h5 class="mb-4 mt-3 col-md-12">Bán chạy</h5> -->
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let food of foods">
                   <div
                     class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                     <div class="list-card-image">
@@ -141,16 +144,16 @@
                       <div class="member-plan position-absolute"><span
                         class="badge badge-dark">Promoted</span></div>
                       <a href="#">
-                        <img src="img/list/7.png" class="img-fluid item-img">
+                        <img [src]="food.image" class="img-fluid item-img" alt="lon">
                       </a>
                     </div>
                     <div class="p-3 position-relative">
                       <div class="list-card-body">
-                        <h6 class="mb-1"><a href="#" class="text-black">Gafood - Gà Ủ
-                          Muối</a></h6>
-                        <p class="text-gray mb-2">Bạch Mai</p>
+<!--                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>-->
+                        <h6 class="mb-1"><p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px" routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon routerLink="/restaurant-delete-food/{{food.id}}" color="warn" style="font-size: 20px">delete</mat-icon></span></p></h6>
+                        <p class="text-gray mb-2">{{food.restaurant.name}}  </p>
                         <p class="text-gray time mb-0"><a
-                          class="btn btn-link btn-sm text-black" href="#">30.000 <span
+                          class="btn btn-link btn-sm text-black" href="#">{{food.price|currency}}<span
                           class="badge badge-success">5% Giảm</span></a> <span
                           class="float-right">
                                                             <a class="btn btn-outline-secondary btn-sm" href="#">Mua
@@ -161,133 +164,133 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <div
-                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                      <!-- <div class="star position-absolute"><span class="badge badge-success"><i
-                                  class="icofont-star"></i> 3.1 (300+)</span></div> -->
-                      <div class="favourite-heart text-danger position-absolute"><a
-                        href="#"><i class="icofont-heart"></i></a></div>
-                      <div class="member-plan position-absolute"><span
-                        class="badge badge-dark">Promoted</span></div>
-                      <a href="#">
-                        <img src="img/list/8.png" class="img-fluid item-img">
-                      </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                      <div class="list-card-body">
-                        <h6 class="mb-1"><a href="#" class="text-black">Trà Sữa - Đường 18
-                        </a>
-                        </h6>
-                        <p class="text-gray mb-2">P. Mộ Lao, Hà Đông, Hà Nội</p>
-                        <p class="text-gray time mb-0"><a
-                          class="btn btn-link btn-sm text-black" href="#">5.000 <span
-                          class="badge badge-primary">Giảm</span></a> <span
-                          class="float-right">
-                                                            <a class="btn btn-outline-secondary btn-sm" href="#">Mua
-                                                                ngay</a>
-                                                        </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <div
-                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                      <!-- <div class="star position-absolute"><span class="badge badge-success"><i
-                                  class="icofont-star"></i> 3.1 (300+)</span></div> -->
-                      <div class="favourite-heart text-danger position-absolute"><a
-                        href="#"><i class="icofont-heart"></i></a></div>
-                      <div class="member-plan position-absolute"><span
-                        class="badge badge-dark">Promoted</span></div>
-                      <a href="#">
-                        <img src="img/list/9.png" class="img-fluid item-img">
-                      </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                      <div class="list-card-body">
-                        <h6 class="mb-1"><a href="#" class="text-black">Nem
-                          Chua Rán</a></h6>
-                        <p class="text-gray mb-2">P. Bồ Đề, Long Biên, Hà Nội</p>
-                        <p class="text-gray time mb-0"><a
-                          class="btn btn-link btn-sm text-black" href="#">50.000 <span
-                          class="badge badge-info">Giảm</span></a> <span
-                          class="float-right">
-                                                            <a class="btn btn-outline-secondary btn-sm" href="#">Mua
-                                                                ngay </a>
-                                                        </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<!--                <div class="col-md-4 col-sm-6 mb-4">-->
+<!--                  <div-->
+<!--                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">-->
+<!--                    <div class="list-card-image">-->
+<!--                      &lt;!&ndash; <div class="star position-absolute"><span class="badge badge-success"><i-->
+<!--                                  class="icofont-star"></i> 3.1 (300+)</span></div> &ndash;&gt;-->
+<!--                      <div class="favourite-heart text-danger position-absolute"><a-->
+<!--                        href="#"><i class="icofont-heart"></i></a></div>-->
+<!--                      <div class="member-plan position-absolute"><span-->
+<!--                        class="badge badge-dark">Promoted</span></div>-->
+<!--                      <a href="#">-->
+<!--                        <img src="img/list/8.png" class="img-fluid item-img">-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                    <div class="p-3 position-relative">-->
+<!--                      <div class="list-card-body">-->
+<!--                        <h6 class="mb-1"><a href="#" class="text-black">Trà Sữa - Đường 18-->
+<!--                        </a>-->
+<!--                        </h6>-->
+<!--                        <p class="text-gray mb-2">P. Mộ Lao, Hà Đông, Hà Nội</p>-->
+<!--                        <p class="text-gray time mb-0"><a-->
+<!--                          class="btn btn-link btn-sm text-black" href="#">5.000 <span-->
+<!--                          class="badge badge-primary">Giảm</span></a> <span-->
+<!--                          class="float-right">-->
+<!--                                                            <a class="btn btn-outline-secondary btn-sm" href="#">Mua-->
+<!--                                                                ngay</a>-->
+<!--                                                        </span>-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4 col-sm-6 mb-4">-->
+<!--                  <div-->
+<!--                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">-->
+<!--                    <div class="list-card-image">-->
+<!--                      &lt;!&ndash; <div class="star position-absolute"><span class="badge badge-success"><i-->
+<!--                                  class="icofont-star"></i> 3.1 (300+)</span></div> &ndash;&gt;-->
+<!--                      <div class="favourite-heart text-danger position-absolute"><a-->
+<!--                        href="#"><i class="icofont-heart"></i></a></div>-->
+<!--                      <div class="member-plan position-absolute"><span-->
+<!--                        class="badge badge-dark">Promoted</span></div>-->
+<!--                      <a href="#">-->
+<!--                        <img src="img/list/9.png" class="img-fluid item-img">-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                    <div class="p-3 position-relative">-->
+<!--                      <div class="list-card-body">-->
+<!--                        <h6 class="mb-1"><a href="#" class="text-black">Nem-->
+<!--                          Chua Rán</a></h6>-->
+<!--                        <p class="text-gray mb-2">P. Bồ Đề, Long Biên, Hà Nội</p>-->
+<!--                        <p class="text-gray time mb-0"><a-->
+<!--                          class="btn btn-link btn-sm text-black" href="#">50.000 <span-->
+<!--                          class="badge badge-info">Giảm</span></a> <span-->
+<!--                          class="float-right">-->
+<!--                                                            <a class="btn btn-outline-secondary btn-sm" href="#">Mua-->
+<!--                                                                ngay </a>-->
+<!--                                                        </span>-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
               </div>
 
-              <div class="row">
-                <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3
-                  ITEMS</small></h5>
-                <div class="col-md-12">
-                  <div class="bg-white rounded border shadow-sm mb-4">
-                    <div class="menu-list p-3 border-bottom">
-                                                <span class="count-number float-right">
-                                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                                      class="icofont-minus"></i> </button>
-                                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                                      class="icofont-plus"></i> </button>
-                                                </span>
-                      <div class="media">
-                        <img class="mr-3 rounded-pill" src="img/5.jpg"
-                             alt="Generic placeholder image">
-                        <div class="media-body">
-                          <h6 class="mb-1">Chả Nấm Tươi</h6>
-                          <p class="text-gray mb-0">150.000 (1kg)</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="menu-list p-3 border-bottom">
-                                                <span class="count-number float-right">
-                                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                                      class="icofont-minus"></i> </button>
-                                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                                      class="icofont-plus"></i> </button>
-                                                </span>
-                      <div class="media">
-                        <img class="mr-3 rounded-pill" src="img/2.jpg"
-                             alt="Generic placeholder image">
-                        <div class="media-body">
-                          <h6 class="mb-1">Chả Cốm Non Ước Lễ <span
-                            class="badge badge-danger">BESTSELLER</span></h6>
-                          <p class="text-gray mb-0">60.000/1kg</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="menu-list p-3">
-                                                <span class="count-number float-right">
-                                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                                      class="icofont-minus"></i> </button>
-                                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                                      class="icofont-plus"></i> </button>
-                                                </span>
-                      <div class="media">
-                        <img class="mr-3 rounded-pill" src="img/3.jpg"
-                             alt="Generic placeholder image">
-                        <div class="media-body">
-                          <h6 class="mb-1">Chả Mỡ Phố Cổ
-                            <span class="badge badge-success">Siêu giảm giá</span>
-                          </h6>
-                          <p class="text-gray mb-0">45.000/1kg</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<!--              <div class="row">-->
+<!--                <h5 class="mb-4 mt-3 col-md-12">Starters <small class="h6 text-black-50">3-->
+<!--                  ITEMS</small></h5>-->
+<!--                <div class="col-md-12">-->
+<!--                  <div class="bg-white rounded border shadow-sm mb-4">-->
+<!--                    <div class="menu-list p-3 border-bottom">-->
+<!--                                                <span class="count-number float-right">-->
+<!--                                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i-->
+<!--                                                      class="icofont-minus"></i> </button>-->
+<!--                                                    <input class="count-number-input" type="text" value="1" readonly="">-->
+<!--                                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i-->
+<!--                                                      class="icofont-plus"></i> </button>-->
+<!--                                                </span>-->
+<!--                      <div class="media">-->
+<!--                        <img class="mr-3 rounded-pill" src="img/5.jpg"-->
+<!--                             alt="Generic placeholder image">-->
+<!--                        <div class="media-body">-->
+<!--                          <h6 class="mb-1">Chả Nấm Tươi</h6>-->
+<!--                          <p class="text-gray mb-0">150.000 (1kg)</p>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="menu-list p-3 border-bottom">-->
+<!--                                                <span class="count-number float-right">-->
+<!--                                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i-->
+<!--                                                      class="icofont-minus"></i> </button>-->
+<!--                                                    <input class="count-number-input" type="text" value="1" readonly="">-->
+<!--                                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i-->
+<!--                                                      class="icofont-plus"></i> </button>-->
+<!--                                                </span>-->
+<!--                      <div class="media">-->
+<!--                        <img class="mr-3 rounded-pill" src="img/2.jpg"-->
+<!--                             alt="Generic placeholder image">-->
+<!--                        <div class="media-body">-->
+<!--                          <h6 class="mb-1">Chả Cốm Non Ước Lễ <span-->
+<!--                            class="badge badge-danger">BESTSELLER</span></h6>-->
+<!--                          <p class="text-gray mb-0">60.000/1kg</p>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="menu-list p-3">-->
+<!--                                                <span class="count-number float-right">-->
+<!--                                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i-->
+<!--                                                      class="icofont-minus"></i> </button>-->
+<!--                                                    <input class="count-number-input" type="text" value="1" readonly="">-->
+<!--                                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i-->
+<!--                                                      class="icofont-plus"></i> </button>-->
+<!--                                                </span>-->
+<!--                      <div class="media">-->
+<!--                        <img class="mr-3 rounded-pill" src="img/3.jpg"-->
+<!--                             alt="Generic placeholder image">-->
+<!--                        <div class="media-body">-->
+<!--                          <h6 class="mb-1">Chả Mỡ Phố Cổ-->
+<!--                            <span class="badge badge-success">Siêu giảm giá</span>-->
+<!--                          </h6>-->
+<!--                          <p class="text-gray mb-0">45.000/1kg</p>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
 
             </div>
             <div class="tab-pane fade" id="pills-gallery" role="tabpanel"

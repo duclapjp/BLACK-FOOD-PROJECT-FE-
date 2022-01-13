@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {AuthService} from "../../../service/auth.service";
 import {SignUpForm} from "../../../model/SignUpForm";
+import {Router} from "@angular/router";
 
 
 
@@ -32,7 +33,8 @@ export class SignupComponent implements OnInit,OnDestroy {
 
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -56,14 +58,22 @@ export class SignupComponent implements OnInit,OnDestroy {
 
     this.subscription = this.authService.signup(this.signUpForm).subscribe(data => {
       if (JSON.stringify(data) == JSON.stringify(this.error1)){
-        this.status = "The username has exists!";
+        this.status = "Username existed!";
       }
       if (JSON.stringify(data) == JSON.stringify(this.error2)){
-        this.status = "The email has exists!";
+        this.status = "Email existed!";
       }
       if (JSON.stringify(data) == JSON.stringify(this.success)){
-        this.status = "Register has Success!";
+        this.status = "Register is Success. Please confirm your email!";
+        alert("Register is Success. Please confirm your email!");
+        this.router.navigate(['']);
         console.log('status' + this.status);
+       // if (confirm("Register is Success. Please confirm your email!")){
+       //   this.router.navigate(['']);
+       // }
+       // else {
+       //
+       // }
       }
       // @ts-ignore
       console.log(`data: ` +JSON.stringify(data.message));
