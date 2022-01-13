@@ -27,6 +27,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { RestaurantOrderListComponent } from './component/restaurant/restaurant-order-list/restaurant-order-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     OrderBillComponent,
     OrderHistoryComponent,
     OrderSuccessComponent,
-    OrderMapComponent
+    OrderMapComponent,
+    RestaurantOrderListComponent
   ],
   imports: [
     ReactiveFormsModule,

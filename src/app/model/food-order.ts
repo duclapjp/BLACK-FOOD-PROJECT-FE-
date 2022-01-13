@@ -4,5 +4,6 @@ export interface FoodOrder {
   totalPrice: number;
   note: string;
   generalStatus:any;
-  user: any
+  user: any;
+  food: any[]
 }
