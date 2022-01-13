@@ -98,7 +98,8 @@
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="orders" role="tabpanel"
                  aria-labelledby="orders-tab">
-              <h4 class="font-weight-bold mt-0 mb-4">Order List</h4>
+              <h4 class="font-weight-bold mt-0 mb-4">Đơn Hàng</h4>
+<!--              listOrders-->
               <div class="bg-white card mb-4 order-list shadow-sm" *ngFor="let order of orderList">
                 <div class="gold-members p-4">
                   <a href="#">
@@ -106,18 +107,21 @@
                       <img class="mr-4" src="#" alt="Generic placeholder image">
                       <div class="media-body">
                                                     <span class="float-right text-info"><i class="icofont-check-circled text-success"></i></span>
-                        <h6 class="mb-2" *ngFor="let food of food">
-                          <a href="detail.html" class="text-black">{{food.name}}
+                        <h6 class="mb-2" >
+                          <a href="detail.html" class="text-black">{{order.time}}
                           </a>
                         </h6>
+                        <div *ngFor="let food of order.food">
+                          <h3>Tên món {{food.name}}</h3>
+                          <h3>Gía tiền {{food.price}}</h3>
+                        </div>
                         <p class="text-gray mb-1"><i class="icofont-location-arrow"></i> 730
                           S Mendenhall Rd, Memphis, TN 38117, USA
                         </p>
                         <p class="text-gray mb-3"><i class="icofont-list"></i> ORDER
                           #25102589748 <i class="icofont-clock-time ml-2"></i> Mon, Nov
                           12, 6:26 PM</p>
-                        <p class="text-dark">Veg Masala Roll x 1, Veg Burger x 1, Veg Penne
-                          Pasta in Red Sauce x 1
+                        <p class="text-dark">Note: {{order.note}}
                         </p>
                         <hr>
                         <div class="float-right">
@@ -127,7 +131,7 @@
                             class="icofont-refresh"></i> REORDER</a>
                         </div>
                         <p class="mb-0 text-black text-primary pt-2"><span
-                          class="text-black font-weight-bold"> Total Paid:</span> $300
+                          class="text-black font-weight-bold"> Tổng tiền:</span>{{order.totalPrice}}
                         </p>
                       </div>
                     </div>

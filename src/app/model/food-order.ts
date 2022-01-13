@@ -1,4 +1,5 @@
 import {Food} from "./food";
+import {Restaurant} from "./restaurant";
 
 export interface FoodOrder {
   id: number;
@@ -6,6 +7,7 @@ export interface FoodOrder {
   totalPrice: number;
   note: string;
   generalStatus:any;
+  food: Food[];
   user: any;
-  food: Food[]
+  restaurant: Restaurant;
 }

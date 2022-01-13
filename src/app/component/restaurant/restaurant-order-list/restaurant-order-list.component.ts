@@ -11,8 +11,8 @@ import {Food} from "../../../model/food";
 })
 export class RestaurantOrderListComponent implements OnInit {
   orderList: FoodOrder[] =[];
-  food: Food[]=[];
   id:number =0
+  totalP: number=0;
   constructor(private foodOrderService: FoodOrderService,
               private tokenService: TokenService) {
     this.getAllOrder();
