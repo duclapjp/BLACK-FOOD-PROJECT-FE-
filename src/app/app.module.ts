@@ -9,7 +9,7 @@ import { UploadFileComponent } from './component/upload-file/upload-file.compone
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatError, MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -29,6 +29,14 @@ import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { UserProfileComponent } from './component/user/user-profile/user-profile.component';
+import { RestaurantCreateComponent } from './component/restaurant/restaurant-create/restaurant-create.component';
+import { RestaurantDeleteComponent } from './component/restaurant/restaurant-delete/restaurant-delete.component';
+import { RestaurantEditComponent } from './component/restaurant/restaurant-edit/restaurant-edit.component';
+import { RestaurantListComponent } from './component/restaurant/restaurant-list/restaurant-list.component';
+import {RestaurantOrderListComponent} from "./component/restaurant/restaurant-order-list/restaurant-order-list.component";
+import { RestaurantHomepageComponent } from './component/restaurant/restaurant-homepage/restaurant-homepage.component';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +53,14 @@ import { UserProfileComponent } from './component/user/user-profile/user-profile
     OrderHistoryComponent,
     OrderSuccessComponent,
     OrderMapComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    RestaurantCreateComponent,
+    RestaurantDeleteComponent,
+    RestaurantEditComponent,
+    RestaurantListComponent,
+    RestaurantOrderListComponent,
+    RestaurantHomepageComponent
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -68,7 +83,4 @@ import { UserProfileComponent } from './component/user/user-profile/user-profile
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
-
-
 }
