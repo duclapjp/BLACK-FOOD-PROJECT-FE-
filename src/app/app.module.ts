@@ -27,6 +27,11 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { CreatComponent } from './restaurant/creat/creat.component';
+import { RestaurantCreateComponent } from './restaurant/restaurant-create/restaurant-create.component';
+import { RestaurantDeleteComponent } from './component/restaurant/restaurant-delete/restaurant-delete.component';
+import { RestaurantEditComponent } from './component/restaurant/restaurant-edit/restaurant-edit.component';
+import { RestaurantListComponent } from './component/restaurant/restaurant-list/restaurant-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     OrderBillComponent,
     OrderHistoryComponent,
     OrderSuccessComponent,
-    OrderMapComponent
+    OrderMapComponent,
+    CreatComponent,
+    RestaurantCreateComponent,
+    RestaurantDeleteComponent,
+    RestaurantEditComponent,
+    RestaurantListComponent
   ],
   imports: [
     ReactiveFormsModule,
