@@ -12,6 +12,8 @@ import {OrderMapComponent} from "./component/order/order-map/order-map.component
 import {OrderSuccessComponent} from "./component/order/order-success/order-success.component";
 import {RestaurantDetailComponent} from "./component/restaurant/restaurant-detail/restaurant-detail.component";
 import {RestaurantCreateComponent} from "./component/restaurant/restaurant-create/restaurant-create.component";
+import {RestaurantDeleteComponent} from "./component/restaurant/restaurant-delete/restaurant-delete.component";
+import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit/restaurant-edit.component";
 
 const routes: Routes = [
   {path: 'signup', component:SignupComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path: 'order-map', component:OrderMapComponent},
   {path: 'order-success', component:OrderSuccessComponent},
   {path: 'restaurant-detail', component:RestaurantDetailComponent},
-  {path: 'restaurant-create', component:RestaurantCreateComponent}
+  {path: 'restaurant-create', component:RestaurantCreateComponent},
+  {path: 'restaurant-delete',component:RestaurantDeleteComponent},
+  {path: 'restaurant-edit',component:RestaurantEditComponent}
 
 ];
 
