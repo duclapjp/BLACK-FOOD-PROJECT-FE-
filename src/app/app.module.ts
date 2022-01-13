@@ -9,7 +9,7 @@ import { UploadFileComponent } from './component/upload-file/upload-file.compone
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatError, MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -27,7 +27,12 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { RestaurantOrderListComponent } from './component/restaurant/restaurant-order-list/restaurant-order-list.component';
+import { RestaurantCreateComponent } from './component/restaurant/restaurant-create/restaurant-create.component';
+import { RestaurantDeleteComponent } from './component/restaurant/restaurant-delete/restaurant-delete.component';
+import { RestaurantEditComponent } from './component/restaurant/restaurant-edit/restaurant-edit.component';
+import { RestaurantListComponent } from './component/restaurant/restaurant-list/restaurant-list.component';
+import {RestaurantOrderListComponent} from "./component/restaurant/restaurant-order-list/restaurant-order-list.component";
+
 
 @NgModule({
   declarations: [
@@ -44,6 +49,10 @@ import { RestaurantOrderListComponent } from './component/restaurant/restaurant-
     OrderHistoryComponent,
     OrderSuccessComponent,
     OrderMapComponent,
+    RestaurantCreateComponent,
+    RestaurantDeleteComponent,
+    RestaurantEditComponent,
+    RestaurantListComponent,
     RestaurantOrderListComponent
   ],
   imports: [
@@ -66,7 +75,5 @@ import { RestaurantOrderListComponent } from './component/restaurant/restaurant-
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
-
 
 }

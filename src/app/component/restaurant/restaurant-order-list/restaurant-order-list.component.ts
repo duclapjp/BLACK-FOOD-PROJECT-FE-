@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {FoodOrder} from "../../../model/food-order";
 import {FoodOrderService} from "../../../service/foodOrder.service";
-import {ActivatedRoute} from "@angular/router";
 import {TokenService} from "../../../service/token.service";
 import {Food} from "../../../model/food";
 
@@ -12,7 +10,7 @@ import {Food} from "../../../model/food";
   styleUrls: ['./restaurant-order-list.component.css']
 })
 export class RestaurantOrderListComponent implements OnInit {
-  orderList: FoodOrder[] =[]
+  orderList: FoodOrder[] =[];
   food: Food[]=[];
   id:number =0
   constructor(private foodOrderService: FoodOrderService,
