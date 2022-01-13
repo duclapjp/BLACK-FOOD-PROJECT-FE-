@@ -9,7 +9,7 @@ import { UploadFileComponent } from './component/upload-file/upload-file.compone
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatError, MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
@@ -31,6 +31,9 @@ import { RestaurantCreateComponent } from './component/restaurant/restaurant-cre
 import { RestaurantDeleteComponent } from './component/restaurant/restaurant-delete/restaurant-delete.component';
 import { RestaurantEditComponent } from './component/restaurant/restaurant-edit/restaurant-edit.component';
 import { RestaurantListComponent } from './component/restaurant/restaurant-list/restaurant-list.component';
+import {RestaurantOrderListComponent} from "./component/restaurant/restaurant-order-list/restaurant-order-list.component";
+import { RestaurantHomepageComponent } from './component/restaurant/restaurant-homepage/restaurant-homepage.component';
+
 
 
 @NgModule({
@@ -51,7 +54,9 @@ import { RestaurantListComponent } from './component/restaurant/restaurant-list/
     RestaurantCreateComponent,
     RestaurantDeleteComponent,
     RestaurantEditComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    RestaurantOrderListComponent,
+    RestaurantHomepageComponent
   ],
   imports: [
     ReactiveFormsModule,
