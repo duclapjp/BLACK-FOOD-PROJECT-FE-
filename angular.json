@@ -38,14 +38,25 @@
               "src/osahan-eat-viethoa/vendor/icofont/icofont.min.css",
               "src/osahan-eat-viethoa/vendor/owl-carousel/owl.carousel.css",
               "src/osahan-eat-viethoa/vendor/owl-carousel/owl.theme.css",
-              "src/osahan-eat-viethoa/vendor/select2/css/select2.min.css"
+              "src/osahan-eat-viethoa/vendor/select2/css/select2.min.css",
+
+              "src/app/profile/About.css",
+              "src/app/profile/Blog-Template.css",
+              "src/app/profile/Contact.css",
+              "src/app/profile/Home.css",
+              "src/app/profile/nicepage.css",
+              "src/app/profile/Post-Template.css"
             ],
             "scripts": [
               "src/osahan-eat-viethoa/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/osahan-eat-viethoa/vendor/jquery/jquery-3.3.1.slim.min.js",
               "src/osahan-eat-viethoa/vendor/owl-carousel/owl.carousel.js",
               "src/osahan-eat-viethoa/vendor/select2/js/select2.min.js",
-              "src/osahan-eat-viethoa/vendor/bootstrap/js/bootstrap.bundle.min.js"
+              "src/osahan-eat-viethoa/vendor/bootstrap/js/bootstrap.bundle.min.js",
+
+
+              "src/app/profile/jquery.js",
+              "src/app/profile/nicepage.js"
             ]
           },
           "configurations": {

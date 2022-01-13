@@ -28,6 +28,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment.prod";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { UserProfileComponent } from './component/user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     OrderBillComponent,
     OrderHistoryComponent,
     OrderSuccessComponent,
-    OrderMapComponent
+    OrderMapComponent,
+    UserProfileComponent
   ],
   imports: [
     ReactiveFormsModule,

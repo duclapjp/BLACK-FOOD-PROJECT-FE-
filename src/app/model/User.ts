@@ -12,10 +12,10 @@ export class User {
   point:number;
   status:any;
   restaurantId:number;
-  roles:string[]
+  roles:any[]
 
 
-  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, dob: any, phone: string, address: string, amount: number, point: number, status: any, restaurantId: number, roles: string[]) {
+  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, dob: any, phone: string, address: string, amount: number, point: number, status: any, restaurantId: number, roles: any[]) {
     this.id = id;
     this.name = name;
     this.username = username;
