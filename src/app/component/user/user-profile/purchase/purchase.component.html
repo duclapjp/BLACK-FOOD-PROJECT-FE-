@@ -1,0 +1,131 @@
+<header class="u-clearfix u-gradient u-header u-header" id="sec-e5f8">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+      <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+        <a
+          class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          href="#">
+          <svg viewBox="0 0 24 24">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
+          </svg>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;">
+                <rect y="1" width="16" height="2"></rect>
+                <rect y="7" width="16" height="2"></rect>
+                <rect y="13" width="16" height="2"></rect>
+              </symbol>
+            </defs>
+          </svg>
+        </a>
+      </div>
+      <div class="u-custom-menu u-nav-container">
+        <ul class="u-nav u-unstyled u-nav-1">
+          <li class="u-nav-item"><a
+            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            href="Trang-chủ.html" style="padding: 10px 20px;">Trang chủ</a>
+          </li>
+          <li class="u-nav-item"><a
+            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            href="Giỏ-hàng.html" style="padding: 10px 20px;">Giỏ hàng</a>
+          </li>
+          <li class="u-nav-item"><a
+            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            href="Thông-báo.html" style="padding: 10px 20px;">Thông báo</a>
+          </li>
+          <li class="u-nav-item"><a
+            class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+            style="padding: 10px 20px;">Đăng xuất</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1 class="u-text u-title u-text-1">BLAC-K FOOD </h1>
+    <div style="float: right">
+      <ul class="u-nav u-unstyled u-nav-1">
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          href="Trang-chủ.html" style="padding: 10px 20px;">Trang chủ</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          href="Giỏ-hàng.html" style="padding: 10px 20px;">Giỏ hàng</a>
+        </li>
+
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          routerLink="/user-profile"  style="padding: 10px 20px;">Profile</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          routerLink="/purchase" [routerLinkActive]="['active']"  style="padding: 10px 20px;">Nạp Tiền</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          href="Thông-báo.html" style="padding: 10px 20px;">Thông báo</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          style="padding: 10px 20px;">Đăng xuất</a>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <mat-card style="margin: 50px 0">
+        <form class="form-edit" #f="ngForm" (ngSubmit)="f.form.valid && checkCard()"  style="text-align: center" novalidate>
+          <div style="    text-align: center; width: 200px; margin: auto; margin-bottom: 10px;"><img style="width: 100%;" src="https://h5vaytien.com/wp-content/uploads/2021/05/atm-online-9.jpg" alt="">
+          </div>
+          <!--          Bank-->
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Bank</mat-label>
+            <input name="bank"
+                   [(ngModel)]="form.bank"
+                   [ngModelOptions]="{standalone: true}"
+                   matInput
+                   placeholder="Placeholder"
+            >
+            <mat-icon color="accent" matSuffix>account_balance</mat-icon>
+          </mat-form-field>
+          <br>
+          <!--          Code-->
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Code</mat-label>
+            <input
+              name="code"
+                   [(ngModel)]="form.code"
+                   [ngModelOptions]="{standalone: true}"
+                   matInput
+                   placeholder="Placeholder"
+            >
+            <mat-icon color="accent" matSuffix>code</mat-icon>
+          </mat-form-field>
+          <br>
+          <!--          amount-->
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Amount</mat-label>
+            <input
+              name="amount"
+                   [(ngModel)]="form.amount"
+                   [ngModelOptions]="{standalone: true}"
+                   matInput
+                   placeholder="Nhap so tien can nap..."
+            >
+            <mat-icon color="accent" matSuffix>attach_money</mat-icon>
+          </mat-form-field>
+          <br>
+          <button mat-stroked-button color="accent" style="width: 150px"
+                  class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                  (click)="checkCard()">Nạp Tiền
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

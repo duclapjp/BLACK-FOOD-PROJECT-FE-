@@ -42,6 +42,8 @@ import { RestaurantDeleteFoodComponent } from './component/restaurant/restaurant
 import { RestaurantOrderDetailComponent } from './component/restaurant/restaurant-order-detail/restaurant-order-detail.component';
 import { RestaurantDetailFoodComponent } from './component/restaurant/restaurant-detail-food/restaurant-detail-food.component';
 import { RestaurantSearchFoodComponent } from './component/restaurant/restaurant-search-food/restaurant-search-food.component';
+import { PurchaseComponent } from './component/user/user-profile/purchase/purchase.component';
+import {httpInterceptorProvider} from "./security/auth.interceptor";
 
 
 
@@ -75,6 +77,7 @@ import { RestaurantSearchFoodComponent } from './component/restaurant/restaurant
     RestaurantOrderDetailComponent,
     RestaurantDetailFoodComponent,
     RestaurantSearchFoodComponent,
+    PurchaseComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -93,7 +96,7 @@ import { RestaurantSearchFoodComponent } from './component/restaurant/restaurant
     MatProgressSpinnerModule,
     MatCheckboxModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {

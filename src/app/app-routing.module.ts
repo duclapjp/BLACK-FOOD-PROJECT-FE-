@@ -35,6 +35,7 @@ import {
 import {
   RestaurantSearchFoodComponent
 } from "./component/restaurant/restaurant-search-food/restaurant-search-food.component";
+import {PurchaseComponent} from "./component/user/user-profile/purchase/purchase.component";
 
 const routes: Routes = [
   {
@@ -65,7 +66,9 @@ const routes: Routes = [
   {path: 'restaurant-delete-food/:id', component: RestaurantDeleteFoodComponent},
   {path: 'restaurant-order-detail/:id', component: RestaurantOrderDetailComponent},
   {path: 'restaurant-detail-food/:id', component: RestaurantDetailFoodComponent},
-  {path: 'restaurant-search-food/:id', component: RestaurantSearchFoodComponent}
+  {path: 'restaurant-search-food/:id', component: RestaurantSearchFoodComponent},
+  {path: 'purchase', component: PurchaseComponent},
+  {path: 'user-profile', component: UserProfileComponent}
 
 ];
 
