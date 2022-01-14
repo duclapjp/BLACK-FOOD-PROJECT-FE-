@@ -39,6 +39,10 @@ export class UserProfileComponent implements OnInit {
 
   onEditUser() {
     console.log('user: ' + JSON.stringify(this.user));
+    this.userService.updateUser(this.user).subscribe(user => {
+      this.user = user;
+      alert("User-profile updated!")
+    })
 
   }
 }

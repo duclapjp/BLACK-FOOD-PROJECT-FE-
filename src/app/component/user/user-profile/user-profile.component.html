@@ -56,6 +56,14 @@
         </li>
         <li class="u-nav-item"><a
           class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          routerLink="/user-profile" [routerLinkActive]="['active']" style="padding: 10px 20px;">Profile</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          routerLink="/purchase" style="padding: 10px 20px;">Nạp Tiền</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
           href="Thông-báo.html" style="padding: 10px 20px;">Thông báo</a>
         </li>
         <li class="u-nav-item"><a
@@ -266,6 +274,7 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
                  name="password"
                  [(ngModel)]="user.password"
                  [ngModelOptions]="{standalone: true}"
+                 disabled
                  matInput
           >
           <button color="accent" mat-icon-button matSuffix (click)="hide = !hide"
@@ -275,6 +284,22 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
           </button>
         </mat-form-field>
         <br>
+
+        <!--          Amount-->
+        <mat-form-field  appearance="outline" style="width: 350px">
+          <mat-label>Amount</mat-label>
+
+          <input
+
+
+            matInput
+            [(ngModel)]="user.amount"
+            [ngModelOptions]="{standalone: true}"
+            placeholder="Placeholder"
+          >
+          <mat-icon color="accent" matSuffix>attach_money</mat-icon>
+
+        </mat-form-field>
       </div>
       <div style="margin-left: 100px">
         <!--          dob-->
@@ -329,16 +354,6 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
 
 
 
-    <!--          Amount-->
-    <mat-form-field hidden appearance="outline" style="width: 350px">
-      <input
-
-        matInput
-        [(ngModel)]="user.amount"
-        [ngModelOptions]="{standalone: true}"
-        placeholder="Placeholder"
-      >
-    </mat-form-field>
     <!--          Point-->
     <mat-form-field hidden appearance="outline" style="width: 350px">
       <input
@@ -379,6 +394,10 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
         placeholder="Placeholder"
       >
     </mat-form-field>
+
+
+
+
     <button mat-stroked-button color="accent" style="width: 150px"
             class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
             (click)="onEditUser()">Save Changes
@@ -386,6 +405,7 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
 
   </form>
 </div>
+
 
 
 

@@ -7,7 +7,7 @@ import {
   HttpInterceptor, HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {TokenService} from "../app/service/token.service";
+import {TokenService} from "../service/token.service";
 const TOKEN_HEADER_KEY = 'Authorization'
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
