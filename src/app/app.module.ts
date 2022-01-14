@@ -41,6 +41,7 @@ import { RestaurantEditFoodComponent } from './component/restaurant/restaurant-e
 import { RestaurantDeleteFoodComponent } from './component/restaurant/restaurant-delete-food/restaurant-delete-food.component';
 import { RestaurantOrderDetailComponent } from './component/restaurant/restaurant-order-detail/restaurant-order-detail.component';
 import { RestaurantDetailFoodComponent } from './component/restaurant/restaurant-detail-food/restaurant-detail-food.component';
+import { RestaurantSearchFoodComponent } from './component/restaurant/restaurant-search-food/restaurant-search-food.component';
 
 
 
@@ -73,6 +74,7 @@ import { RestaurantDetailFoodComponent } from './component/restaurant/restaurant
     RestaurantDeleteFoodComponent,
     RestaurantOrderDetailComponent,
     RestaurantDetailFoodComponent,
+    RestaurantSearchFoodComponent,
   ],
   imports: [
     ReactiveFormsModule,
