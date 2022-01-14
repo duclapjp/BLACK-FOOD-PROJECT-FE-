@@ -627,12 +627,11 @@
             </div>
           </div>
         </div>
-        <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
+        <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item" >
           <h5 class="mb-1 text-white">Đặt hàng ngay</h5>
-          <p class="mb-4 text-white">5 sản phẩm</p>
-          <div class="bg-white rounded shadow-sm mb-2">
-            <div class="gold-members p-2 border-bottom">
-              <p class="text-gray mb-0 float-right ml-2">60.000</p>
+          <div class="bg-white rounded shadow-sm mb-2" >
+            <div class="gold-members p-2 border-bottom" *ngFor="let food of foods">
+              <p class="text-gray mb-0 float-right ml-2">{{food.price|currency}}</p>
               <span class="count-number float-right">
                                     <button class="btn btn-outline-secondary  btn-sm left dec"> <i
                                       class="icofont-minus"></i> </button>
@@ -643,71 +642,7 @@
               <div class="media">
                 <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
                 <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">Thịt nướng</p>
-                </div>
-              </div>
-            </div>
-            <div class="gold-members p-2 border-bottom">
-              <p class="text-gray mb-0 float-right ml-2">15.000</p>
-              <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                      class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
-                                </span>
-              <div class="media">
-                <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">Thêm thịt</p>
-                </div>
-              </div>
-            </div>
-            <div class="gold-members p-2 border-bottom">
-              <p class="text-gray mb-0 float-right ml-2">60.000</p>
-              <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                      class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
-                                </span>
-              <div class="media">
-                <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">Thịt luộc</p>
-                </div>
-              </div>
-            </div>
-            <div class="gold-members p-2 border-bottom">
-              <p class="text-gray mb-0 float-right ml-2">20.000</p>
-              <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                      class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
-                                </span>
-              <div class="media">
-                <div class="mr-2"><i class="icofont-ui-press text-success food-item"></i></div>
-                <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">Bánh đa</p>
-                </div>
-              </div>
-            </div>
-            <div class="gold-members p-2 border-bottom">
-              <p class="text-gray mb-0 float-right ml-2">15.000</p>
-              <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                      class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
-                                </span>
-              <div class="media">
-                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">Coca chai 330ml</p>
+                  <p class="mt-1 mb-0 text-black">{{food.name}}</p>
                 </div>
               </div>
             </div>
@@ -715,13 +650,8 @@
           <div class="mb-2 bg-white rounded p-2 clearfix">
             <img class="img-fluid float-left" src="img/wallet-icon.png">
             <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span
-              class="text-danger">235.000</span> vnđ</h6>
-            <h6 class="font-weight-bold text-right mb-2">Giảm giá: <span
-              class="text-danger">30.000</span> vnđ</h6>
-            <h6 class="font-weight-bold text-right mb-2">Thanh toán: <span
-              class="text-danger">205.000</span> vnđ</h6>
+              class="text-danger">{{getTotalPrice(foods)|currency}}</span></h6>
             <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
-            <p class="text-black mb-0 text-right">Tiết kiệm 30.000 vnđ</p>
           </div>
           <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i
             class="icofont-long-arrow-right"></i></a>

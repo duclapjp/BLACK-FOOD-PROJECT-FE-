@@ -40,4 +40,7 @@ export class FoodService {
   searchByRestaurantIdAndName(id: number, name: String): Observable<Food[]> {
     return this.http.get<Food[]>(API_LOCAL + 'foods/search' + '/' + id + '/' + name);
   }
+  showAllByRestaurantId(id: number): Observable<Food[]> {
+    return this.http.get<Food[]>(API_LOCAL+'foods/restaurant/'+id);
+  }
 }

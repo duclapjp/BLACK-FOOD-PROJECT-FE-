@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FoodService} from "../../../service/food.service";
 import {Food} from "../../../model/food";
 import {TokenService} from "../../../service/token.service";
@@ -12,12 +12,12 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./restaurant-homepage.component.css']
 })
 export class RestaurantHomepageComponent implements OnInit {
-  userId:number =0;
-  restaurantId:number =0;
+  userId: number = 0;
+  restaurantId: number = 0;
   // @ts-ignore
   user: User = {}
-  search: string='';
-  foods: Food[] =[]
+  search: string = '';
+  foods: Food[] = []
 
   constructor(
     private foodService: FoodService,
@@ -33,30 +33,39 @@ export class RestaurantHomepageComponent implements OnInit {
   }
 
   loadData() {
-    this.foodService.findAll().subscribe(foods => {
-      this.foods = foods;
-      console.log('foods: '+ this.foods);
-    });
-    this.userService.getUserById(this.userId).subscribe(user=>{
+    this.userService.getUserById(this.userId).subscribe(user => {
       this.user = user;
       console.log("user: " + this.user)
       this.restaurantId = this.user.restaurantId;
-      console.log("resId:" +this.restaurantId);
+      console.log("resId:" + this.restaurantId);
+      this.foodService.showAllByRestaurantId(this.restaurantId).subscribe(foods => {
+        console.log('abccc');
+        this.foods = foods;
+        console.log('foods: ' + this.foods);
+      });
+      });
+
+  }
+
+  getCurrentUserId() {
+    this.userId = this.tokenService.getUserId();
+    console.log('userId o token: ' + this.userId);
+  }
+
+  public getTotalPrice(foods: Food[]){
+    let sum = 0;
+    foods.forEach(food => {
+      sum += food.price
     });
+    return sum
   }
-
-  getCurrentUserId(){
-   this.userId = this.tokenService.getUserId();
-   console.log('userId o token: ' + this.userId);
-  }
-
-
 
   onSearchFood() {
-    this.router.navigate(['/restaurant-search-food/'+this.restaurantId],{queryParams:{search: this.search}});
+    this.router.navigate(['/restaurant-search-food/' + this.restaurantId], {queryParams: {search: this.search}});
   }
+
   toRestaurantDetail() {
     console.log('a')
-    this.router.navigate(['/restaurant-detail/'+this.restaurantId],{queryParams:{userId: this.userId}});
+    this.router.navigate(['/restaurant-detail/' + this.restaurantId], {queryParams: {userId: this.userId}});
   }
 }
