@@ -4,6 +4,7 @@ import {CardService} from "../../../../service/card.service";
 import {TokenService} from "../../../../service/token.service";
 import {Purchase} from "../../../../model/Purchase";
 import {UserService} from "../../../../service/user.service";
+import {User} from "../../../../model/User";
 
 @Component({
   selector: 'app-purchase',
@@ -11,7 +12,8 @@ import {UserService} from "../../../../service/user.service";
   styleUrls: ['./purchase.component.css']
 })
 export class PurchaseComponent implements OnInit {
-
+  // @ts-ignore
+  user: User={};
   amount: number = 0;
   form: any = {}
   // @ts-ignore
@@ -41,6 +43,8 @@ export class PurchaseComponent implements OnInit {
     console.log('purchase: ' + JSON.stringify(this.purchase));
    if (this.card.bank === this.form.bank && this.card.code === this.form.code){
      this.userService.purchase(this.purchase).subscribe(data => {
+       console.log(data);
+       this.user = data;
        alert('Purchase Success!');
      });
    }
