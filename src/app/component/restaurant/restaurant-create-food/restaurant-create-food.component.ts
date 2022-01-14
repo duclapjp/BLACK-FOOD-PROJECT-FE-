@@ -18,7 +18,13 @@ export class RestaurantCreateFoodComponent implements OnInit {
     price:0,
     quantity:0,
     description:'',
-    image:''
+    image:'',
+    restaurant: {
+      id:0
+    },
+    foodOrder: {
+      id:0
+    }
   }
   form: any={
 
