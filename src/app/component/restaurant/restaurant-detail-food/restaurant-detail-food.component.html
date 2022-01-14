@@ -99,8 +99,9 @@
 <div class="container">
   <div class="row">
     <div class="col-12" style="margin-top: 50px">
-      <mat-card style="margin: 50px 0;display: flex; width: 850px">
-        <div class="col-md-4 col-sm-6 mb-4" style="width: 350px; height: 340px">
+      <mat-card style="margin: 50px 0;display: flex; width: 1000px">
+
+        <div class="col-md-4 col-sm-6 mb-4" style="width: 350px; height: 340px;margin: auto">
           <div
             class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
             <div class="list-card-image">
@@ -118,7 +119,11 @@
               <div class="list-card-body">
                 <!--                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>-->
                 <h6 class="mb-1">
-                  <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> </span></p>
+                  <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn"
+                                                                                                    style="font-size: 20px"
+                                                                                                    routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon
+                    routerLink="/restaurant-delete-food/{{food.id}}" color="warn"
+                    style="font-size: 20px">delete</mat-icon></span></p>
                 </h6>
                 <p class="text-gray mb-2">{{food.restaurant.name}}  </p>
                 <p class="text-gray time mb-0"><a
@@ -132,11 +137,9 @@
             </div>
           </div>
         </div>
-        <div style="width: 350px">
-          <h3>Are you sure delete food?</h3><br>
-          <button class="btn btn-outline-secondary btn-sm"  (click)="delete(food.id)">Yes</button> <button class="btn btn-outline-secondary btn-sm" (click)="backHomePage()">No</button>
-        </div>
+
       </mat-card>
     </div>
   </div>
 </div>
+

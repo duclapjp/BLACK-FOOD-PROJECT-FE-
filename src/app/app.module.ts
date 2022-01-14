@@ -39,6 +39,8 @@ import { RestaurantClaimComponent } from './component/restaurant/restaurant-clai
 import { RestaurantCreateFoodComponent } from './component/restaurant/restaurant-create-food/restaurant-create-food.component';
 import { RestaurantEditFoodComponent } from './component/restaurant/restaurant-edit-food/restaurant-edit-food.component';
 import { RestaurantDeleteFoodComponent } from './component/restaurant/restaurant-delete-food/restaurant-delete-food.component';
+import { RestaurantOrderDetailComponent } from './component/restaurant/restaurant-order-detail/restaurant-order-detail.component';
+import { RestaurantDetailFoodComponent } from './component/restaurant/restaurant-detail-food/restaurant-detail-food.component';
 
 
 
@@ -69,6 +71,8 @@ import { RestaurantDeleteFoodComponent } from './component/restaurant/restaurant
     RestaurantHomepageComponent,
     RestaurantEditFoodComponent,
     RestaurantDeleteFoodComponent,
+    RestaurantOrderDetailComponent,
+    RestaurantDetailFoodComponent,
   ],
   imports: [
     ReactiveFormsModule,

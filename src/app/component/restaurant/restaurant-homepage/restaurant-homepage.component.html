@@ -19,28 +19,28 @@
             <i class="fas fa-shopping-basket"></i> Giỏ hàng
             <span class="badge badge-success">5</span>
           </a>
-          <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
-            <div class="dropdown-cart-top-body border-top p-4">
-              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
-                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
-                Salad x 1 <span class="float-right text-secondary">209.000</span></p>
-              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh Sub 6"
-                (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
-              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
-                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas Salad
-                x 1 <span class="float-right text-secondary">209.000</span></p>
-            </div>
-            <div class="dropdown-cart-top-footer border-top p-4">
-              <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                class="float-right text-dark">499.000</span></p>
-              <!-- <small class="text-info">Extra charges may apply</small> -->
-            </div>
-            <div class="dropdown-cart-top-footer border-top p-2">
-              <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
-            </div>
-          </div>
+<!--          <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">-->
+<!--            <div class="dropdown-cart-top-body border-top p-4">-->
+<!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub&ndash;&gt;-->
+<!--&lt;!&ndash;                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas&ndash;&gt;-->
+<!--&lt;!&ndash;                Salad x 1 <span class="float-right text-secondary">209.000</span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh Sub 6"&ndash;&gt;-->
+<!--&lt;!&ndash;                (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub&ndash;&gt;-->
+<!--&lt;!&ndash;                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas Salad&ndash;&gt;-->
+<!--&lt;!&ndash;                x 1 <span class="float-right text-secondary">209.000</span></p>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="dropdown-cart-top-footer border-top p-4">-->
+<!--              <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span-->
+<!--                class="float-right text-dark">499.000</span></p>-->
+<!--              &lt;!&ndash; <small class="text-info">Extra charges may apply</small> &ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="dropdown-cart-top-footer border-top p-2">-->
+<!--              <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>-->
+<!--            </div>-->
+<!--          </div>-->
         </li>
       </ul>
     </div>
@@ -88,6 +88,11 @@
                           class="icofont-heart text-danger"></i> Yêu thích</button>
                     </span>
         <ul class="nav" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link"  data-toggle="pill"
+               routerLink="/restaurant-homepage" role="tab" aria-controls="pills-restaurant-info"
+               aria-selected="false">Home</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" id="pills-restaurant-info-tab" data-toggle="pill"
                routerLink="/restaurant-detail" role="tab" aria-controls="pills-restaurant-info"
@@ -143,7 +148,7 @@
                         href="#"><i class="icofont-heart"></i></a></div>
                       <div class="member-plan position-absolute"><span
                         class="badge badge-dark">Promoted</span></div>
-                      <a href="#">
+                      <a routerLink="/restaurant-detail-food/{{food.id}}">
                         <img [src]="food.image" class="img-fluid item-img" alt="lon">
                       </a>
                     </div>

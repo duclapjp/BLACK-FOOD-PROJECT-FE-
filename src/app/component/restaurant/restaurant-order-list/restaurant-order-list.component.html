@@ -50,6 +50,55 @@
     </div>
   </div>
 </nav>
+<section class="offer-dedicated-nav bg-white border-top-0 shadow-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+                    <span class="restaurant-detailed-action-btn float-right">
+                        <button class="btn btn-light btn-sm border-light-btn" type="button"><i
+                          class="icofont-heart text-danger"></i> Yêu thích</button>
+                    </span>
+        <ul class="nav" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link"  data-toggle="pill"
+               routerLink="/restaurant-homepage" role="tab" aria-controls="pills-restaurant-info"
+               aria-selected="false">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-restaurant-info-tab" data-toggle="pill"
+               routerLink="/restaurant-detail" role="tab" aria-controls="pills-restaurant-info"
+               aria-selected="false">Thông tin nhà hàng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="pills-order-online-tab" data-toggle="pill"
+               routerLink="/restaurant-order-list" role="tab" aria-controls="pills-order-online"
+               aria-selected="true">Đơn Hàng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery"
+               role="tab" aria-controls="pills-gallery" aria-selected="false">Doanh Thu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" routerLink=""
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Phản Hồi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Voucher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Hợp Đồng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section pt-4 pb-4 osahan-account-page">
   <div class="container">
     <div class="row">
@@ -61,7 +110,7 @@
                 <img class="mb-3 rounded-pill shadow-sm mt-1" [src]="user.avatar"
                      alt="gurdeep singh osahan">
                 <div class="osahan-user-media-body">
-                  <h6 class="mb-2" style="font-size: 14px"><i class="icofont-farmer-alt"></i> {{user.name}}</h6>
+                  <a  class="mb-2" style="font-size: 14px"><i class="icofont-farmer-alt"></i> {{user.name}}</a>
                   <p class="mb-1"><i class="icofont-phone"></i> {{user.phone}}</p>
                   <p><a href="https://thaotrinh.info/cdn-cgi/l/email-protection"
                         class="__cf_email__"
@@ -110,16 +159,19 @@
                         <h6 class="mb-2" >
                           <a style="font-size: 12px;" class="text-gray mb-1"><i class="icofont-clock-time"></i> {{order.time|date:'MMMM d, y, h:mm:ss a z'}}
                           </a>
+                          <hr>
                         </h6>
                         <div *ngFor="let food of order.food">
-                          <h3><i class="icofont-fast-food"></i> {{food.name}}</h3>
-                          <h3><i class="icofont-money"></i> {{food.price|currency}}</h3>
+                          <a style="font-size: 20px" routerLink="/restaurant-order-detail/{{order.id}}" class="text-gray mb-1"><i class="icofont-food-cart"></i>{{order.restaurant.name}}
+                          </a><br>
+                          <hr>
+                          <a >{{food.name}}</a>
+                         <i class="icofont-money"></i><a style="font-size: 15px">{{food.price|currency}}</a>
                           <hr>
                         </div>
-                        <p class="text-gray mb-1"><i class="icofont-location-arrow"></i>{{order.restaurant.name}}
-                        </p>
                         <p class="text-gray mb-3"><i class="icofont-list"></i> ORDER
                           {{order.id}} <i class="icofont-clock-time ml-2"></i> {{order.generalStatus.name}}</p>
+                        <hr>
                         <p class="text-dark">Note: {{order.note}}
                         </p>
                         <hr>
