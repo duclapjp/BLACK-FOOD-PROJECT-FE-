@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {SignupComponent} from "./component/user/signup/signup.component";
 import {LoginComponent} from "./component/user/login/login.component";
 import {UploadFileComponent} from "./component/upload-file/upload-file.component";
@@ -15,7 +15,9 @@ import {UserProfileComponent} from "./component/user/user-profile/user-profile.c
 import {RestaurantCreateComponent} from "./component/restaurant/restaurant-create/restaurant-create.component";
 import {RestaurantDeleteComponent} from "./component/restaurant/restaurant-delete/restaurant-delete.component";
 import {RestaurantEditComponent} from "./component/restaurant/restaurant-edit/restaurant-edit.component";
-import {RestaurantOrderListComponent} from "./component/restaurant/restaurant-order-list/restaurant-order-list.component";
+import {
+  RestaurantOrderListComponent
+} from "./component/restaurant/restaurant-order-list/restaurant-order-list.component";
 import {RestaurantHomepageComponent} from "./component/restaurant/restaurant-homepage/restaurant-homepage.component";
 import {
   RestaurantCreateFoodComponent
@@ -30,31 +32,40 @@ import {
 import {
   RestaurantDetailFoodComponent
 } from "./component/restaurant/restaurant-detail-food/restaurant-detail-food.component";
+import {
+  RestaurantSearchFoodComponent
+} from "./component/restaurant/restaurant-search-food/restaurant-search-food.component";
 
 const routes: Routes = [
-  {path: 'signup', component:SignupComponent},
-  {path: 'login', component:LoginComponent},
-  {path: '', component:HomePageComponent},
-  {path: 'upload-file', component:UploadFileComponent},
-  {path: 'food-detail', component:FoodDetailComponent},
-  {path: 'not-found', component:NotFoundComponent},
-  {path: 'order-bill', component:OrderBillComponent},
-  {path: 'order-detail', component:OrderBillComponent},
-  {path: 'order-history', component:OrderHistoryComponent},
-  {path: 'order-map', component:OrderMapComponent},
-  {path: 'order-success', component:OrderSuccessComponent},
-  {path: 'restaurant-detail', component:RestaurantDetailComponent},
-  {path: 'user-profile', component:UserProfileComponent},
-  {path: 'restaurant-order-list', component:RestaurantOrderListComponent},
-  {path: 'restaurant-create', component:RestaurantCreateComponent},
-  {path: 'restaurant-delete',component:RestaurantDeleteComponent},
-  {path: 'restaurant-edit',component:RestaurantEditComponent},
-  {path:'restaurant-homepage', component:RestaurantHomepageComponent},
-  {path:'restaurant-create-food', component:RestaurantCreateFoodComponent},
-  {path:'restaurant-edit-food/:id', component:RestaurantEditFoodComponent},
-  {path:'restaurant-delete-food/:id', component:RestaurantDeleteFoodComponent},
-  {path:'restaurant-order-detail/:id',component:RestaurantOrderDetailComponent},
-  {path:'restaurant-detail-food/:id',component:RestaurantDetailFoodComponent}
+  {
+    path: '',
+    redirectTo: 'home-page',
+    pathMatch: 'full'
+  },
+  {path: 'signup', component: SignupComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'home-page', component: HomePageComponent},
+  {path: 'upload-file', component: UploadFileComponent},
+  {path: 'food-detail', component: FoodDetailComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: 'order-bill', component: OrderBillComponent},
+  {path: 'order-detail', component: OrderBillComponent},
+  {path: 'order-history', component: OrderHistoryComponent},
+  {path: 'order-map', component: OrderMapComponent},
+  {path: 'order-success', component: OrderSuccessComponent},
+  {path: 'restaurant-detail/:id', component: RestaurantDetailComponent},
+  {path: 'user-profile', component: UserProfileComponent},
+  {path: 'restaurant-order-list', component: RestaurantOrderListComponent},
+  {path: 'restaurant-create', component: RestaurantCreateComponent},
+  {path: 'restaurant-delete', component: RestaurantDeleteComponent},
+  {path: 'restaurant-edit', component: RestaurantEditComponent},
+  {path: 'restaurant-homepage', component: RestaurantHomepageComponent},
+  {path: 'restaurant-create-food', component: RestaurantCreateFoodComponent},
+  {path: 'restaurant-edit-food/:id', component: RestaurantEditFoodComponent},
+  {path: 'restaurant-delete-food/:id', component: RestaurantDeleteFoodComponent},
+  {path: 'restaurant-order-detail/:id', component: RestaurantOrderDetailComponent},
+  {path: 'restaurant-detail-food/:id', component: RestaurantDetailFoodComponent},
+  {path: 'restaurant-search-food/:id', component: RestaurantSearchFoodComponent}
 
 ];
 
@@ -62,4 +73,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
