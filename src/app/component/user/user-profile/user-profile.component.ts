@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit {
 
   // @ts-ignore
   user: User = {};
+  hide = true;
   constructor(
 
     private tokenService: TokenService,
@@ -20,13 +21,24 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+
   }
 
   loadData(){
     const userId = this.tokenService.getUserId();
     this.userService.getUserById(userId).subscribe(data => {
       this.user = data;
-      console.log("user: "+ this.user);
+      console.log("user: "+ JSON.stringify(this.user));
     })
+  }
+
+  // @ts-ignore
+  onUpload(event) {
+    this.user.avatar = event
+  }
+
+  onEditUser() {
+    console.log('user: ' + JSON.stringify(this.user));
+
   }
 }
