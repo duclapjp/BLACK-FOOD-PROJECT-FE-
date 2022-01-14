@@ -27,4 +27,7 @@ export class FoodService {
   update(food: Food): Observable<Food>{
     return this.http.put<Food>(API_LOCAL + 'foods', food);
   }
+  delete(id: number) {
+    return  this.http.delete(API_LOCAL+'foods/'+id);
+  }
 }

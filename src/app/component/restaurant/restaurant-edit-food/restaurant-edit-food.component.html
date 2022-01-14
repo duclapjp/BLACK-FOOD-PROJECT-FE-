@@ -147,12 +147,12 @@
               [ngModelOptions]="{standalone: true}"
               matInput
               #name="ngModel">
-            <mat-icon color="accent" matSuffix>person_outline</mat-icon>
+            <mat-icon color="accent" matSuffix></mat-icon>
           </mat-form-field>
           <br>
           <!--          Quantity-->
           <mat-form-field appearance="outline" style="width: 350px">
-            <mat-label>Username</mat-label>
+            <mat-label>Quantity</mat-label>
             <input
               [(ngModel)]="food.quantity"
               [ngModelOptions]="{standalone: true}"
@@ -163,7 +163,7 @@
           <br>
           <!--          Price-->
           <mat-form-field appearance="outline" style="width: 350px">
-            <mat-label>Email</mat-label>
+            <mat-label>Price</mat-label>
             <input
               matInput
               [(ngModel)]="food.price"
@@ -174,7 +174,7 @@
           <br>
           <!--          Description-->
           <mat-form-field appearance="outline" style="width: 350px">
-            <mat-label>Enter your Password</mat-label>
+            <mat-label>Description</mat-label>
             <input type="text"
                    [(ngModel)]="food.description"
                    [ngModelOptions]="{standalone: true}"

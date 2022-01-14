@@ -68,7 +68,7 @@ import { RestaurantDeleteFoodComponent } from './component/restaurant/restaurant
     RestaurantCreateFoodComponent,
     RestaurantHomepageComponent,
     RestaurantEditFoodComponent,
-    RestaurantDeleteFoodComponent
+    RestaurantDeleteFoodComponent,
   ],
   imports: [
     ReactiveFormsModule,
