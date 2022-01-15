@@ -2,7 +2,7 @@
   <div class="overlay"></div>
   <nav class="navbar navbar-expand-lg navbar-dark osahan-nav">
     <div class="container" style="padding: 0px;">
-      <a class="navbar-brand" routerLink="/"   style="font-size: 30px;font-weight: 500;">BLAC-K FOOD</a>
+      <a class="navbar-brand" routerLink="/" style="font-size: 30px;font-weight: 500;">BLAC-K FOOD</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,26 +18,34 @@
           <li class="nav-item">
             <a class="nav-link" *ngIf="!checkLogin" routerLink="/singup">Đăng ký <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item dropdown dropdown-cart"  *ngIf="checkLogin">
-            <a class="nav-link dropdown-toggle" routerLink="/user-profile" role="button" data-toggle="dropdown" style="display: flex;align-items: center;"
+          <li class="nav-item dropdown dropdown-cart" *ngIf="checkLogin">
+            <a class="nav-link dropdown-toggle" routerLink="/user-profile" role="button" data-toggle="dropdown"
+               style="display: flex;align-items: center;"
                aria-haspopup="true" aria-expanded="false">
-              <mat-icon >person</mat-icon>  {{user.name}}
+              <mat-icon>person</mat-icon>
+              {{user.name}}
               <span class="badge badge-success">5</span>
             </a>
             <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
               <div class="dropdown-cart-top-body border-top p-4">
-                <p class="mb-2"><mat-icon color="warn">account_balance_wallet</mat-icon>
-                   <span class="float-right text-secondary">{{user.amount|currency}}</span></p>
-                <p class="mb-2"><mat-icon color="warn">cake</mat-icon>
-                   <span class="float-right text-secondary">{{user.dob|date}}</span></p>
-                <p class="mb-2"><mat-icon color="warn">phone_iphone</mat-icon>
-                   <span class="float-right text-secondary">{{user.phone}}</span></p>
-                <p class="mb-2"><mat-icon color="warn">place</mat-icon>
-                   <span class="float-right text-secondary">{{user.address}}</span></p>
-                <p class="mb-2"><mat-icon color="warn">email</mat-icon>
-                   <span class="float-right text-secondary">{{user.email}}</span></p>
-                <p class="mb-2"><mat-icon color="warn">control_point</mat-icon>
-                   <span class="float-right text-secondary">{{user.point}}</span></p>
+                <p class="mb-2">
+                  <mat-icon color="warn">account_balance_wallet</mat-icon>
+                  <span class="float-right text-secondary">{{user.amount|currency}}</span></p>
+                <p class="mb-2">
+                  <mat-icon color="warn">cake</mat-icon>
+                  <span class="float-right text-secondary">{{user.dob|date}}</span></p>
+                <p class="mb-2">
+                  <mat-icon color="warn">phone_iphone</mat-icon>
+                  <span class="float-right text-secondary">{{user.phone}}</span></p>
+                <p class="mb-2">
+                  <mat-icon color="warn">place</mat-icon>
+                  <span class="float-right text-secondary">{{user.address}}</span></p>
+                <p class="mb-2">
+                  <mat-icon color="warn">email</mat-icon>
+                  <span class="float-right text-secondary">{{user.email}}</span></p>
+                <p class="mb-2">
+                  <mat-icon color="warn">control_point</mat-icon>
+                  <span class="float-right text-secondary">{{user.point}}</span></p>
               </div>
             </div>
           </li>
@@ -74,8 +82,9 @@
               </div>
             </div>
           </li>
-          <li class="nav-item dropdown dropdown-cart" >
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" style="display: flex;align-items: center;"
+          <li class="nav-item dropdown dropdown-cart">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+               style="display: flex;align-items: center;"
                aria-haspopup="true" aria-expanded="false">
               <mat-icon>notifications</mat-icon>
               <span class="badge badge-danger">5</span>
@@ -107,41 +116,44 @@
               </div>
             </div>
           </li>
-<!--          <li class="nav-item active">-->
-<!--            <a class="nav-link" style="align-items: center;display: flex;" ><mat-icon>notifications</mat-icon><span class="badge badge-danger">5</span><span class="sr-only">(current)</span></a>-->
-<!--            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">-->
-<!--              <div class="dropdown-cart-top-body border-top p-4">-->
-<!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka-->
-<!--                  Sub-->
-<!--                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>-->
-<!--                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas-->
-<!--                  Salad x 1 <span class="float-right text-secondary">209.000</span></p>-->
-<!--                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh-->
-<!--                  Sub 6"-->
-<!--                  (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>-->
-<!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka-->
-<!--                  Sub-->
-<!--                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>-->
-<!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas-->
-<!--                  Salad-->
-<!--                  x 1 <span class="float-right text-secondary">209.000</span></p>-->
-<!--              </div>-->
-<!--              <div class="dropdown-cart-top-footer border-top p-4">-->
-<!--                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span-->
-<!--                  class="float-right text-dark">499.000</span></p>-->
-<!--                &lt;!&ndash; <small class="text-info">Extra charges may apply</small> &ndash;&gt;-->
-<!--              </div>-->
-<!--              <div class="dropdown-cart-top-footer border-top p-2">-->
-<!--                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </li>-->
+          <!--          <li class="nav-item active">-->
+          <!--            <a class="nav-link" style="align-items: center;display: flex;" ><mat-icon>notifications</mat-icon><span class="badge badge-danger">5</span><span class="sr-only">(current)</span></a>-->
+          <!--            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">-->
+          <!--              <div class="dropdown-cart-top-body border-top p-4">-->
+          <!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka-->
+          <!--                  Sub-->
+          <!--                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>-->
+          <!--                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas-->
+          <!--                  Salad x 1 <span class="float-right text-secondary">209.000</span></p>-->
+          <!--                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh-->
+          <!--                  Sub 6"-->
+          <!--                  (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>-->
+          <!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka-->
+          <!--                  Sub-->
+          <!--                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>-->
+          <!--                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas-->
+          <!--                  Salad-->
+          <!--                  x 1 <span class="float-right text-secondary">209.000</span></p>-->
+          <!--              </div>-->
+          <!--              <div class="dropdown-cart-top-footer border-top p-4">-->
+          <!--                <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span-->
+          <!--                  class="float-right text-dark">499.000</span></p>-->
+          <!--                &lt;!&ndash; <small class="text-info">Extra charges may apply</small> &ndash;&gt;-->
+          <!--              </div>-->
+          <!--              <div class="dropdown-cart-top-footer border-top p-2">-->
+          <!--                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--          </li>-->
           <li class="nav-item active">
-            <a class="nav-link"  ><mat-icon>help
-            </mat-icon><span class="sr-only">(current)</span></a>
+            <a class="nav-link">
+              <mat-icon>help
+              </mat-icon>
+              <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link"  (click)="logout()" *ngIf="checkLogin" >Đăng xuất <span class="sr-only">(current)</span></a>
+            <a class="nav-link" (click)="logout()" *ngIf="checkLogin">Đăng xuất <span
+              class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
@@ -162,13 +174,13 @@
               <div class="form-row">
                 <div class="col-lg-3 col-md-3 col-sm-12 form-group">
                   <div class="location-dropdown">
-<!--                    <i class="icofont-location-arrow"></i>-->
+                    <!--                    <i class="icofont-location-arrow"></i>-->
                     <select class="custom-select form-control-lg">
-                      <option> Quick Search </option>
-                      <option> Breakfast </option>
-                      <option> Lunch </option>
-                      <option> Dinner </option>
-                      <option> Coffee </option>
+                      <option> Quick Search</option>
+                      <option> Breakfast</option>
+                      <option> Lunch</option>
+                      <option> Dinner</option>
+                      <option> Coffee</option>
                     </select>
                   </div>
                 </div>
@@ -191,7 +203,9 @@
             <div class="item">
               <div class="osahan-category-item">
                 <a href="#">
-                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/Messenger%E9%80%9A%E8%A9%B1%20-%20Google%20Chrome%2011_30_2021%209_08_36%20PM_1642008571830?alt=media&token=af1224ef-ba44-4ed3-92cc-94bd3cc421fc" alt="">
+                  <img class="img-fluid"
+                       src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/Messenger%E9%80%9A%E8%A9%B1%20-%20Google%20Chrome%2011_30_2021%209_08_36%20PM_1642008571830?alt=media&token=af1224ef-ba44-4ed3-92cc-94bd3cc421fc"
+                       alt="">
                   <h6>American</h6>
                   <p>156</p>
                 </a>
@@ -465,11 +479,11 @@
 <section class="section pt-5 pb-5 bg-white becomemember-section border-bottom">
   <div class="container">
     <div class="section-header text-center white-text">
-      <h2>Giảm giá nhiều nhất</h2>
+      <h2>Danh Sách Món Ăn</h2>
       <span class="line"></span>
     </div>
     <div class="row">
-      <div class="col-md-3 col-sm-6 mb-4">
+      <div class="col-md-3 col-sm-6 mb-4" *ngFor="let food of foods">
         <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
           <div class="list-card-image">
             <div class="favourite-heart text-danger position-absolute"><a href="#"><i
@@ -477,216 +491,26 @@
             <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
             </div>
             <a href="#">
-              <img src="img/list/7.png" class="img-fluid item-img">
+              <img src="{{food.image}}" class="img-fluid item-img">
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Sò lông cồ (20-25 con/kg)</a></h6>
-              <p class="text-gray mb-2">P. Bình Trị Đông, Bình Tân, TP. HCM</p>
+              <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}</a></h6>
+              <p class="text-gray mb-2">{{food.restaurant.name}}</p>
               <p class="text-gray mb-3 time"><span
                 class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 250.00O</span></p>
+                class="icofont-food-basket"></i>{{food.quantity}}</span> <span
+                class="float-right text-black-50"> {{food.price|currency}}</span></p>
             </div>
             <div class="list-card-badge">
               <span class="badge badge-success">Giảm</span> <small>65% | Coupon
-              OSAHAN50</small>
+              BLAC-K FOOD</small>
+              <a id="{{food.id}}" (click)="addShopCart($event)" class="btn btn-outline-secondary btn-sm">Mua ngay</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/8.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Cua gạch Cà Mau</a></h6>
-              <p class="text-gray mb-2">P. Bình Trị Đông, Bình Tân, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 250.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>14% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/9.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Bao tử heo G Kitchen - 500gr </a></h6>
-              <p class="text-gray mb-2">P. Bình Trị Đông, Bình Tân, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 150.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>54% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/1.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Ba rọi heo Rút Xương </a></h6>
-              <p class="text-gray mb-2">P. 2, Quận 3, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 150.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>54% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/3.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Ba rọi heo Rút Xương </a></h6>
-              <p class="text-gray mb-2">P. 2, Quận 3, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 150.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>6% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/4.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Ba rọi heo Rút Xương </a></h6>
-              <p class="text-gray mb-2">P. 2, Quận 3, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 150.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>6% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/5.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Ba rọi heo Rút Xương </a></h6>
-              <p class="text-gray mb-2">P. 2, Quận 3, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 150.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>6% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 mb-4">
-        <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-          <div class="list-card-image">
-            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-              class="icofont-heart"></i></a></div>
-            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
-            </div>
-            <a href="#">
-              <img src="img/list/6.png" class="img-fluid item-img">
-            </a>
-          </div>
-          <div class="p-3 position-relative">
-            <div class="list-card-body">
-              <h6 class="mb-1"><a href="#" class="text-black">Ba rọi heo Rút Xương </a></h6>
-              <p class="text-gray mb-2">P. 2, Quận 3, TP. HCM</p>
-              <p class="text-gray mb-3 time"><span
-                class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                class="icofont-wall-clock"></i> 20–25 min</span> <span
-                class="float-right text-black-50"> 150.00O</span></p>
-            </div>
-            <div class="list-card-badge">
-              <span class="badge badge-success">Giảm</span> <small>6% | Coupon
-              OSAHAN50</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
     </div>
   </div>
 </section>
@@ -694,7 +518,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h5 class="m-0">Bạn có cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt nhất cho khách hàng</a></h5>
+        <h5 class="m-0">Bạn có cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt nhất cho
+          khách hàng</a></h5>
       </div>
     </div>
   </div>
@@ -766,15 +591,20 @@
         <div class="search-links">
           <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> | <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> | <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
           href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a>
         </div>
