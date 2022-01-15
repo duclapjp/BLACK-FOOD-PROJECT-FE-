@@ -53,32 +53,20 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-shopping-basket"></i> Giỏ hàng
-              <span class="badge badge-success">5</span>
+              <span class="badge badge-success">{{foodOrder.food.length}}</span>
             </a>
-            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
-              <div class="dropdown-cart-top-body border-top p-4">
-                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
-                  Sub
-                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
-                  Salad x 1 <span class="float-right text-secondary">209.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh
-                  Sub 6"
-                  (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka
-                  Sub
-                  12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
-                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas
-                  Salad
-                  x 1 <span class="float-right text-secondary">209.000</span></p>
+            <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0" style="display: flex">
+              <div class="dropdown-cart-top-body border-top p-4" *ngFor="let f of foodOrder.food, index as i">
+                <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{f.name}}<span class="float-right text-secondary">{{f.price|currency}}</span><mat-icon color="warn" id="{{i}}" (click)="removeFood($event)">delete</mat-icon></p>
+
               </div>
               <div class="dropdown-cart-top-footer border-top p-4">
                 <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                  class="float-right text-dark">499.000</span></p>
+                  class="float-right text-dark">{{getTotalPrice(foodOrder.food)}}</span></p>
                 <!-- <small class="text-info">Extra charges may apply</small> -->
               </div>
               <div class="dropdown-cart-top-footer border-top p-2">
-                <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
+                <a class="btn btn-success btn-block btn-lg" (click)="payment() " > Thanh toán</a>
               </div>
             </div>
           </li>
