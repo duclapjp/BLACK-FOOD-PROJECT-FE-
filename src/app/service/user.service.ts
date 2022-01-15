@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment.prod";
 import {Observable} from "rxjs";
 import {User} from "../model/User";
 import {Purchase} from "../model/Purchase";
+import {FoodOrder} from "../model/food-order";
 const API_LOCAL = `${environment.API_LOCAL}`;
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,8 @@ return this.http.get<User>(API_LOCAL+'users/'+id);
   }
   purchase(purchase: Purchase):Observable<any>{
     return this.http.put(API_LOCAL+'users/purchase',purchase);
+  }
+  addOrder(foodOrder: FoodOrder): Observable<User>{
+    return this.http.put<User>(API_LOCAL+`users/addOrder`, foodOrder)
   }
 }
