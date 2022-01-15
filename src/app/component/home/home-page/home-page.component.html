@@ -23,8 +23,7 @@
                style="display: flex;align-items: center;"
                aria-haspopup="true" aria-expanded="false">
               <mat-icon>person</mat-icon>
-              {{user.name}}
-              <span class="badge badge-success">5</span>
+              {{user.name}}-{{user.amount|currency}}
             </a>
             <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
               <div class="dropdown-cart-top-body border-top p-4">
@@ -62,7 +61,7 @@
               </div>
               <div class="dropdown-cart-top-footer border-top p-4">
                 <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                  class="float-right text-dark">{{getTotalPrice(foodOrder.food)}}</span></p>
+                  class="float-right text-dark">{{getTotalPrice(foodOrder.food)|currency}}</span></p>
                 <!-- <small class="text-info">Extra charges may apply</small> -->
               </div>
               <div class="dropdown-cart-top-footer border-top p-2">
