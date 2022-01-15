@@ -9,6 +9,7 @@ import {FoodOrderService} from "../../../service/foodOrder.service";
 import {FoodOrder} from "../../../model/food-order";
 import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
+import {GeneralStatus} from "../../../model/general-status";
 
 @Component({
   selector: 'app-home-page',
@@ -28,6 +29,9 @@ export class HomePageComponent implements OnInit {
   returnFood: Food = {};
   // @ts-ignore
   restaurant: Restaurant ={}
+
+  resId = 0;
+  foodsOfNewOrder: Food[] = []
   constructor(
     private tokenService: TokenService,
     private router: Router,
@@ -81,49 +85,70 @@ export class HomePageComponent implements OnInit {
 
   addShopCart($event: MouseEvent) {
     // @ts-ignore
-    this.foodId = event.target.id
+    this.foodId = event.target.id;
+    console.log('foodid: ' + this.foodId);
     let foods: Food [] = [];
     this.foodService.findById(this.foodId).subscribe(food=>{
+      console.log('return food: ' + JSON.stringify(food));
       this.returnFood = food;
-      let restaurantId = food.restaurant.id;
-      this.restaurantService.findRestaurantById(restaurantId).subscribe(restaurant=>{
-        this.restaurant = restaurant;
-      });
-      foods.push(this.returnFood)
-    });
+      this.resId = food.restaurant.id;
+      console.log('resId:'+ this.resId);
+      foods.push(this.returnFood);
+      // @ts-ignore
+      this.foodsOfNewOrder.push(food);
+      // this.restaurantService.findRestaurantById(restaurantId).subscribe(restaurant=>{
+      //   this.restaurant = restaurant;
+      //   this.resId = restaurant.id;
+      //   console.log('restaurant: ' + JSON.stringify(this.restaurant));
+      //   console.log('food list: ' + JSON.stringify(foods));
+      //
+      // });
 
 
-   let foodOrders : FoodOrder [] =[];
-   foodOrders = this.user.foodOrder;
-   // @ts-ignore
-    let   foodOrder: FoodOrder={}
-   if (foodOrders == null){
-     // @ts-ignore
-     foodOrder = {
-      time :new Date(),
-      totalPrice: 0,
-      note: '',
-       generalStatus:{
-        id:4
-       },
-       food: foods,
-       user: this.user,
-       restaurant: this.restaurant
-    }
-    this.userService.addOrder(foodOrder).subscribe(user=>{
-      this.user = user;
-
-      console.log(`user`+user);
-    });
-
-   }
+      let foodOrders : FoodOrder [] =[];
+      foodOrders = this.user.foodOrder;
+      // @ts-ignore
+      let   foodOrder: FoodOrder={}
+      if (foodOrders == null){
+        // @ts-ignore
+        // foodOrder = new foodOrder(1,new Date(),0,'',new GeneralStatus(1),foods,this.user,this.restaurant);
 
 
-   foodOrders.forEach(order =>{
-      if (order.generalStatus.id==4){
+        foodOrder = {
+          time :new Date(),
+          totalPrice: 0,
+          note: '',
+          generalStatus:{
+            id:4
+          },
+          food : foods,
+          user: this.user,
+          // @ts-ignore
+          restaurant: {
+            id: this.resId
+          }
+        }
+        console.log('foodOrder: ' + JSON.stringify(foodOrder));
+
+        // this.userService.addOrder(foodOrder).subscribe(user=>{
+        //   this.user = user;
+        //
+        //   console.log(`user`+user);
+        // });
 
       }
-   })
+
+    });
+
+
+
+
+
+   // foodOrders.forEach(order =>{
+   //    if (order.generalStatus.id==4){
+   //
+   //    }
+   // })
 
     //lấy userId
     //tìm trong bảng foodOrder với userId. check status nếu chưa thanh toán

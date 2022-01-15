@@ -1,4 +1,10 @@
-export interface GeneralStatus {
+export class GeneralStatus {
   id:number;
   name: string;
+
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
 }
