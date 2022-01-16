@@ -11,7 +11,7 @@ export class FoodOrderService {
 
   constructor(private http: HttpClient) {
   }
-  getAllOrder(id: number): Observable<FoodOrder[]> {
+  getAllOrderByUser_Id(id: number): Observable<FoodOrder[]> {
 
     return this.http.get<FoodOrder[]>(`http://localhost:8080/foodOrders/orderList/${id}`);
   }

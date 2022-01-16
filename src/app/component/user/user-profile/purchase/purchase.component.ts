@@ -5,6 +5,7 @@ import {TokenService} from "../../../../service/token.service";
 import {Purchase} from "../../../../model/Purchase";
 import {UserService} from "../../../../service/user.service";
 import {User} from "../../../../model/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-purchase',
@@ -24,11 +25,21 @@ export class PurchaseComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private tokenService: TokenService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getCardByUser_id();
+    this.getUserById();
+  }
+  getUserById() {
+
+    const userId = this.tokenService.getUserId();
+    this.userService.getUserById(userId).subscribe(data => {
+      this.user = data;
+      // console.log('user: ' + JSON.stringify(data));
+    })
   }
 
   checkCard() {
@@ -59,6 +70,11 @@ export class PurchaseComponent implements OnInit {
       this.card = card;
       console.log('card: ' + JSON.stringify(this.card));
     })
+  }
+
+  logout() {
+    this.tokenService.logout();
+    this.router.navigate(['/']);
   }
 
 }

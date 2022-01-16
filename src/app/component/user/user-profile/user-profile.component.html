@@ -48,11 +48,15 @@
       <ul class="u-nav u-unstyled u-nav-1">
         <li class="u-nav-item"><a
           class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-          href="Trang-chủ.html" style="padding: 10px 20px;">Trang chủ</a>
+          routerLink="/" style="padding: 10px 20px;">Trang chủ</a>
         </li>
         <li class="u-nav-item"><a
           class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
           href="Giỏ-hàng.html" style="padding: 10px 20px;">Giỏ hàng</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          href="Giỏ-hàng.html" style="padding: 10px 20px;">Đơn hàng</a>
         </li>
         <li class="u-nav-item"><a
           class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -72,7 +76,7 @@
         </li>
         <li class="u-nav-item"><a
           class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-          style="padding: 10px 20px;">Đăng xuất</a>
+          style="padding: 10px 20px;" (click)="logout()">Đăng xuất</a>
         </li>
       </ul>
     </div>
@@ -270,23 +274,23 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
           >
           <mat-icon color="accent" matSuffix>email</mat-icon>
         </mat-form-field>
-        <br>
-        <!--          Password-->
-        <mat-form-field appearance="outline" style="width: 350px">
-          <mat-label>Password</mat-label>
-          <input [type]="hide ? 'password' : 'text'"
-                 name="password"
-                 [(ngModel)]="user.password"
-                 [ngModelOptions]="{standalone: true}"
-                 disabled
-                 matInput
-          >
-          <button color="accent" mat-icon-button matSuffix (click)="hide = !hide"
-                  [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
+<!--        <br>-->
+<!--        &lt;!&ndash;          Password&ndash;&gt;-->
+<!--        <mat-form-field appearance="outline" style="width: 350px">-->
+<!--          <mat-label>Password</mat-label>-->
+<!--          <input [type]="hide ? 'password' : 'text'"-->
+<!--                 name="password"-->
+<!--                 [(ngModel)]="user.password"-->
+<!--                 [ngModelOptions]="{standalone: true}"-->
+<!--                 disabled-->
+<!--                 matInput-->
+<!--          >-->
+<!--          <button color="accent" mat-icon-button matSuffix (click)="hide = !hide"-->
+<!--                  [attr.aria-label]="'Hide password'"-->
+<!--                  [attr.aria-pressed]="hide">-->
+<!--            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+<!--          </button>-->
+<!--        </mat-form-field>-->
         <br>
 
         <!--          Amount-->
@@ -344,7 +348,7 @@ c0-7.4,3.4-18.8,18.8-18.8h13.8v15.4H75.5z"></path></svg></span>
         <br>
         <!--          Avatar-->
         <mat-form-field appearance="outline" style="width: 350px">
-          <input name="email"
+          <input
                  matInput
                  hidden
                  placeholder="Placeholder"

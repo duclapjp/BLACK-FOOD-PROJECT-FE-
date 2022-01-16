@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../../service/token.service";
 import {UserService} from "../../../service/user.service";
 import {User} from "../../../model/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -16,7 +17,8 @@ export class UserProfileComponent implements OnInit {
   constructor(
 
     private tokenService: TokenService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -44,5 +46,9 @@ export class UserProfileComponent implements OnInit {
       alert("User-profile updated!")
     })
 
+  }
+  logout() {
+    this.tokenService.logout();
+    this.router.navigate(['/']);
   }
 }

@@ -50,11 +50,12 @@ export class HomePageComponent implements OnInit {
     this.getUserById();
     this.getFoodOrder();
   }
-  getFoodOrder(){
-  this.userService.showCurrentFO().subscribe(fo => {
-    this.foodOrder = fo;
-    console.log('fo: ' + this.foodOrder);
-  })
+
+  getFoodOrder() {
+    this.userService.showCurrentFO().subscribe(fo => {
+      this.foodOrder = fo;
+      console.log('fo: ' + this.foodOrder);
+    })
 
   }
 
@@ -69,6 +70,8 @@ export class HomePageComponent implements OnInit {
   getUserName() {
     this.userName = this.tokenService.getName();
   }
+
+  //lay ve user hien tai
 
   getUserById() {
 
@@ -93,21 +96,22 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  addShopCart($event: MouseEvent) {
+  addShopCart(event:any) {
     // @ts-ignore
     this.foodId = event.target.id;
     console.log('foodid: ' + this.foodId);
-       // @ts-ignore
+    // @ts-ignore
     let food: Food = {
-         id: this.foodId
-       }
-        this.userService.addFood(food).subscribe(user => {
-          this.user = user;
-          this.getFoodOrder();
-          alert('Thêm vào giỏ hàng thành công');
-        });
+      id: this.foodId
+    }
+    this.userService.addFood(food).subscribe(user => {
+      this.user = user;
+      this.getFoodOrder();
+      alert('Thêm vào giỏ hàng thành công');
+    });
   }
-  public getTotalPrice(foods: Food[]){
+
+  public getTotalPrice(foods: Food[]) {
     let sum = 0;
     foods.forEach(food => {
       sum += food.price
@@ -115,10 +119,10 @@ export class HomePageComponent implements OnInit {
     return sum
   }
 
-  removeFood(event:any) {
+  removeFood(event: any) {
     let index = event.target.id;
     console.log('index: ' + index);
-    this.foodOrder.food.splice(index,1);
+    this.foodOrder.food.splice(index, 1);
     this.userService.updateFoodList(this.foodOrder.food).subscribe(user => {
       this.user = user;
     })
@@ -131,7 +135,17 @@ export class HomePageComponent implements OnInit {
       totalPrice: totalP,
     }
     this.userService.payment(payment).subscribe(user => {
-      this.user = user;
+      console.log('return: ' + JSON.stringify(user));
+      if (user.message != null) {
+        alert("Số tiền trong tài khoản không đủ để thực hiện giao dịch này.  \n Vui lòng nạp thêm tiền để tiếp tục sử dụng dịch vụ! ");
+
+      }
+      else {
+        alert("Thực hiện thanh toán thành công!");
+        this.router.navigate(['/']).then(() => {
+          window.location.reload()
+        });
+      }
     })
   }
 }

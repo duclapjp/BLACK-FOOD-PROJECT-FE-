@@ -21,11 +21,12 @@ export class RestaurantOrderListComponent implements OnInit {
   constructor(private foodOrderService: FoodOrderService,
               private tokenService: TokenService,
               private userService: UserService) {
-    this.getAllOrder();
+
   }
 
   ngOnInit(): void {
     this.getCurrentUser();
+    this.getAllOrder();
 
   }
  public getTotalPrice(foods: Food[]){
@@ -38,9 +39,9 @@ let sum = 0;
   getAllOrder(){
     this.id= this.tokenService.getUserId();
     console.log(this.id);
-    this.foodOrderService.getAllOrder(this.id).subscribe(orderList=>{
+    this.foodOrderService.getAllOrderByUser_Id(this.id).subscribe(orderList=>{
      this.orderList = orderList;
-     console.log(this.orderList);
+     console.log('oders: ' + JSON.stringify(this.orderList));
    })
   }
   getCurrentUser(){

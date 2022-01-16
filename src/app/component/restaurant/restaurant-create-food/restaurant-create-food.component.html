@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light osahan-nav shadow-sm">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><img alt="logo" src="img/logo.png"></a>
+    <a class="navbar-brand" routerLink="/" style="font-size: 30px;font-weight: 500;">BLAC-K FOOD</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,10 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="home.html">Đăng ký <span class="sr-only"></span></a>
+          <a class="nav-link" routerLink="/">Trang chủ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown dropdown-cart">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -103,14 +100,14 @@
           <div class="border-bottom p-4">
             <div class="osahan-user text-center">
               <div class="osahan-user-media">
-                <img class="mb-3 rounded-pill shadow-sm mt-1" src="img/user/4.png"
+                <img class="mb-3 rounded-pill shadow-sm mt-1" [src]="user.avatar"
                      alt="gurdeep singh osahan">
                 <div class="osahan-user-media-body">
-                  <h6 class="mb-2">Nguyễn Văn A</h6>
-                  <p class="mb-1">+91 85680-79956</p>
+                  <a  class="mb-2" style="font-size: 14px"><i class="icofont-farmer-alt"></i> {{user.name}}</a>
+                  <p class="mb-1"><i class="icofont-phone"></i> {{user.phone}}</p>
                   <p><a href="https://thaotrinh.info/cdn-cgi/l/email-protection"
                         class="__cf_email__"
-                        data-cfemail="6f060e02001c0e070e012f08020e0603410c0002">[email&#160;protected]</a>
+                        data-cfemail="6f060e02001c0e070e012f08020e0603410c0002"><i class="icofont-ui-email"></i> {{user.email}}</a>
                   </p>
                   <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3"
                                                                  data-toggle="modal" data-target="#edit-profile-modal" href="#"><i
@@ -145,8 +142,8 @@
                  aria-labelledby="orders-tab">
               <h4 class="font-weight-bold mt-0 mb-4">Tạo Món</h4>
               <!--              listOrders-->
-              <div class="bg-white card mb-4 order-list shadow-sm">
-                <form  #f="ngForm" (ngSubmit)="f.form.valid && createNewFood()"  style="width: 350px;margin-left: 200px" class="form-register"
+              <div class="bg-white card mb-4 order-list shadow-sm"  >
+                <form   #f="ngForm" (ngSubmit)="f.form.valid && createNewFood()"  style="width: 400px;text-align: center; margin: auto; padding: 20px" class="form-register"
                       novalidate>
                   <mat-card-title style="text-align: center">BLAC-K FOOD</mat-card-title>
                   <hr>
