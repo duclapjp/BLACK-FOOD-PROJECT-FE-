@@ -46,6 +46,8 @@ import { PurchaseComponent } from './component/user/user-profile/purchase/purcha
 import {httpInterceptorProvider} from "./security/auth.interceptor";
 import {UserOrderComponent} from "./component/user/user-order/user-order.component";
 import { ShowRestaurantComponent } from './component/home/show-restaurant/show-restaurant.component';
+// @ts-ignore
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -99,6 +101,7 @@ import { ShowRestaurantComponent } from './component/home/show-restaurant/show-r
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    ToastrModule.forRoot()
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]

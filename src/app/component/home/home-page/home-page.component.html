@@ -60,7 +60,7 @@
               <div class="dropdown-cart-top-body border-top p-4" *ngFor="let f of foodOrder.food, index as i">
                 <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{f.name}}<span
                   class="float-right text-secondary">{{f.price|currency}}</span>
-                  <mat-icon color="warn" id="{{i}}" (click)="removeFood($event)">delete</mat-icon>
+                  <mat-icon color="warn" style="cursor: pointer" id="{{i}}" (click)="removeFood($event)">delete</mat-icon>
                 </p>
 
               </div>
