@@ -44,6 +44,8 @@ import { RestaurantDetailFoodComponent } from './component/restaurant/restaurant
 import { RestaurantSearchFoodComponent } from './component/restaurant/restaurant-search-food/restaurant-search-food.component';
 import { PurchaseComponent } from './component/user/user-profile/purchase/purchase.component';
 import {httpInterceptorProvider} from "./security/auth.interceptor";
+import {UserOrderComponent} from "./component/user/user-order/user-order.component";
+import { ShowRestaurantComponent } from './component/home/show-restaurant/show-restaurant.component';
 
 
 
@@ -78,6 +80,8 @@ import {httpInterceptorProvider} from "./security/auth.interceptor";
     RestaurantDetailFoodComponent,
     RestaurantSearchFoodComponent,
     PurchaseComponent,
+    UserOrderComponent,
+    ShowRestaurantComponent
   ],
   imports: [
     ReactiveFormsModule,

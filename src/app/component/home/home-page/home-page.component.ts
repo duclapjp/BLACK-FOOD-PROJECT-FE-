@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
   foodId: number = 0;
   // @ts-ignore
   foodOrder: FoodOrder = {}
-
+  restaurants : Restaurant [] =[];
 
   totalP = 0;
 
@@ -39,9 +39,10 @@ export class HomePageComponent implements OnInit {
     private userService: UserService,
     private foodService: FoodService,
     private foodOrderService: FoodOrderService,
-    private restaurantService: RestaurantService
+    private restaurantService: RestaurantService,
   ) {
     this.showAllFood();
+    this.showAllRestaurant();
   }
 
   ngOnInit(): void {
@@ -147,5 +148,10 @@ export class HomePageComponent implements OnInit {
         });
       }
     })
+  }
+  showAllRestaurant(){
+    this.restaurantService.findAllRestaurant().subscribe(restaurants=>{
+      this.restaurants = restaurants;
+    });
   }
 }

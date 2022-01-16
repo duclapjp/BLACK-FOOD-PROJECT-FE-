@@ -404,9 +404,9 @@
                         <!--                        </h6>-->
                         <h6 style="font-weight: 500;    font-size: 1rem;line-height: 1.2;" class="mb-1"><a
                           class="text-black">{{food.name}}  <span
-                          class="float-right text-black-50"> <mat-icon color="warn" id="{{food.id}}" (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
+                          class="float-right text-black-50"> <mat-icon color="warn"  style="cursor: pointer" id="{{food.id}}" (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
 
-                        <p class="text-gray mb-2">{{food.restaurant.name}}  </p>
+                        <p style="cursor: pointer" routerLink="/restaurant-find-Id/{{food.restaurant.id}}" class="text-gray mb-2">{{food.restaurant.name}}  </p>
                         <p class="text-gray mb-3 time"><span
                           class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                           class="icofont-wall-clock"></i> 20–25 min</span> <span
@@ -767,9 +767,9 @@
               <span class="count-number float-right">
                                     <button class="btn btn-outline-secondary  btn-sm left dec"> <i
                                       class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
+                                    <input  class="count-number-input" type="text" value="1" readonly="">
                                     <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
+                                     class="icofont-plus"></i> </button>
                                 </span>
               <div class="media">
                 <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
