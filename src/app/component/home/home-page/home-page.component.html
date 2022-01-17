@@ -13,10 +13,10 @@
             <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" *ngIf="!checkLogin" routerLink="/login">Đăng nhập <span class="sr-only">(current)</span></a>
+            <a style="cursor: pointer" class="nav-link" *ngIf="!checkLogin" routerLink="/login">Đăng nhập <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="!checkLogin" routerLink="/singup">Đăng ký <span class="sr-only"></span></a>
+            <a style="cursor: pointer" class="nav-link" *ngIf="!checkLogin" routerLink="/singup">Đăng ký <span class="sr-only"></span></a>
           </li>
           <li class="nav-item dropdown dropdown-cart" *ngIf="checkLogin">
             <a class="nav-link dropdown-toggle" routerLink="/user-profile" role="button" data-toggle="dropdown"
@@ -115,7 +115,7 @@
               <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" (click)="logout()" *ngIf="checkLogin">Đăng xuất <span
+            <a style="cursor: pointer" class="nav-link" (click)="logout()" *ngIf="checkLogin">Đăng xuất <span
               class="sr-only">(current)</span></a>
           </li>
         </ul>

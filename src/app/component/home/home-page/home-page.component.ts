@@ -42,7 +42,6 @@ export class HomePageComponent implements OnInit {
     private restaurantService: RestaurantService,
   ) {
     this.showAllFood();
-    this.showAllRestaurant();
   }
 
   ngOnInit(): void {
@@ -149,9 +148,5 @@ export class HomePageComponent implements OnInit {
       }
     })
   }
-  showAllRestaurant(){
-    this.restaurantService.findAllRestaurant().subscribe(restaurants=>{
-      this.restaurants = restaurants;
-    });
-  }
+
 }
