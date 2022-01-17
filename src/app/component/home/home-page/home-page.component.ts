@@ -11,7 +11,7 @@ import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
 import {GeneralStatus} from "../../../model/general-status";
 import {Payment} from "../../../model/Payment";
-import {Role} from "../../../model/Role";
+
 
 @Component({
   selector: 'app-home-page',

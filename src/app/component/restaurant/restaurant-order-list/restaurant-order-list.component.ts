@@ -6,6 +6,8 @@ import {Food} from "../../../model/food";
 import {User} from "../../../model/User";
 import {UserService} from "../../../service/user.service";
 import {user} from "@angular/fire/auth";
+import {Restaurant} from "../../../model/restaurant";
+import {RestaurantService} from "../../../service/restaurant.service";
 
 @Component({
   selector: 'app-restaurant-order-list',
@@ -13,21 +15,21 @@ import {user} from "@angular/fire/auth";
   styleUrls: ['./restaurant-order-list.component.css']
 })
 export class RestaurantOrderListComponent implements OnInit {
-  orderList: FoodOrder[] =[];
   id:number =0
   totalP: number=0;
+  // @ts-ignore
+  restaurant: Restaurant={};
   // @ts-ignore
   user: User = {}
   constructor(private foodOrderService: FoodOrderService,
               private tokenService: TokenService,
-              private userService: UserService) {
+              private userService: UserService,
+              private restaurantService: RestaurantService) {
 
   }
 
   ngOnInit(): void {
     this.getCurrentUser();
-    this.getAllOrder();
-
   }
  public getTotalPrice(foods: Food[]){
 let sum = 0;
@@ -36,17 +38,16 @@ let sum = 0;
     });
     return sum
   }
-  getAllOrder(){
-    this.id= this.tokenService.getUserId();
-    console.log(this.id);
-    this.foodOrderService.getAllOrderByUser_Id(this.id).subscribe(orderList=>{
-     this.orderList = orderList;
-     console.log('oders: ' + JSON.stringify(this.orderList));
-   })
+  getRestaurant(){
+    this.restaurantService.findRestaurantById(this.user.restaurantId).subscribe(restaurant=>{
+      this.restaurant = restaurant;
+    })
   }
   getCurrentUser(){
     this.userService.getUserById(this.tokenService.getUserId()).subscribe(user => {
       this.user = user;
+      this.getRestaurant();
+      console.log(`resId`+user.restaurantId);
     })
   }
 }

@@ -144,9 +144,6 @@
                           <hr>
                         </h6>
                         <div *ngFor="let food of order.food">
-                          <a style="font-size: 20px" routerLink="/restaurant-order-detail/{{order.id}}" class="text-gray mb-1"><i class="icofont-food-cart"></i>{{order.restaurant.name}}
-                          </a><br>
-                          <hr>
                           <a >{{food.name}}</a>
                           <i class="icofont-money"></i><a style="font-size: 15px">{{food.price|currency}}</a>
                           <hr>
