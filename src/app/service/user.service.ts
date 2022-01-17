@@ -42,4 +42,7 @@ return this.http.get<User>(API_LOCAL+'users/'+id);
   payment(payment: Payment):Observable<any>{
     return this.http.put(API_LOCAL+'users/payment',payment);
   }
+  showAllUser():Observable<User []>{
+    return this.http.get<User[]>(API_LOCAL+'users')
+  }
 }

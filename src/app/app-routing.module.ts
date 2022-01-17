@@ -38,6 +38,7 @@ import {
 import {PurchaseComponent} from "./component/user/user-profile/purchase/purchase.component";
 import {UserOrderComponent} from "./component/user/user-order/user-order.component";
 import {ShowRestaurantComponent} from "./component/home/show-restaurant/show-restaurant.component";
+import {AdminHomepageComponent} from "./component/admin/admin-homepage/admin-homepage.component";
 
 const routes: Routes = [
   {
@@ -72,7 +73,8 @@ const routes: Routes = [
   {path: 'purchase', component: PurchaseComponent},
   {path: 'user-profile', component: UserProfileComponent},
   {path:'user-order',component:UserOrderComponent},
-  {path:'restaurant-find-Id/:id',component:ShowRestaurantComponent}
+  {path:'restaurant-find-Id/:id',component:ShowRestaurantComponent},
+  {path:'admin-homepage',component:AdminHomepageComponent}
 ];
 
 @NgModule({

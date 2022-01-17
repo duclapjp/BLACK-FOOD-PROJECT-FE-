@@ -11,6 +11,7 @@ import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
 import {GeneralStatus} from "../../../model/general-status";
 import {Payment} from "../../../model/Payment";
+import {Role} from "../../../model/Role";
 
 @Component({
   selector: 'app-home-page',
@@ -29,9 +30,10 @@ export class HomePageComponent implements OnInit {
   foodId: number = 0;
   // @ts-ignore
   foodOrder: FoodOrder = {}
-  restaurants : Restaurant [] =[];
-
+  restaurants: Restaurant [] = [];
   totalP = 0;
+  checkAdmin = false
+
 
   constructor(
     private tokenService: TokenService,
@@ -49,6 +51,7 @@ export class HomePageComponent implements OnInit {
     // this.getUserName();
     this.getUserById();
     this.getFoodOrder();
+    this.checkAdminRole();
   }
 
   getFoodOrder() {
@@ -79,13 +82,25 @@ export class HomePageComponent implements OnInit {
     this.userService.getUserById(userId).subscribe(data => {
       this.user = data;
       // console.log('user: ' + JSON.stringify(data));
-    })
+      // @ts-ignore
+      let roles: Role [] = this.user.roles
+      console.log(`user`+JSON.stringify(this.user));
+      console.log(`roles`+roles);
+      roles.forEach(role=>{
+        if (role.name=="ADMIN"){
+          this.checkAdmin= true;
+          console.log(`checkAdmin`+this.checkAdmin);
+        }
+      })
+      console.log(`roles`+JSON.stringify(roles));
+    });
   }
 
   logout() {
     this.tokenService.logout();
     this.router.navigate(['/']);
     this.checkLogin = false
+    this.checkAdmin = false
   }
 
   showAllFood() {
@@ -96,7 +111,7 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  addShopCart(event:any) {
+  addShopCart(event: any) {
     // @ts-ignore
     this.foodId = event.target.id;
     console.log('foodid: ' + this.foodId);
@@ -139,8 +154,7 @@ export class HomePageComponent implements OnInit {
       if (user.message != null) {
         alert("Số tiền trong tài khoản không đủ để thực hiện giao dịch này.  \n Vui lòng nạp thêm tiền để tiếp tục sử dụng dịch vụ! ");
 
-      }
-      else {
+      } else {
         alert("Thực hiện thanh toán thành công!");
         this.router.navigate(['/']).then(() => {
           window.location.reload()
@@ -148,5 +162,7 @@ export class HomePageComponent implements OnInit {
       }
     })
   }
+  checkAdminRole(){
 
+  }
 }

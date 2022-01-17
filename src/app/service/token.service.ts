@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Role} from "../model/Role";
 
 const USER_ID = "User_Id";
 const TOKEN_KEY = 'Token_Key';
@@ -10,7 +11,7 @@ const AVATAR_KEY = 'Avatar_Key';
 })
 export class TokenService {
 
-  private roles: Array<string> = [];
+  private roles: Role[] = [];
   constructor() { }
 
   public setUserId(id:number){
@@ -49,17 +50,17 @@ export class TokenService {
     // @ts-ignore
     return window.sessionStorage.getItem(AVATAR_KEY);
   }
-  public setRole(roles: string[]) {
+  public setRole(roles: Role []) {
     window.sessionStorage.removeItem(ROLE_KEY);
     // @ts-ignore
     window.sessionStorage.setItem(ROLE_KEY,JSON.stringify(roles));
   }
   // @ts-ignore
-  public getRole():string[] {
+  public getRole():Role[] {
     this.roles = []
     if (sessionStorage.getItem(ROLE_KEY)){
       // @ts-ignore
-      JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(role => {
+     JSON.parse(sessionStorage.getItem(ROLE_KEY)).forEach(role => {
         this.roles.push(role);
       });
       return this.roles;

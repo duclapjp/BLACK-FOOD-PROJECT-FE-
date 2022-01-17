@@ -5,6 +5,7 @@ import {environment} from "../../environments/environment.prod";
 import {Observable} from "rxjs";
 import {SignUpForm} from "../model/SignUpForm";
 import {JwtResponse} from "../model/JwtResponse";
+import {User} from "../model/User";
 
 
 
@@ -38,5 +39,9 @@ export class AuthService {
     } else {
       console.log(`Server-side error: ${err.status} - ${err.error.value}`);
     }
+  }
+  // @ts-ignore
+  verify(id: number): Observable<User>{
+    return this.http.get<User>(API_LOCAL+'verify/'+id)
   }
 }

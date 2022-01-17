@@ -12,13 +12,16 @@
           <li class="nav-item active">
             <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item active" *ngIf="checkAdmin">
+            <a class="nav-link" routerLink="/admin-homepage">Admin<span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item active">
             <a style="cursor: pointer" class="nav-link" *ngIf="!checkLogin" routerLink="/login">Đăng nhập <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a style="cursor: pointer" class="nav-link" *ngIf="!checkLogin" routerLink="/singup">Đăng ký <span class="sr-only"></span></a>
+            <a style="cursor: pointer" class="nav-link" *ngIf="!checkLogin" routerLink="/signup">Đăng ký <span class="sr-only"></span></a>
           </li>
-          <li class="nav-item dropdown dropdown-cart" *ngIf="checkLogin">
+          <li class="nav-item dropdown dropdown-cart" *ngIf="checkLogin&&!checkAdmin">
             <a class="nav-link dropdown-toggle" routerLink="/user-profile" role="button" data-toggle="dropdown"
                style="display: flex;align-items: center;"
                aria-haspopup="true" aria-expanded="false">

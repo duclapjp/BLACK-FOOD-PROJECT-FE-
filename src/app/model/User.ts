@@ -1,4 +1,5 @@
 import {FoodOrder} from "./food-order";
+import {Role} from "./Role";
 
 export class User {
   id:number;
@@ -15,10 +16,10 @@ export class User {
   status:any;
   restaurantId:number;
   foodOrder: FoodOrder [];
-  roles:any[]
+  roles:Role[]
 
 
-  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, dob: any, phone: string, address: string, amount: number, point: number, status: any, restaurantId: number, foodOrder: FoodOrder[], roles: any[]) {
+  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, dob: any, phone: string, address: string, amount: number, point: number, status: any, restaurantId: number, foodOrder: FoodOrder[], roles: Role[]) {
     this.id = id;
     this.name = name;
     this.username = username;

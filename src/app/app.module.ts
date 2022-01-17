@@ -48,6 +48,7 @@ import {UserOrderComponent} from "./component/user/user-order/user-order.compone
 import { ShowRestaurantComponent } from './component/home/show-restaurant/show-restaurant.component';
 // @ts-ignore
 import { ToastrModule } from 'ngx-toastr';
+import { AdminHomepageComponent } from './component/admin/admin-homepage/admin-homepage.component';
 
 
 
@@ -83,7 +84,8 @@ import { ToastrModule } from 'ngx-toastr';
     RestaurantSearchFoodComponent,
     PurchaseComponent,
     UserOrderComponent,
-    ShowRestaurantComponent
+    ShowRestaurantComponent,
+    AdminHomepageComponent
   ],
   imports: [
     ReactiveFormsModule,
