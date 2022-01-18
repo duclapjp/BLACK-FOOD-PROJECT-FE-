@@ -5,11 +5,8 @@ import {UserService} from "../../../service/user.service";
 import {User} from "../../../model/User";
 import {FoodService} from "../../../service/food.service";
 import {Food} from "../../../model/food";
-import {FoodOrderService} from "../../../service/foodOrder.service";
 import {FoodOrder} from "../../../model/food-order";
 import {Restaurant} from "../../../model/restaurant";
-import {RestaurantService} from "../../../service/restaurant.service";
-import {GeneralStatus} from "../../../model/general-status";
 import {Payment} from "../../../model/Payment";
 
 
@@ -26,7 +23,7 @@ export class HomePageComponent implements OnInit {
   userMoney = 0;
   // @ts-ignore
   user: User = {}
-  foods: Food [] = [];
+  foodList: Food [] = [];
   foodId: number = 0;
   // @ts-ignore
   foodOrder: FoodOrder = {}
@@ -40,8 +37,6 @@ export class HomePageComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private foodService: FoodService,
-    private foodOrderService: FoodOrderService,
-    private restaurantService: RestaurantService,
   ) {
     this.showAllFood();
   }
@@ -53,11 +48,10 @@ export class HomePageComponent implements OnInit {
     this.getFoodOrder();
     this.checkAdminRole();
   }
-
   getFoodOrder() {
     this.userService.showCurrentFO().subscribe(fo => {
       this.foodOrder = fo;
-      console.log('fo: ' + this.foodOrder);
+      console.log('fo: ' + JSON.stringify(this.foodOrder));
     })
 
   }
@@ -105,8 +99,8 @@ export class HomePageComponent implements OnInit {
 
   showAllFood() {
     this.foodService.findAll().subscribe(foods => {
-      this.foods = foods;
-      console.log(`foods` + this.foods)
+      this.foodList = foods;
+      console.log(`foods` + JSON.stringify(this.foodList))
     });
   }
 
@@ -128,23 +122,26 @@ export class HomePageComponent implements OnInit {
 
   public getTotalPrice(foods: Food[]) {
     let sum = 0;
-    foods.forEach(food => {
-      sum += food.price
-    });
-    return sum
+    if (foods!= undefined){
+      foods.forEach(food => {
+        sum += food.price
+      });
+      return sum
+    }
+    return sum;
   }
 
   removeFood(event: any) {
     let index = event.target.id;
     console.log('index: ' + index);
-    this.foodOrder.food.splice(index, 1);
-    this.userService.updateFoodList(this.foodOrder.food).subscribe(user => {
+    this.foodOrder.foodList.splice(index, 1);
+    this.userService.updateFoodList(this.foodOrder.foodList).subscribe(user => {
       this.user = user;
     })
   }
 
   payment() {
-    let totalP = this.getTotalPrice(this.foodOrder.food);
+    let totalP = this.getTotalPrice(this.foodOrder.foodList);
     // @ts-ignore
     let payment: Payment = {
       totalPrice: totalP,

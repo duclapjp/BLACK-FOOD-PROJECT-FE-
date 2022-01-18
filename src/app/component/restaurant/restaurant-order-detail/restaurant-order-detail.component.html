@@ -97,14 +97,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let food of foodOrder.food">
+                <tr *ngFor="let food of foodOrder.foodList">
                   <td>{{food.name}}</td>
                   <td class="text-right">{{food.quantity}}</td>
                   <td class="text-right">{{food.price|currency}}</td>
                 </tr>
                 <tr>
                   <td class="text-right" colspan="2">Tổng tiền hàng:</td>
-                  <td style="font-size: 15px" class="text-right">{{getTotalPrice(foodOrder.food)|currency}}</td>
+                  <td style="font-size: 15px" class="text-right">{{getTotalPrice(foodOrder.foodList)|currency}}</td>
                 </tr>
                 <tr>
                   <td class="text-right" colspan="2">VAT:</td>

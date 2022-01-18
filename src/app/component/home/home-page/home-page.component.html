@@ -56,11 +56,11 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-shopping-basket"></i> Giỏ hàng
-              <span class="badge badge-success">{{foodOrder.food.length}}</span>
+              <span class="badge badge-success">{{foodOrder.foodList.length}}</span>
             </a>
             <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0"
                  style="display: flex">
-              <div class="dropdown-cart-top-body border-top p-4" *ngFor="let f of foodOrder.food, index as i">
+              <div class="dropdown-cart-top-body border-top p-4" *ngFor="let f of foodOrder.foodList, index as i">
                 <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{f.name}}<span
                   class="float-right text-secondary">{{f.price|currency}}</span>
                   <mat-icon color="warn" style="cursor: pointer" id="{{i}}" (click)="removeFood($event)">delete</mat-icon>
@@ -69,7 +69,7 @@
               </div>
               <div class="dropdown-cart-top-footer border-top p-4">
                 <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                  class="float-right text-dark">{{getTotalPrice(foodOrder.food)|currency}}</span></p>
+                  class="float-right text-dark">{{getTotalPrice(foodOrder.foodList)|currency}}</span></p>
                 <!-- <small class="text-info">Extra charges may apply</small> -->
               </div>
               <div class="dropdown-cart-top-footer border-top p-2">
@@ -165,7 +165,7 @@
           </div>
           <h6 class="mt-4 text-shadow text-white font-weight-normal">Ex. Pizzas, Fried Chicken,
             Nem chua...</h6>
-          <div class="owl-carousel owl-carousel-category owl-theme" *ngFor="let food1 of foods">
+          <div class="owl-carousel owl-carousel-category owl-theme" *ngFor="let food1 of foodList">
             <div class="item">
               <div class="osahan-category-item">
                 <a href="#">
@@ -385,7 +385,7 @@
                  aria-labelledby="pills-order-online-tab">
               <div id="#menu" class="row">
                 <!-- <h5 class="mb-4 mt-3 col-md-12">Bán chạy</h5> -->
-                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let food of foods">
+                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let food of foodList">
                   <div
                     class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                     <div class="list-card-image">
@@ -409,7 +409,7 @@
                           class="text-black">{{food.name}}  <span
                           class="float-right text-black-50"> <mat-icon color="warn"  style="cursor: pointer" id="{{food.id}}" (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
 
-                        <p style="cursor: pointer" routerLink="/restaurant-find-Id/{{food.restaurant.id}}" class="text-gray mb-2">{{food.restaurant.name}}  </p>
+                        <p style="cursor: pointer" routerLink="/restaurant-detail/{{food.restaurantId}}"  class="text-gray mb-2">Mã số nhà hàng:{{food.restaurantId}} </p>
                         <p class="text-gray mb-3 time"><span
                           class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                           class="icofont-wall-clock"></i> 20–25 min</span> <span
@@ -765,7 +765,7 @@
         <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
           <h5 class="mb-1 text-white">Đặt hàng ngay</h5>
           <div class="bg-white rounded shadow-sm mb-2">
-            <div class="gold-members p-2 border-bottom" *ngFor="let food of foodOrder.food">
+            <div class="gold-members p-2 border-bottom" *ngFor="let food of foodOrder.foodList">
               <p class="text-gray mb-0 float-right ml-2">{{food.price|currency}}</p>
               <span class="count-number float-right">
                                     <button class="btn btn-outline-secondary  btn-sm left dec"> <i
@@ -785,7 +785,7 @@
           <div class="mb-2 bg-white rounded p-2 clearfix" >
             <img class="img-fluid float-left" style="width: 100px;" src="https://icons.veryicon.com/png/o/education-technology/blue-gray-solid-blend-icon/wallet-187.png">
             <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span
-              class="text-danger">{{getTotalPrice(foodOrder.food)|currency}}</span> vnđ</h6>
+              class="text-danger">{{getTotalPrice(foodOrder.foodList)|currency}}</span> vnđ</h6>
             <h6 class="font-weight-bold text-right mb-2">Giảm giá: <span
               class="text-danger">30.000</span> </h6>
             <h6 class="font-weight-bold text-right mb-2">Thanh toán: <span
