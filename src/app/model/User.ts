@@ -14,12 +14,12 @@ export class User {
   amount:number;
   point:number;
   status:any;
-  restaurantId:number;
   foodOrder: FoodOrder [];
+  restaurantId: number;
   roles:Role[]
 
 
-  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, dob: any, phone: string, address: string, amount: number, point: number, status: any, restaurantId: number, foodOrder: FoodOrder[], roles: Role[]) {
+  constructor(id: number, name: string, username: string, email: string, password: string, avatar: string, dob: any, phone: string, address: string, amount: number, point: number, status: any, foodOrder: FoodOrder[], restaurantId: number, roles: Role[]) {
     this.id = id;
     this.name = name;
     this.username = username;
@@ -32,8 +32,8 @@ export class User {
     this.amount = amount;
     this.point = point;
     this.status = status;
-    this.restaurantId = restaurantId;
     this.foodOrder = foodOrder;
+    this.restaurantId = restaurantId;
     this.roles = roles;
   }
 }

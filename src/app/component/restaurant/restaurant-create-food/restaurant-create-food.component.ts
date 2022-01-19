@@ -19,12 +19,7 @@ export class RestaurantCreateFoodComponent implements OnInit {
     quantity:0,
     description:'',
     image:'',
-    restaurant: {
-      id:0
-    },
-    foodOrder: {
-      id:0
-    }
+    restaurantId:0,
   }
   form: any={
 
@@ -48,12 +43,7 @@ export class RestaurantCreateFoodComponent implements OnInit {
       quantity: this.form.quantity,
       description: this.form.description,
       image: this.form.image,
-      restaurant: {
-        id: this.user.restaurantId,
-      },
-      foodOrder: {
-        id:2
-      }
+      restaurantId:this.user.restaurantId
     }
     console.log('food: ' + JSON.stringify(this.food));
 

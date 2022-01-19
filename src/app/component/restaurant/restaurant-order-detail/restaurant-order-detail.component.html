@@ -86,8 +86,8 @@
           <div class="row mt-5">
             <div class="col-md-12">
               <p class="mb-1">Cửa hàng:</p>
-              <h2 class="mb-1 text-black"><strong>{{foodOrder.restaurant.name}}</strong></h2>
-              <h3 class="mb-1">{{foodOrder.restaurant.address}}</h3>
+<!--              <h2 class="mb-1 text-black"><strong>{{foodOrder.restaurant.name}}</strong></h2>-->
+<!--              <h3 class="mb-1">{{foodOrder.restaurant.address}}</h3>-->
               <table class="table mt-3 mb-0">
                 <thead class="thead-light">
                 <tr>
@@ -97,14 +97,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let food of foodOrder.food">
+                <tr *ngFor="let food of foodOrder.foodList">
                   <td>{{food.name}}</td>
                   <td class="text-right">{{food.quantity}}</td>
                   <td class="text-right">{{food.price|currency}}</td>
                 </tr>
                 <tr>
                   <td class="text-right" colspan="2">Tổng tiền hàng:</td>
-                  <td style="font-size: 15px" class="text-right">{{getTotalPrice(foodOrder.food)|currency}}</td>
+                  <td style="font-size: 15px" class="text-right">{{getTotalPrice(foodOrder.foodList)|currency}}</td>
                 </tr>
                 <tr>
                   <td class="text-right" colspan="2">VAT:</td>

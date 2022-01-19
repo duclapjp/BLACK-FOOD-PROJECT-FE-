@@ -143,10 +143,7 @@
                           </a>
                           <hr>
                         </h6>
-                        <div *ngFor="let food of order.food">
-                          <a style="font-size: 20px" routerLink="/restaurant-order-detail/{{order.id}}" class="text-gray mb-1"><i class="icofont-food-cart"></i>{{order.restaurant.name}}
-                          </a><br>
-                          <hr>
+                        <div *ngFor="let food of order.foodList">
                           <a >{{food.name}}</a>
                           <i class="icofont-money"></i><a style="font-size: 15px">{{food.price|currency}}</a>
                           <hr>
@@ -164,7 +161,7 @@
                             class="icofont-refresh"></i> REORDER</a>
                         </div>
                         <p class="mb-0 text-black text-primary pt-2"><span
-                          class="text-black font-weight-bold"> Total Price: </span>{{getTotalPrice(order.food)|currency}}
+                          class="text-black font-weight-bold"> Total Price: </span>{{getTotalPrice(order.foodList)|currency}}
                         </p>
                       </div>
                     </div>
