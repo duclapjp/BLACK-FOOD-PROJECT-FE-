@@ -44,7 +44,6 @@ export class RestaurantHomepageComponent implements OnInit {
         console.log('foods: ' + this.foods);
       });
       });
-
   }
 
   getCurrentUserId() {

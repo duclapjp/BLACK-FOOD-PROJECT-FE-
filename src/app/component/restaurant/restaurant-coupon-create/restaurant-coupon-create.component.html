@@ -143,11 +143,11 @@
               <h4 class="font-weight-bold mt-0 mb-4">Tạo Món</h4>
               <!--              listOrders-->
               <div class="bg-white card mb-4 order-list shadow-sm"  >
-                <form   #f="ngForm" (ngSubmit)="f.form.valid && createNewFood()"  style="width: 400px;text-align: center; margin: auto; padding: 20px" class="form-register"
-                      novalidate>
+                <form   #f="ngForm" (ngSubmit)="f.form.valid && createNewCoupon()"  style="width: 400px;text-align: center; margin: auto; padding: 20px" class="form-register"
+                        novalidate>
                   <mat-card-title style="text-align: center">BLAC-K FOOD</mat-card-title>
                   <hr>
-                  <!-- Name-->
+                  <!--          Name-->
                   <mat-form-field appearance="outline" style="width: 350px">
                     <mat-label>Name</mat-label>
                     <input
@@ -158,65 +158,25 @@
                     <mat-icon color="accent" matSuffix></mat-icon>
                   </mat-form-field>
                   <br>
-                  <!--          Quantity-->
-                  <mat-form-field appearance="outline" style="width: 350px">
-                    <mat-label>Quantity</mat-label>
-                    <input
-                      [(ngModel)]="form.quantity"
-                      [ngModelOptions]="{standalone: true}"
-                      matInput
-                    >
-                    <mat-icon color="accent" matSuffix>person_outline</mat-icon>
-                  </mat-form-field>
-                  <br>
-                  <!--          Price-->
-                  <mat-form-field appearance="outline" style="width: 350px">
-                    <mat-label>Price</mat-label>
-                    <input
-                      matInput
-                      [(ngModel)]="form.price"
-                      [ngModelOptions]="{standalone: true}"
-                    >
-                    <mat-icon color="accent" matSuffix>email</mat-icon>
-                  </mat-form-field>
-                  <br>
-                  <!--          Description-->
-                  <mat-form-field appearance="outline" style="width: 350px">
-                    <mat-label>Description</mat-label>
-                    <input type="text"
-                           [(ngModel)]="form.description"
-                           [ngModelOptions]="{standalone: true}"
-                           matInput
-                    >
-                  </mat-form-field>
-                  <!--          Image-->
-                  <mat-form-field appearance="outline" style="width: 350px">
-                    <input type="text"
-                           hidden
-                           matInput
-                    >
-                    <app-upload-file (giveUrl)="uploadFile($event)" > </app-upload-file>
-                  </mat-form-field>
-                  <br>
                   <button mat-stroked-button color="accent" style="width: 150px"
                           class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Save
                     Changes
                   </button>
 
                 </form>
-<!--                <form   #f="ngForm" (ngSubmit)="f.form.valid && createNewFood()" >-->
-<!--                  <p>Tên Món</p>-->
-<!--                  <input type="text" [(ngModel)]="form.name" placeholder="" name="name">-->
-<!--                  <p>Gía Tiền</p>-->
-<!--                  <input type="text" [(ngModel)]="form.price" placeholder="" name="price">-->
-<!--                  <p>Số Lượng</p>-->
-<!--                  <input type="text" [(ngModel)]="form.quantity" placeholder="" name="quantity">-->
-<!--                  <p>Mô Tả</p>-->
-<!--                  <input type="text" [(ngModel)]="form.description" placeholder="" name="description">-->
-<!--                  <p>Image</p>-->
-<!--                  <app-upload-file (giveUrl)="uploadFile($event)" [(ngModel)]="form.image" name="image"></app-upload-file>-->
-<!--                  <button type="submit" >Tạo Món</button>-->
-<!--                </form>-->
+                <!--                <form   #f="ngForm" (ngSubmit)="f.form.valid && createNewFood()" >-->
+                <!--                  <p>Tên Món</p>-->
+                <!--                  <input type="text" [(ngModel)]="form.name" placeholder="" name="name">-->
+                <!--                  <p>Gía Tiền</p>-->
+                <!--                  <input type="text" [(ngModel)]="form.price" placeholder="" name="price">-->
+                <!--                  <p>Số Lượng</p>-->
+                <!--                  <input type="text" [(ngModel)]="form.quantity" placeholder="" name="quantity">-->
+                <!--                  <p>Mô Tả</p>-->
+                <!--                  <input type="text" [(ngModel)]="form.description" placeholder="" name="description">-->
+                <!--                  <p>Image</p>-->
+                <!--                  <app-upload-file (giveUrl)="uploadFile($event)" [(ngModel)]="form.image" name="image"></app-upload-file>-->
+                <!--                  <button type="submit" >Tạo Món</button>-->
+                <!--                </form>-->
               </div>
             </div>
             <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">

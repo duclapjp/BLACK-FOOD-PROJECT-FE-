@@ -39,6 +39,8 @@ import {PurchaseComponent} from "./component/user/user-profile/purchase/purchase
 import {UserOrderComponent} from "./component/user/user-order/user-order.component";
 import {ShowRestaurantComponent} from "./component/home/show-restaurant/show-restaurant.component";
 import {AdminHomepageComponent} from "./component/admin/admin-homepage/admin-homepage.component";
+import {RestaurantCouponListComponent} from "./component/restaurant/restaurant-coupon-list/restaurant-coupon-list.component";
+import {RestaurantCouponCreateComponent} from "./component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component";
 
 const routes: Routes = [
   {
@@ -74,7 +76,10 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path:'user-order',component:UserOrderComponent},
   {path:'restaurant-find-Id/:id',component:ShowRestaurantComponent},
-  {path:'admin-homepage',component:AdminHomepageComponent}
+  {path:'admin-homepage',component:AdminHomepageComponent},
+  {path: 'restaurant-coupon-list',component: RestaurantCouponListComponent},
+  {path: 'restaurant-create-voucher',component: RestaurantCouponCreateComponent},
+
 ];
 
 @NgModule({
