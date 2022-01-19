@@ -41,6 +41,10 @@ import {ShowRestaurantComponent} from "./component/home/show-restaurant/show-res
 import {AdminHomepageComponent} from "./component/admin/admin-homepage/admin-homepage.component";
 import {AdminRoleVerifyComponent} from "./component/admin/admin-role-verify/admin-role-verify.component";
 import {AdminBusinessVerifyComponent} from "./component/admin/admin-business-verify/admin-business-verify.component";
+import {RestaurantCouponListComponent} from "./component/restaurant/restaurant-coupon-list/restaurant-coupon-list.component";
+import {RestaurantCouponCreateComponent} from "./component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component";
+import {RestaurantCouponDeleteComponent} from "./component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component";
+import {RestaurantCouponEditComponent} from "./component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component";
 
 const routes: Routes = [
   {
@@ -78,7 +82,12 @@ const routes: Routes = [
   {path:'restaurant-find-Id/:id',component:ShowRestaurantComponent},
   {path:'admin-homepage',component:AdminHomepageComponent},
   {path:'admin-role-verify/:id',component:AdminRoleVerifyComponent},
-  {path:'admin-business-verify',component:AdminBusinessVerifyComponent}
+  {path:'admin-business-verify',component:AdminBusinessVerifyComponent},
+  {path: 'restaurant-coupon-list',component: RestaurantCouponListComponent},
+  {path: 'restaurant-create-voucher',component: RestaurantCouponCreateComponent},
+  {path: 'restaurant-coupon-delete/:id',component: RestaurantCouponDeleteComponent},
+  {path: 'restaurant-coupon-edit/:id',component: RestaurantCouponEditComponent},
+
 ];
 
 @NgModule({
