@@ -407,7 +407,7 @@
                         <!--                        </h6>-->
                         <h6 style="font-weight: 500;    font-size: 1rem;line-height: 1.2;" class="mb-1"><a
                           class="text-black">{{food.name}}  <span
-                          class="float-right text-black-50"> <mat-icon color="warn"  style="cursor: pointer" id="{{food.id}}" (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
+                          class="float-right text-black-50"> <mat-icon color="warn"  style="cursor: pointer" id="{{food.id}}" routerLink="/restaurant-find-Id/{{food.restaurantId}}" (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
 
                         <p style="cursor: pointer" routerLink="/restaurant-detail/{{food.restaurantId}}"  class="text-gray mb-2">Mã số nhà hàng:{{food.restaurantId}} </p>
                         <p class="text-gray mb-3 time"><span
