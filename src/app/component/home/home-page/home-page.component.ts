@@ -8,6 +8,7 @@ import {Food} from "../../../model/food";
 import {FoodOrder} from "../../../model/food-order";
 import {Restaurant} from "../../../model/restaurant";
 import {Payment} from "../../../model/Payment";
+import {RestaurantService} from "../../../service/restaurant.service";
 
 
 @Component({
@@ -30,6 +31,9 @@ export class HomePageComponent implements OnInit {
   restaurants: Restaurant [] = [];
   totalP = 0;
   checkAdmin = false
+  checkMerchant= false;
+  // @ts-ignore
+  restaurant: Restaurant = {}
 
 
   constructor(
@@ -37,6 +41,7 @@ export class HomePageComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private foodService: FoodService,
+    private restaurantService: RestaurantService
   ) {
     this.showAllFood();
   }
@@ -53,7 +58,11 @@ export class HomePageComponent implements OnInit {
       this.foodOrder = fo;
       console.log('fo: ' + JSON.stringify(this.foodOrder));
     })
-
+  }
+  getResByUser(){
+    this.restaurantService.findRestaurantById(this.user.restaurantId).subscribe(res => {
+      this.restaurant = res;
+    })
   }
 
   check() {
@@ -76,6 +85,13 @@ export class HomePageComponent implements OnInit {
     this.userService.getUserById(userId).subscribe(data => {
       this.user = data;
       // console.log('user: ' + JSON.stringify(data));
+      console.log(`user`+JSON.stringify(this.user));
+      if (this.user.restaurantId != null){
+        this.checkMerchant = true;
+        this.restaurantService.findRestaurantById(this.user.restaurantId).subscribe(res => {
+          this.restaurant = res;
+        })
+      }
       // @ts-ignore
       let roles: Role [] = this.user.roles
       console.log(`user`+JSON.stringify(this.user));
@@ -93,8 +109,9 @@ export class HomePageComponent implements OnInit {
   logout() {
     this.tokenService.logout();
     this.router.navigate(['/']);
-    this.checkLogin = false
-    this.checkAdmin = false
+    this.checkLogin = false;
+    this.checkAdmin = false;
+    this.checkMerchant = false;
   }
 
   showAllFood() {

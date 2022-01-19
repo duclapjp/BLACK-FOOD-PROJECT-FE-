@@ -1,21 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {FoodService} from "../../../service/food.service";
+import { Component, OnInit } from '@angular/core';
+import {Restaurant} from "../../../model/restaurant";
+import {User} from "../../../model/User";
 import {Food} from "../../../model/food";
+import {FoodOrder} from "../../../model/food-order";
+import {FoodService} from "../../../service/food.service";
 import {TokenService} from "../../../service/token.service";
 import {UserService} from "../../../service/user.service";
-import {User} from "../../../model/User";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {FoodOrder} from "../../../model/food-order";
-import {Payment} from "../../../model/Payment";
-import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
+import {Payment} from "../../../model/Payment";
 
 @Component({
-  selector: 'app-restaurant-homepage',
-  templateUrl: './restaurant-homepage.component.html',
-  styleUrls: ['./restaurant-homepage.component.css']
+  selector: 'app-restaurant-by-food',
+  templateUrl: './restaurant-by-food.component.html',
+  styleUrls: ['./restaurant-by-food.component.css']
 })
-export class RestaurantHomepageComponent implements OnInit {
+export class RestaurantByFoodComponent implements OnInit {
   userId: number = 0;
   restaurantId: number = 0;
   // @ts-ignore
@@ -146,4 +146,5 @@ export class RestaurantHomepageComponent implements OnInit {
     console.log('a')
     this.router.navigate(['/restaurant-detail/' + this.restaurantId], {queryParams: {userId: this.userId}});
   }
+
 }

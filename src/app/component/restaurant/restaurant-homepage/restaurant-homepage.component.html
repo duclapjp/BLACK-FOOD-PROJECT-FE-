@@ -10,31 +10,6 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">Trang chủ <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item dropdown dropdown-cart">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-shopping-basket"></i> Giỏ hàng
-            <!--              <span class="badge badge-success">{{foodOrder.foodList.length}}</span>-->
-          </a>
-          <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0"
-               style="display: flex">
-            <div class="dropdown-cart-top-body border-top p-4" *ngFor="let f of foodOrder.foodList, index as i">
-              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{f.name}}<span
-                class="float-right text-secondary">{{f.price|currency}}</span>
-                <mat-icon color="warn" style="cursor: pointer" id="{{i}}" (click)="removeFood($event)">delete</mat-icon>
-              </p>
-
-            </div>
-            <div class="dropdown-cart-top-footer border-top p-4">
-              <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                class="float-right text-dark">{{getTotalPrice(foodOrder.foodList)|currency}}</span></p>
-              <!-- <small class="text-info">Extra charges may apply</small> -->
-            </div>
-            <div class="dropdown-cart-top-footer border-top p-2">
-              <a class="btn btn-success btn-block btn-lg" (click)="payment() "> Thanh toán</a>
-            </div>
-          </div>
-        </li>
       </ul>
     </div>
   </div>
@@ -43,17 +18,16 @@
 
 <section class="restaurant-detailed-banner">
   <div class="text-center">
-    <img class="img-fluid cover" src="img/mall-dedicated-banner.png">
+    <img class="img-fluid cover" src="https://resizer.otstatic.com/v2/photos/wide-huge/1/25022522.jpg">
   </div>
   <div class="restaurant-detailed-header">
     <div class="container">
       <div class="row d-flex align-items-end">
         <div class="col-md-8">
           <div class="restaurant-detailed-header-left">
-            <img class="img-fluid mr-3 float-left" alt="osahan" src="img/1.jpg">
-            <h2 class="text-white">Bánh Tráng Cuốn Thịt Heo Hoàng Bèo</h2>
-            <p class="text-white mb-1"><i class="icofont-location-pin"></i> 40 Duy Tân, Quận Cầu Giấy,
-              Hà Nội </p>
+            <img class="img-fluid mr-3 float-left" alt="osahan" src="https://freedesignfile.com/upload/2020/09/Tasty-food-vector-icon.jpg">
+            <h2 class="text-white">{{restaurant.name}}</h2>
+            <p class="text-white mb-1"><i class="icofont-location-pin"></i>{{restaurant.address}}</p>
             <p class="text-white mb-0"><i class="icofont-food-cart"></i> #banhtrang, #thitheo</p>
           </div>
         </div>
@@ -82,19 +56,19 @@
                aria-controls="pills-restaurant-info"
                aria-selected="false">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link" id="pills-restaurant-info-tab" data-toggle="pill"
                routerLink="/restaurant-detail/{{restaurantId}}" routerLinkActive="active" role="tab"
                aria-controls="pills-restaurant-info"
                aria-selected="false">Thông tin nhà hàng</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link" id="pills-order-online-tab" data-toggle="pill"
                routerLink="/restaurant-order-list" routerLinkActive="active" role="tab"
                aria-controls="pills-order-online"
                aria-selected="true">Đơn Hàng</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery"
                role="tab" aria-controls="pills-gallery" routerLinkActive="active" aria-selected="false">Doanh Thu</a>
           </li>
@@ -102,15 +76,15 @@
             <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" routerLink=""
                role="tab" aria-controls="pills-reviews" aria-selected="false">Phản Hồi</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link" data-toggle="pill" href="#pills-reviews"
                role="tab" aria-controls="pills-reviews" routerLinkActive="active" aria-selected="false">Voucher</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link" data-toggle="pill" href="#pills-reviews"
                role="tab" aria-controls="pills-reviews" routerLinkActive="active" aria-selected="false">Hợp Đồng</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food"
                role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
           </li>
@@ -165,7 +139,7 @@
                     <div class="p-3 position-relative">
                       <div class="list-card-body">
                         <!--                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>-->
-                        <h6 class="mb-1">
+                        <h6 class="mb-1" style="font-weight: 500;    font-size: 1rem;line-height: 1.2;">
                           <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn"
                                                                                                             style="font-size: 20px; cursor: pointer"
                                                                                                             routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon
@@ -175,11 +149,7 @@
                         <p class="text-gray mb-2">Mã số cửa hàng: {{food.restaurantId}}  </p>
                         <p class="text-gray time mb-0"><a
                           class="btn btn-link btn-sm text-black" href="#">{{food.price|currency}}<span
-                          class="badge badge-success">5% Giảm</span></a> <span
-                          class="float-right">
-                                                            <a id="{{food.id}}" (click)="addShopCart($event)" class="btn btn-outline-secondary btn-sm" >Mua
-                                                                ngay</a>
-                                                        </span>
+                          class="badge badge-success">5% Giảm</span></a>
                         </p>
                       </div>
                     </div>
@@ -650,35 +620,6 @@
               <i class="icofont-sale-discount"></i>
             </div>
           </div>
-        </div>
-        <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
-          <h5 class="mb-1 text-white">Đặt hàng ngay</h5>
-          <div class="bg-white rounded shadow-sm mb-2">
-            <div class="gold-members p-2 border-bottom" *ngFor="let food of foods">
-              <p class="text-gray mb-0 float-right ml-2">{{food.price|currency}}</p>
-              <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                      class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
-                                </span>
-              <div class="media">
-                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">{{food.name}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mb-2 bg-white rounded p-2 clearfix">
-            <img class="img-fluid float-left" src="img/wallet-icon.png">
-            <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span
-              class="text-danger">{{getTotalPrice(foods)|currency}}</span></h6>
-            <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
-          </div>
-          <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i
-            class="icofont-long-arrow-right"></i></a>
         </div>
       </div>
     </div>

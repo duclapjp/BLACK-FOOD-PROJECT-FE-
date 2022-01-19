@@ -49,6 +49,7 @@ import { ShowRestaurantComponent } from './component/home/show-restaurant/show-r
 import { AdminHomepageComponent } from './component/admin/admin-homepage/admin-homepage.component';
 import { AdminRoleVerifyComponent } from './component/admin/admin-role-verify/admin-role-verify.component';
 import { AdminBusinessVerifyComponent } from './component/admin/admin-business-verify/admin-business-verify.component';
+import { RestaurantByFoodComponent } from './component/user/restaurant-by-food/restaurant-by-food.component';
 
 
 
@@ -87,7 +88,8 @@ import { AdminBusinessVerifyComponent } from './component/admin/admin-business-v
     ShowRestaurantComponent,
     AdminHomepageComponent,
     AdminRoleVerifyComponent,
-    AdminBusinessVerifyComponent
+    AdminBusinessVerifyComponent,
+    RestaurantByFoodComponent
   ],
   imports: [
     ReactiveFormsModule,
