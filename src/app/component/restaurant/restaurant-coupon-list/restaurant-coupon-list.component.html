@@ -88,7 +88,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" id="pills-restaurant-info-tab" data-toggle="pill"
-               routerLink="/restaurant-detail/{{restaurantId}}" routerLinkActive="active" role="tab"
+               routerLink="/restaurant-detail/{{restaurantId}}" role="tab"
                aria-controls="pills-restaurant-info"
                aria-selected="false">Thông tin nhà hàng</a>
           </li>
@@ -160,23 +160,23 @@
                         href="#"><i class="icofont-heart"></i></a></div>
                       <div class="member-plan position-absolute"><span
                         class="badge badge-dark">Promoted</span></div>
-                      <!--                      <a routerLink="/restaurant-detail-food/{{coupon.id}}">-->
-                      <!--                        <img [src]="food.image" class="img-fluid item-img" alt="lon">-->
-                      <!--                      </a>-->
+
+                                              <img src="../../../../assets/img/voucher.png" class="img-fluid item-img" alt="lon">
+
                     </div>
                     <div class="p-3 position-relative">
                       <div class="list-card-body">
-                                                <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>
                                                 <h6 class="mb-1">
-                                                  <p class="mb-2"> {{coupon.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px; cursor: pointer" routerLink="/restaurant-edit-food/{{coupon.id}}">edit</mat-icon><mat-icon
-                                                    routerLink="/restaurant-delete-food/{{coupon.id}}" color="warn"
-                                                    style="font-size: 20px;cursor: pointer">delete</mat-icon></span></p>
+                                                  <p class="mb-2"> {{coupon.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 23px; cursor: pointer" routerLink="/restaurant-coupon-edit/{{coupon.id}}">edit</mat-icon><mat-icon
+                                                    routerLink="/restaurant-coupon-delete/{{coupon.id}}" color="warn"
+                                                    style="font-size: 23px;cursor: pointer">delete</mat-icon></span></p>
                                                 </h6>
-                        <p class="text-gray mb-2">Loại :{{coupon.name}}  </p>
+<!--                        <p class="text-gray mb-2">Loại :{{coupon.name}}  </p>-->
+                        <p class="text-gray mb-2">Số lượng : {{coupon.quantity}}</p>
 
                         <p class="text-gray time mb-0">
                                                   <a class="btn btn-link btn-sm text-black" href="#">
-                                                  <span class="badge badge-success">Sử dụng : {{coupon.name}}</span></a>
+                                                  <span class="badge badge-success">Giảm {{coupon.price}} $ </span></a>
 <!--                                                  <span class="float-right"><a class="btn btn-outline-secondary btn-sm" href="#">Mua ngay</a></span>-->
                                                 </p>
                       </div>

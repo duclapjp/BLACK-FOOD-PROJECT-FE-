@@ -18,6 +18,10 @@ export class RestaurantCouponCreateComponent implements OnInit {
   coupon: Coupon ={
     name:'',
     restaurantId:0,
+    price:0,
+    quantity:0,
+    image:'',
+
   }
   form: any={
 
@@ -37,6 +41,9 @@ export class RestaurantCouponCreateComponent implements OnInit {
     // @ts-ignore
     this.coupon = {
       name: this.form.name,
+      price: this.form.price,
+      quantity: this.form.quantity,
+      image: this.form.image,
       restaurantId: this.user.restaurantId,
     }
     console.log('coupon: ' + JSON.stringify(this.coupon));
@@ -53,5 +60,10 @@ export class RestaurantCouponCreateComponent implements OnInit {
       console.log("id:   " + user.restaurantId);
     })
   }
-
+  // // @ts-ignore
+  // uploadFile(event) {
+  //   console.log(event)
+  //   // @ts-ignore
+  //   this.form.image = event
+  // }
 }

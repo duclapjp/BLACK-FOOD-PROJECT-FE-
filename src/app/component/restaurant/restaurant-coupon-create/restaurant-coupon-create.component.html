@@ -81,7 +81,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link"  data-toggle="pill" href="#pills-reviews"
-               role="tab" aria-controls="pills-reviews" aria-selected="false">Voucher</a>
+               role="tab" aria-controls="pills-reviews" routerLink="/restaurant-coupon-list" aria-selected="false">Voucher</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  data-toggle="pill" href="#pills-reviews"
@@ -140,24 +140,55 @@
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="orders" role="tabpanel"
                  aria-labelledby="orders-tab">
-              <h4 class="font-weight-bold mt-0 mb-4">Tạo Món</h4>
+              <h4 class="font-weight-bold mt-0 mb-4">Tạo Voucher</h4>
               <!--              listOrders-->
               <div class="bg-white card mb-4 order-list shadow-sm"  >
                 <form   #f="ngForm" (ngSubmit)="f.form.valid && createNewCoupon()"  style="width: 400px;text-align: center; margin: auto; padding: 20px" class="form-register"
                         novalidate>
-                  <mat-card-title style="text-align: center">BLAC-K FOOD</mat-card-title>
+                  <mat-card-title style="text-align: center">BLAC-K FOOD VOUCHER</mat-card-title>
                   <hr>
-                  <!--          Name-->
+                  <!------------------------Name------------------->
                   <mat-form-field appearance="outline" style="width: 350px">
-                    <mat-label>Name</mat-label>
+                    <mat-label>Voucher Name</mat-label>
                     <input
                       [(ngModel)]="form.name"
                       [ngModelOptions]="{standalone: true}"
                       matInput
                       #name="ngModel">
-                    <mat-icon color="accent" matSuffix></mat-icon>
+                    <mat-icon color="accent" matSuffix>border_color</mat-icon>
                   </mat-form-field>
                   <br>
+                  <!------------  Quantity------------------->
+                  <mat-form-field appearance="outline" style="width: 350px">
+                    <mat-label>Quantity</mat-label>
+                    <input
+                      [(ngModel)]="form.quantity"
+                      [ngModelOptions]="{standalone: true}"
+                      matInput
+                    >
+                    <mat-icon color="accent" matSuffix>add_shopping_cart</mat-icon>
+                  </mat-form-field>
+                  <br>
+                  <!--------------------------Price------------------------>
+                  <mat-form-field appearance="outline" style="width: 350px">
+                    <mat-label>Price</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="form.price"
+                      [ngModelOptions]="{standalone: true}"
+                    >
+                    <mat-icon color="accent" matSuffix>monetization_on</mat-icon>
+                  </mat-form-field>
+                  <br>
+<!--                  &lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Image&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--                  <mat-form-field appearance="outline" style="width: 350px">-->
+<!--                    <input type="text"-->
+<!--                           hidden-->
+<!--                           matInput-->
+<!--                    >-->
+<!--                    <app-upload-file (giveUrl)="uploadFile($event)" > </app-upload-file>-->
+<!--                  </mat-form-field>-->
+<!--                  <br>-->
                   <button mat-stroked-button color="accent" style="width: 150px"
                           class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Save
                     Changes

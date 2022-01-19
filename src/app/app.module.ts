@@ -51,6 +51,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AdminHomepageComponent } from './component/admin/admin-homepage/admin-homepage.component';
 import { RestaurantCouponListComponent } from './component/restaurant/restaurant-coupon-list/restaurant-coupon-list.component';
 import { RestaurantCouponCreateComponent } from './component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component';
+import { RestaurantCouponDeleteComponent } from './component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component';
+import { RestaurantCouponEditComponent } from './component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component';
 
 
 
@@ -89,7 +91,9 @@ import { RestaurantCouponCreateComponent } from './component/restaurant/restaura
     ShowRestaurantComponent,
     AdminHomepageComponent,
     RestaurantCouponListComponent,
-    RestaurantCouponCreateComponent
+    RestaurantCouponCreateComponent,
+    RestaurantCouponDeleteComponent,
+    RestaurantCouponEditComponent
   ],
   imports: [
     ReactiveFormsModule,
