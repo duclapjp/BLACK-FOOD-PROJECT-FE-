@@ -65,7 +65,7 @@ const routes: Routes = [
   {path: 'restaurant-create', component: RestaurantCreateComponent},
   {path: 'restaurant-delete', component: RestaurantDeleteComponent},
   {path: 'restaurant-edit', component: RestaurantEditComponent},
-  {path: 'restaurant-homepage', component: RestaurantHomepageComponent},
+  {path: 'restaurant-homepage/:id', component: RestaurantHomepageComponent},
   {path: 'restaurant-create-food', component: RestaurantCreateFoodComponent},
   {path: 'restaurant-edit-food/:id', component: RestaurantEditFoodComponent},
   {path: 'restaurant-delete-food/:id', component: RestaurantDeleteFoodComponent},
