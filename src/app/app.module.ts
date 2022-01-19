@@ -54,6 +54,7 @@ import { RestaurantCouponListComponent } from './component/restaurant/restaurant
 import { RestaurantCouponCreateComponent } from './component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component';
 import { RestaurantCouponDeleteComponent } from './component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component';
 import { RestaurantCouponEditComponent } from './component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component';
+import { UserOrderDetailComponent } from './component/user/user-order-detail/user-order-detail.component';
 
 
 
@@ -97,7 +98,8 @@ import { RestaurantCouponEditComponent } from './component/restaurant/restaurant
     RestaurantCouponListComponent,
     RestaurantCouponCreateComponent,
     RestaurantCouponDeleteComponent,
-    RestaurantCouponEditComponent
+    RestaurantCouponEditComponent,
+    UserOrderDetailComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -35,7 +35,7 @@ export class RestaurantByFoodComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private restaurantService: RestaurantService
+    private restaurantService: RestaurantService,
   ) {
     this.activeRoute.params.subscribe((params: Params)=>{
       this.restaurantId = params['id'];
@@ -147,4 +147,7 @@ export class RestaurantByFoodComponent implements OnInit {
     this.router.navigate(['/restaurant-detail/' + this.restaurantId], {queryParams: {userId: this.userId}});
   }
 
+  orderDetail() {
+
+  }
 }
