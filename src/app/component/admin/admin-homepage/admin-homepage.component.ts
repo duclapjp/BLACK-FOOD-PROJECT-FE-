@@ -27,18 +27,20 @@ export class AdminHomepageComponent implements OnInit {
     })
   }
 
-  verify(event: any) {
-    this.userId = event.target.id
-    this.authService.verify(this.userId).subscribe(user=>{
-      alert('Phê duyệt thành công');
-      window.location.reload();
-    });
-
-  }
+  // verify(event: any) {
+  //   this.userId = event.target.id
+  //   this.authService.verify(this.userId).subscribe(user=>{
+  //     alert('Phê duyệt thành công');
+  //     window.location.reload();
+  //   });
+  //
+  // }
   checkVerify(status: GeneralStatus){
     if (status.id ==1){
       return true;
     }
     return false
   }
+
+
 }

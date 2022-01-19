@@ -39,6 +39,8 @@ import {PurchaseComponent} from "./component/user/user-profile/purchase/purchase
 import {UserOrderComponent} from "./component/user/user-order/user-order.component";
 import {ShowRestaurantComponent} from "./component/home/show-restaurant/show-restaurant.component";
 import {AdminHomepageComponent} from "./component/admin/admin-homepage/admin-homepage.component";
+import {AdminRoleVerifyComponent} from "./component/admin/admin-role-verify/admin-role-verify.component";
+import {AdminBusinessVerifyComponent} from "./component/admin/admin-business-verify/admin-business-verify.component";
 
 const routes: Routes = [
   {
@@ -74,7 +76,9 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path:'user-order',component:UserOrderComponent},
   {path:'restaurant-find-Id/:id',component:ShowRestaurantComponent},
-  {path:'admin-homepage',component:AdminHomepageComponent}
+  {path:'admin-homepage',component:AdminHomepageComponent},
+  {path:'admin-role-verify/:id',component:AdminRoleVerifyComponent},
+  {path:'admin-business-verify',component:AdminBusinessVerifyComponent}
 ];
 
 @NgModule({

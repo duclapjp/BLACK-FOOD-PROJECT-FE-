@@ -41,7 +41,10 @@ export class AuthService {
     }
   }
   // @ts-ignore
-  verify(id: number): Observable<User>{
-    return this.http.get<User>(API_LOCAL+'verify/'+id)
+  verify(id: number, roleName: string): Observable<User>{
+    return this.http.get<User>(API_LOCAL+'verify/'+id+"/"+roleName)
+  }
+  block(id: number, roleName: string): Observable<User>{
+    return this.http.get<User>(API_LOCAL+'block/'+id+"/"+roleName)
   }
 }
