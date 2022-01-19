@@ -50,6 +50,10 @@ import { AdminHomepageComponent } from './component/admin/admin-homepage/admin-h
 import { AdminRoleVerifyComponent } from './component/admin/admin-role-verify/admin-role-verify.component';
 import { AdminBusinessVerifyComponent } from './component/admin/admin-business-verify/admin-business-verify.component';
 import { RestaurantByFoodComponent } from './component/user/restaurant-by-food/restaurant-by-food.component';
+import { RestaurantCouponListComponent } from './component/restaurant/restaurant-coupon-list/restaurant-coupon-list.component';
+import { RestaurantCouponCreateComponent } from './component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component';
+import { RestaurantCouponDeleteComponent } from './component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component';
+import { RestaurantCouponEditComponent } from './component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component';
 
 
 
@@ -89,7 +93,11 @@ import { RestaurantByFoodComponent } from './component/user/restaurant-by-food/r
     AdminHomepageComponent,
     AdminRoleVerifyComponent,
     AdminBusinessVerifyComponent,
-    RestaurantByFoodComponent
+    RestaurantByFoodComponent,
+    RestaurantCouponListComponent,
+    RestaurantCouponCreateComponent,
+    RestaurantCouponDeleteComponent,
+    RestaurantCouponEditComponent
   ],
   imports: [
     ReactiveFormsModule,

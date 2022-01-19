@@ -1,0 +1,212 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light osahan-nav shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/" style="font-size: 30px;font-weight: 500;">BLAC-K FOOD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Trang chủ <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown dropdown-cart">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-shopping-basket"></i> Giỏ hàng
+            <span class="badge badge-success">5</span>
+          </a>
+          <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">
+            <div class="dropdown-cart-top-body border-top p-4">
+              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
+                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
+              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas
+                Salad x 1 <span class="float-right text-secondary">209.000</span></p>
+              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh Sub 6"
+                (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>
+              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub
+                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>
+              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas Salad
+                x 1 <span class="float-right text-secondary">209.000</span></p>
+            </div>
+            <div class="dropdown-cart-top-footer border-top p-4">
+              <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
+                class="float-right text-dark">499.000</span></p>
+              <!-- <small class="text-info">Extra charges may apply</small> -->
+            </div>
+            <div class="dropdown-cart-top-footer border-top p-2">
+              <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="offer-dedicated-nav bg-white border-top-0 shadow-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+                    <span class="restaurant-detailed-action-btn float-right">
+                        <button class="btn btn-light btn-sm border-light-btn" type="button"><i
+                          class="icofont-heart text-danger"></i> Yêu thích</button>
+                    </span>
+        <ul class="nav" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link"  data-toggle="pill"
+               routerLink="/restaurant-homepage" role="tab" aria-controls="pills-restaurant-info"
+               aria-selected="false">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-restaurant-info-tab" data-toggle="pill"
+               routerLink="/restaurant-detail" role="tab" aria-controls="pills-restaurant-info"
+               aria-selected="false">Thông tin nhà hàng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" id="pills-order-online-tab" data-toggle="pill"
+               routerLink="/restaurant-order-list" role="tab" aria-controls="pills-order-online"
+               aria-selected="true">Đơn Hàng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery"
+               role="tab" aria-controls="pills-gallery" aria-selected="false">Doanh Thu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" routerLink=""
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Phản Hồi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Voucher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Hợp Đồng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 50px">
+      <mat-card style="margin: 50px 0;display: flex; width: 1000px">
+
+        <div class="col-md-4 col-sm-6 mb-4" style="width: 350px; height: 340px;margin: auto">
+          <div
+            class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+            <div class="list-card-image">
+              <!-- <div class="star position-absolute"><span class="badge badge-success"><i
+                          class="icofont-star"></i> 3.1 (300+)</span></div> -->
+              <div class="favourite-heart text-danger position-absolute"><a
+                href="#"><i class="icofont-heart"></i></a></div>
+              <div class="member-plan position-absolute"><span
+                class="badge badge-dark">Promoted</span></div>
+              <img src="../../../../assets/img/voucher.png" class="img-fluid item-img" alt="lon">
+
+              <!--              <a href="#">-->
+<!--                <img [src]="food.image" class="img-fluid item-img" alt="lon">-->
+<!--              </a>-->
+            </div>
+            <div class="p-3 position-relative">
+              <div class="list-card-body">
+                <!--                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>-->
+<!--                <h6 class="mb-1">-->
+<!--                  <p class="mb-2"> {{coupon.name}}<span class="float-right text-secondary"> <mat-icon color="warn"-->
+<!--                                                                                                    style="font-size: 20px"-->
+<!--                                                                                                    routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon-->
+<!--                    routerLink="/restaurant-delete-food/{{coupon.id}}" color="warn"-->
+<!--                    style="font-size: 20px">delete</mat-icon></span></p>-->
+<!--                </h6>-->
+              <div>
+                <div class="member-plan position-absolute"><span
+                  class="badge badge-dark">Promoted</span></div>
+              </div>
+                <p class="text-gray mb-2">{{coupon.name}}  </p>
+                <p class="text-gray mb-2">Số lượng : {{coupon.quantity}}</p>
+                <p class="text-gray time mb-0"><a
+                  class="btn btn-link btn-sm text-black" href="#"><span
+                  class="badge badge-success"> Giảm {{coupon.price}} $</span></a> <span
+                  class="float-right">
+                </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!---------------------------------------------Form edit------------------------->
+        <form style="width: 350px;margin-left: 200px" class="form-register"
+              novalidate>
+          <mat-card-title style="text-align: center">BLAC-K FOOD</mat-card-title>
+          <hr>
+          <!----------------------------Name------------------------------->
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Voucher Name</mat-label>
+            <input
+              [(ngModel)]="coupon.name"
+              [ngModelOptions]="{standalone: true}"
+              matInput
+              #name="ngModel">
+            <mat-icon color="accent" matSuffix>border_color</mat-icon>
+          </mat-form-field>
+          <br>
+          <!------------------------------Quantity------------------------>
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Quantity</mat-label>
+            <input
+              [(ngModel)]="coupon.quantity"
+              [ngModelOptions]="{standalone: true}"
+              matInput
+            >
+            <mat-icon color="accent" matSuffix>add_shopping_cart</mat-icon>
+          </mat-form-field>
+          <br>
+          <!------------------------------------Price----------------------------->
+          <mat-form-field appearance="outline" style="width: 350px">
+            <mat-label>Price</mat-label>
+            <input
+              matInput
+              [(ngModel)]="coupon.price"
+              [ngModelOptions]="{standalone: true}"
+            >
+            <mat-icon color="accent" matSuffix>monetization_on</mat-icon>
+          </mat-form-field>
+          <br>
+          <!--          Description-->
+<!--          <mat-form-field appearance="outline" style="width: 350px">-->
+<!--            <mat-label>Description</mat-label>-->
+<!--            <input type="text"-->
+<!--                   [(ngModel)]="food.description"-->
+<!--                   [ngModelOptions]="{standalone: true}"-->
+<!--                   matInput-->
+<!--            >-->
+<!--          </mat-form-field>-->
+          <!--          Image-->
+<!--          <mat-form-field appearance="outline" style="width: 350px">-->
+<!--            <input type="text"-->
+<!--                   hidden-->
+<!--                   matInput-->
+<!--            >-->
+<!--            <app-upload-file (giveUrl)="uploadFile($event)" > </app-upload-file>-->
+<!--          </mat-form-field>-->
+          <br>
+          <button mat-stroked-button color="accent" style="width: 150px"
+                  class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" (click)="ngSubmit()">Save
+            Changes
+          </button>
+
+        </form>
+
+      </mat-card>
+    </div>
+
+  </div>
+</div>
