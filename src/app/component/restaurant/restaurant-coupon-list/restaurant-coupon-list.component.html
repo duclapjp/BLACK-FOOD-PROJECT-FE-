@@ -14,26 +14,30 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-basket"></i> Giỏ hàng
-            <!--              <span class="badge badge-success">{{foodOrder.foodList.length}}</span>-->
+            <span class="badge badge-success">5</span>
           </a>
-          <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0"
-               style="display: flex">
-            <div class="dropdown-cart-top-body border-top p-4" *ngFor="let f of foodOrder.foodList, index as i">
-              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{f.name}}<span
-                class="float-right text-secondary">{{f.price|currency}}</span>
-                <mat-icon color="warn" style="cursor: pointer" id="{{i}}" (click)="removeFood($event)">delete</mat-icon>
-              </p>
-
-            </div>
-            <div class="dropdown-cart-top-footer border-top p-4">
-              <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span
-                class="float-right text-dark">{{getTotalPrice(foodOrder.foodList)|currency}}</span></p>
-              <!-- <small class="text-info">Extra charges may apply</small> -->
-            </div>
-            <div class="dropdown-cart-top-footer border-top p-2">
-              <a class="btn btn-success btn-block btn-lg" (click)="payment() "> Thanh toán</a>
-            </div>
-          </div>
+          <!--          <div class="dropdown-menu dropdown-cart-top p-0 dropdown-menu-right shadow-sm border-0">-->
+          <!--            <div class="dropdown-cart-top-body border-top p-4">-->
+          <!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub&ndash;&gt;-->
+          <!--&lt;!&ndash;                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>&ndash;&gt;-->
+          <!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Corn & Peas&ndash;&gt;-->
+          <!--&lt;!&ndash;                Salad x 1 <span class="float-right text-secondary">209.000</span></p>&ndash;&gt;-->
+          <!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-success food-item"></i> Veg Seekh Sub 6"&ndash;&gt;-->
+          <!--&lt;!&ndash;                (15 cm) x 1 <span class="float-right text-secondary">133.000</span></p>&ndash;&gt;-->
+          <!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Chicken Tikka Sub&ndash;&gt;-->
+          <!--&lt;!&ndash;                12" (30 cm) x 1 <span class="float-right text-secondary">314.000</span></p>&ndash;&gt;-->
+          <!--&lt;!&ndash;              <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> Corn & Peas Salad&ndash;&gt;-->
+          <!--&lt;!&ndash;                x 1 <span class="float-right text-secondary">209.000</span></p>&ndash;&gt;-->
+          <!--            </div>-->
+          <!--            <div class="dropdown-cart-top-footer border-top p-4">-->
+          <!--              <p class="mb-0 font-weight-bold text-secondary">Tổng tiền <span-->
+          <!--                class="float-right text-dark">499.000</span></p>-->
+          <!--              &lt;!&ndash; <small class="text-info">Extra charges may apply</small> &ndash;&gt;-->
+          <!--            </div>-->
+          <!--            <div class="dropdown-cart-top-footer border-top p-2">-->
+          <!--              <a class="btn btn-success btn-block btn-lg" href="checkout.html"> Thanh toán</a>-->
+          <!--            </div>-->
+          <!--          </div>-->
         </li>
       </ul>
     </div>
@@ -84,7 +88,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" id="pills-restaurant-info-tab" data-toggle="pill"
-               routerLink="/restaurant-detail/{{restaurantId}}" routerLinkActive="active" role="tab"
+               routerLink="/restaurant-detail/{{restaurantId}}" role="tab"
                aria-controls="pills-restaurant-info"
                aria-selected="false">Thông tin nhà hàng</a>
           </li>
@@ -115,24 +119,22 @@
                role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
           </li>
           <li class="nav-item">
-            <mat-form-field appearance="outline" style="width: 200px; height: 20px">
-              <mat-label>Nhập tên món...</mat-label>
-              <input
-
-                [(ngModel)]="search"
-                matInput
-                placeholder="Placeholder"
-              >
-
-              <mat-icon color="accent" matSuffix (click)="onSearchFood()">search</mat-icon>
-              <!--              <button mat-stroked-button color="accent"   style="width: 50px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Tìm kiếm-->
-              <!--              </button>-->
-            </mat-form-field>
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-voucher"
+               role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Voucher</a>
           </li>
-<!--          <div style="height: 50px; margin-top: 10px">-->
-<!--            <input type="text" placeholder="Nhập tên món" [(ngModel)]="search">-->
-<!--            <button (click)="onSearchFood()">Tìm kiếm</button>-->
-<!--          </div>-->
+          <li class="nav-item">
+            <!--            <mat-form-field appearance="outline" style="width: 200px; height: 20px">-->
+            <!--              <mat-label>Nhập tên món...</mat-label>-->
+            <!--              <input [(ngModel)]="search" matInput placeholder="Placeholder">-->
+            <!--              <mat-icon color="accent" matSuffix (click)="onSearchFood()">search</mat-icon>-->
+            <!--              &lt;!&ndash;              <button mat-stroked-button color="accent"   style="width: 50px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Tìm kiếm&ndash;&gt;-->
+            <!--              &lt;!&ndash;              </button>&ndash;&gt;-->
+            <!--            </mat-form-field>-->
+          </li>
+          <!--          <div style="height: 50px; margin-top: 10px">-->
+          <!--            <input type="text" placeholder="Nhập tên món" [(ngModel)]="search">-->
+          <!--            <button (click)="onSearchFood()">Tìm kiếm</button>-->
+          <!--          </div>-->
         </ul>
       </div>
     </div>
@@ -148,7 +150,7 @@
                  aria-labelledby="pills-order-online-tab">
               <div id="#menu" class="row">
                 <!-- <h5 class="mb-4 mt-3 col-md-12">Bán chạy</h5> -->
-                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let food of foods">
+                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let coupon of coupons">
                   <div
                     class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                     <div class="list-card-image">
@@ -158,28 +160,25 @@
                         href="#"><i class="icofont-heart"></i></a></div>
                       <div class="member-plan position-absolute"><span
                         class="badge badge-dark">Promoted</span></div>
-                      <a routerLink="/restaurant-detail-food/{{food.id}}">
-                        <img [src]="food.image" class="img-fluid item-img" alt="lon">
-                      </a>
+
+                                              <img src="../../../../assets/img/voucher.png" class="img-fluid item-img" alt="lon">
+
                     </div>
                     <div class="p-3 position-relative">
                       <div class="list-card-body">
-                        <!--                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>-->
-                        <h6 class="mb-1">
-                          <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px; cursor: pointer" routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon
-                            routerLink="/restaurant-delete-food/{{food.id}}" color="warn"
-                            style="font-size: 20px;cursor: pointer">delete</mat-icon></span></p>
-                        </h6>
-                        <p class="text-gray mb-2">Mã số cửa hàng: {{food.restaurantId}}  </p>
-                        <p class="text-gray time mb-0"><a
-                          class="btn btn-link btn-sm text-black" href="#">{{food.price|currency}}<span
-                          class="badge badge-success">5% Giảm</span></a> <span
-                          class="float-right">
-                                                            <a id="{{food.id}}" (click)="addShopCart($event)" class="btn btn-outline-secondary btn-sm" >Mua
-                                                                ngay</a>
-                                                        </span>
-                          <a class="btn btn-outline-secondary btn-sm" href="#">Mua ngay</a>
-                        </p>
+                                                <h6 class="mb-1">
+                                                  <p class="mb-2"> {{coupon.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 23px; cursor: pointer" routerLink="/restaurant-coupon-edit/{{coupon.id}}">edit</mat-icon><mat-icon
+                                                    routerLink="/restaurant-coupon-delete/{{coupon.id}}" color="warn"
+                                                    style="font-size: 23px;cursor: pointer">delete</mat-icon></span></p>
+                                                </h6>
+<!--                        <p class="text-gray mb-2">Loại :{{coupon.name}}  </p>-->
+                        <p class="text-gray mb-2">Số lượng : {{coupon.quantity}}</p>
+
+                        <p class="text-gray time mb-0">
+                                                  <a class="btn btn-link btn-sm text-black" href="#">
+                                                  <span class="badge badge-success">Giảm {{coupon.price}} $ </span></a>
+<!--                                                  <span class="float-right"><a class="btn btn-outline-secondary btn-sm" href="#">Mua ngay</a></span>-->
+                                                </p>
                       </div>
                     </div>
                   </div>
@@ -653,31 +652,32 @@
         <div class="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
           <h5 class="mb-1 text-white">Đặt hàng ngay</h5>
           <div class="bg-white rounded shadow-sm mb-2">
-            <div class="gold-members p-2 border-bottom" *ngFor="let food of foods">
-              <p class="text-gray mb-0 float-right ml-2">{{food.price|currency}}</p>
-              <span class="count-number float-right">
-                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i
-                                      class="icofont-minus"></i> </button>
-                                    <input class="count-number-input" type="text" value="1" readonly="">
-                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i
-                                      class="icofont-plus"></i> </button>
-                                </span>
-              <div class="media">
-                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>
-                <div class="media-body">
-                  <p class="mt-1 mb-0 text-black">{{food.name}}</p>
-                </div>
-              </div>
+            <!--            <div class="gold-members p-2 border-bottom" *ngFor="let food of foods">-->
+            <!--              <p class="text-gray mb-0 float-right ml-2">{{food.price|currency}}</p>-->
+            <!--              <span class="count-number float-right">-->
+            <!--                                    <button class="btn btn-outline-secondary  btn-sm left dec"> <i-->
+            <!--                                      class="icofont-minus"></i> </button>-->
+            <!--                                    <input class="count-number-input" type="text" value="1" readonly="">-->
+            <!--                                    <button class="btn btn-outline-secondary btn-sm right inc"> <i-->
+            <!--                                      class="icofont-plus"></i> </button>-->
+            <!--                                </span>-->
+            <!--              <div class="media">-->
+            <!--                <div class="mr-2"><i class="icofont-ui-press text-danger food-item"></i></div>-->
+            <!--                <div class="media-body">-->
+            <!--                  <p class="mt-1 mb-0 text-black">{{food.name}}</p>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <!--          </div>-->
+            <div class="mb-2 bg-white rounded p-2 clearfix">
+              <img class="img-fluid float-left" src="img/wallet-icon.png">
+              <!--            <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span-->
+              <!--              class="text-danger">{{getTotalPrice(foods)|currency}}</span></h6>-->
+              <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
             </div>
+            <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i
+              class="icofont-long-arrow-right"></i></a>
           </div>
-          <div class="mb-2 bg-white rounded p-2 clearfix">
-            <img class="img-fluid float-left" src="img/wallet-icon.png">
-            <h6 class="font-weight-bold text-right mb-2">Tổng đơn: <span
-              class="text-danger">{{getTotalPrice(foods)|currency}}</span></h6>
-            <!-- <p class="seven-color mb-1 text-right">Extra charges may apply</p> -->
-          </div>
-          <a href="checkout.html" class="btn btn-success btn-block btn-lg">Checkout <i
-            class="icofont-long-arrow-right"></i></a>
         </div>
       </div>
     </div>
