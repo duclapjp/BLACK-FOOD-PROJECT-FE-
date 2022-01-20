@@ -8,6 +8,7 @@ import {UserService} from "../../../service/user.service";
 import {user} from "@angular/fire/auth";
 import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-restaurant-order-list',
@@ -21,10 +22,18 @@ export class RestaurantOrderListComponent implements OnInit {
   restaurant: Restaurant={};
   // @ts-ignore
   user: User = {}
+  restaurantId = 0;
   constructor(private foodOrderService: FoodOrderService,
               private tokenService: TokenService,
               private userService: UserService,
-              private restaurantService: RestaurantService) {
+              private restaurantService: RestaurantService,
+              private activeRoute: ActivatedRoute) {
+    this.activeRoute.params.subscribe((params: Params)=>{
+      this.restaurantId = params['id'];
+      this.restaurantService.findRestaurantById(this.restaurantId).subscribe(res => {
+        this.restaurant = res;
+      })
+    });
 
   }
 

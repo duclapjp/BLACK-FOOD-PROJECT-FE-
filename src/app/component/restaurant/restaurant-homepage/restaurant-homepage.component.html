@@ -18,7 +18,7 @@
 
 <section class="restaurant-detailed-banner">
   <div class="text-center">
-    <img class="img-fluid cover" src="https://resizer.otstatic.com/v2/photos/wide-huge/1/25022522.jpg">
+    <img class="img-fluid cover" [src]="restaurant.image">
   </div>
   <div class="restaurant-detailed-header">
     <div class="container">
@@ -70,7 +70,7 @@
           </li>
           <li class="nav-item" >
             <a class="nav-link" id="pills-order-online-tab" data-toggle="pill"
-               routerLink="/restaurant-order-list" r role="tab"
+               routerLink="/restaurant-order-list//{{restaurantId}}"  role="tab"
                aria-controls="pills-order-online"
                aria-selected="true">Lịch sử đơn hàng</a>
           </li>
@@ -91,7 +91,7 @@
                role="tab" aria-controls="pills-reviews" routerLinkActive="active" aria-selected="false">Hợp Đồng</a>
           </li>
           <li class="nav-item" >
-            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food"
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food/{{restaurant.id}}"
                role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
           </li>
           <li class="nav-item">
@@ -150,21 +150,18 @@
 <!--                                                                                                            style="font-size: 20px; cursor: pointer"-->
 <!--                                                                                                            routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon-->
                         <h6 class="mb-1">
-                          <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px; cursor: pointer" routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon
+                          <p class="mb-2" style="font-weight: 900;"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px; cursor: pointer" routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon
                             routerLink="/restaurant-delete-food/{{food.id}}" color="warn"
                             style="font-size: 20px;cursor: pointer">delete</mat-icon></span></p>
                         </h6>
-                        <p class="text-gray mb-2">Mã số cửa hàng: {{food.restaurantId}}  </p>
                         <p class="text-gray time mb-0"><a
                           class="btn btn-link btn-sm text-black" href="#">{{food.price|currency}}<span
                           class="badge badge-success">5% Giảm</span></a>
-                           <span
-                          class="float-right">
-                                                            <a id="{{food.id}}" (click)="addShopCart($event)" class="btn btn-outline-secondary btn-sm" >Mua
-                                                                ngay</a>
-                                                        </span>
-                          <a class="btn btn-outline-secondary btn-sm" href="#">Mua ngay</a>
                         </p>
+                      </div>
+                      <div class="list-card-badge">
+                        <span class="badge badge-success">Giảm</span> <small>65% | Coupon
+                        BLAC-K</small>
                       </div>
                     </div>
                   </div>

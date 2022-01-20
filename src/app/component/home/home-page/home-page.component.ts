@@ -31,7 +31,9 @@ export class HomePageComponent implements OnInit {
   restaurants: Restaurant [] = [];
   totalP = 0;
   checkAdmin = false
-  checkMerchant= false;
+  checkMerchant = false;
+  checkRes = false;
+  checkCreateRes = false;
   // @ts-ignore
   restaurant: Restaurant = {}
 
@@ -48,24 +50,23 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.check();
     // this.getUserName();
     this.getUserById();
     this.getFoodOrder();
     this.checkAdminRole();
+    console.log('checkCreate: '+ this.checkCreateRes);
   }
+
   getFoodOrder() {
     this.userService.showCurrentFO().subscribe(fo => {
       this.foodOrder = fo;
       console.log('fo: ' + JSON.stringify(this.foodOrder));
-      if (fo.message == 'no order'){
-        this.checkNull = true;
-        console.log('checkNull: ' + this.checkNull);
-      }
-      console.log('message: ' + fo.message);
     })
   }
-  getResByUser(){
+
+  getResByUser() {
     this.restaurantService.findRestaurantById(this.user.restaurantId).subscribe(res => {
       this.restaurant = res;
     })
@@ -91,24 +92,32 @@ export class HomePageComponent implements OnInit {
     this.userService.getUserById(userId).subscribe(data => {
       this.user = data;
       // console.log('user: ' + JSON.stringify(data));
-      console.log(`user`+JSON.stringify(this.user));
-      if (this.user.restaurantId != null){
-        this.checkMerchant = true;
+      console.log(`user` + JSON.stringify(this.user));
+      if (this.user.restaurantId == null){
+        this.checkCreateRes = true;
+      }
+      else {
+        //   this.checkMerchant = true;
         this.restaurantService.findRestaurantById(this.user.restaurantId).subscribe(res => {
           this.restaurant = res;
         })
       }
       // @ts-ignore
       let roles: Role [] = this.user.roles
-      console.log(`user`+JSON.stringify(this.user));
-      console.log(`roles`+roles);
-      roles.forEach(role=>{
-        if (role.name=="ADMIN"){
-          this.checkAdmin= true;
-          console.log(`checkAdmin`+this.checkAdmin);
+      console.log(`user` + JSON.stringify(this.user));
+      console.log(`roles` + roles);
+      roles.forEach(role => {
+        if (role.name == "ADMIN") {
+          this.checkAdmin = true;
+          console.log(`checkAdmin` + this.checkAdmin);
+        } else if (role.name == "MERCHANT") {
+          if (role.status.id == 2){
+           this.checkRes = true;
+          }
+          this.checkMerchant = true;
         }
       })
-      console.log(`roles`+JSON.stringify(roles));
+      console.log(`roles` + JSON.stringify(roles));
     });
   }
 
@@ -118,6 +127,8 @@ export class HomePageComponent implements OnInit {
     this.checkLogin = false;
     this.checkAdmin = false;
     this.checkMerchant = false;
+    this.checkRes = false;
+    this.checkCreateRes = false;
   }
 
   showAllFood() {
@@ -129,10 +140,15 @@ export class HomePageComponent implements OnInit {
 
 
   addShopCart(event: any) {
-    if (this.foodOrder.generalStatus.id == 5){
+    // let resIdOfCart = 0;
+    // this.foodOrder.foodList.forEach(f => {
+    //   resIdOfCart = f.restaurantId
+    // })
+    if (this.foodOrder.generalStatus.id == 5) {
       alert("Giao dịch cũ vẫn tồn tại. Vui lòng xử lý trước khi tạo đơn hàng mới");
     }
-    else if (this.checkNull)  {
+    else if (this.foodOrder.generalStatus.id == 4) {
+
       // @ts-ignore
       this.foodId = event.target.id;
       console.log('foodid: ' + this.foodId);
@@ -151,7 +167,7 @@ export class HomePageComponent implements OnInit {
 
   public getTotalPrice(foods: Food[]) {
     let sum = 0;
-    if (foods!= undefined){
+    if (foods != undefined) {
       foods.forEach(food => {
         sum += food.price
       });
@@ -169,25 +185,16 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-  payment() {
-    let totalP = this.getTotalPrice(this.foodOrder.foodList);
-    // @ts-ignore
-    let payment: Payment = {
-      totalPrice: totalP,
-    }
-    this.userService.payment(payment).subscribe(user => {
-      console.log('return: ' + JSON.stringify(user));
-      if (user.message != null) {
-        alert("Số tiền trong tài khoản không đủ để thực hiện giao dịch này.  \n Vui lòng nạp thêm tiền để tiếp tục sử dụng dịch vụ! ");
-      } else {
-        alert("Thực hiện thanh toán thành công!");
-        this.router.navigate(['/']).then(() => {
-          window.location.reload();
-        });
-      }
-    })
-  }
-  checkAdminRole(){
 
+
+  checkAdminRole() {
+
+  }
+
+  merchantRegister() {
+    this.userService.merchantRegister().subscribe(user => {
+      alert('Yêu cầu của bạn đã được gửi, vui lòng chờ xác thực từ admin');
+      window.location.reload();
+    })
   }
 }

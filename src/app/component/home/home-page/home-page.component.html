@@ -12,8 +12,11 @@
           <li class="nav-item active">
             <a class="nav-link" routerLink="/" [routerLinkActive]="['active']" >Trang chủ <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active" *ngIf="checkMerchant">
+          <li class="nav-item active" *ngIf="checkRes && !checkCreateRes">
             <a class="nav-link"  routerLink="/restaurant-homepage/{{restaurant.id}}" >Nhà hàng <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active" *ngIf="checkCreateRes">
+            <a class="nav-link"  routerLink="/restaurant-create/{{user.id}}" >Tạo nhà hàng <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active" *ngIf="checkAdmin">
             <a class="nav-link" routerLink="/admin-homepage">Admin<span class="sr-only">(current)</span></a>
@@ -76,7 +79,7 @@
                 <!-- <small class="text-info">Extra charges may apply</small> -->
               </div>
               <div class="dropdown-cart-top-footer border-top p-2">
-                <a class="btn btn-success btn-block btn-lg" (click)="payment() "> Thanh toán</a>
+<!--                <a class="btn btn-success btn-block btn-lg" (click)="payment() "> Thanh toán</a>-->
               </div>
             </div>
           </li>
@@ -410,7 +413,7 @@
                         <!--                        </h6>-->
                         <h6 style="font-weight: 500;font-size: 1rem;line-height: 1.2;" class="mb-1"><a
                           class="text-black">{{food.name}}  <span
-                          class="float-right text-black-50"> <mat-icon color="warn"  style="cursor: pointer" id="{{food.id}}" routerLink="/restaurant-by-food/{{food.restaurantId}}" (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
+                          class="float-right text-black-50"> <mat-icon color="warn"  style="cursor: pointer" id="{{food.id}}"  routerLink="/restaurant-by-food/{{food.restaurantId}}"  (click)="addShopCart($event)">add_box</mat-icon></span></a></h6>
 
                         <p class="text-gray mb-3 time"><span
                           class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
@@ -808,9 +811,12 @@
 <section class="section pt-5 pb-5 text-center bg-white">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
-        <h5 class="m-0">Bạn có cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt nhất cho
+      <div class="col-sm-12" *ngIf="!checkMerchant">
+        <h5 class="m-0" style="font-size: 24px;">Bạn muốn trở thành chủ cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt nhất cho
           khách hàng</a></h5>
+        <hr>
+        <button mat-stroked-button color="accent"  style="width: 150px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" (click)="merchantRegister()" >Đăng ký
+        </button>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Food} from "../../../model/food";
 import {FoodService} from "../../../service/food.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {UserService} from "../../../service/user.service";
 import {User} from "../../../model/User";
 import {TokenService} from "../../../service/token.service";
@@ -22,14 +22,19 @@ export class RestaurantCreateFoodComponent implements OnInit {
     restaurantId:0,
   }
   form: any={
-
 }
+resId = 0;
   // @ts-ignore
   user: User = {}
   constructor(private foodService:FoodService,
               private route: Router,
               private userService: UserService,
-              private tokenStorage: TokenService) { }
+              private tokenStorage: TokenService,
+              private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.resId = params['id'];
+    })
+  }
 
   ngOnInit(): void {
     this.getUser();
@@ -48,7 +53,7 @@ export class RestaurantCreateFoodComponent implements OnInit {
     console.log('food: ' + JSON.stringify(this.food));
 
     this.foodService.createNewFood(this.food).subscribe(()=>{
-      this.route.navigate(['/restaurant-homepage'])
+      this.route.navigate(['/restaurant-homepage/'+this.resId]);
     });
   }
   // @ts-ignore

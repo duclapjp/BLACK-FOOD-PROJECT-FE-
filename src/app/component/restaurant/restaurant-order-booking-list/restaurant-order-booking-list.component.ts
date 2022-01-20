@@ -4,6 +4,8 @@ import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
 import {FoodOrder} from "../../../model/food-order";
 import {Food} from "../../../model/food";
+import {Payment} from "../../../model/Payment";
+import {UserService} from "../../../service/user.service";
 
 @Component({
   selector: 'app-restaurant-order-booking-list',
@@ -18,7 +20,8 @@ export class RestaurantOrderBookingListComponent implements OnInit {
   foodOrderList: FoodOrder[] = [];
   constructor(
     private activeRoute: ActivatedRoute,
-    private restaurantService: RestaurantService
+    private restaurantService: RestaurantService,
+    private userService: UserService
   ) {
     this.activeRoute.params.subscribe((params: Params)=>{
       this.restaurantId = params['id'];
@@ -44,4 +47,16 @@ export class RestaurantOrderBookingListComponent implements OnInit {
     return sum;
   }
 
+  paymentVerify(event: any) {
+    let foId = event.currentTarget.id;
+    let userId = event.currentTarget.name;
+    console.log('foId: ' +event.currentTarget.id );
+    console.log('totalPrice: ' + event.currentTarget.value);
+   let payment = {
+      totalPrice: event.currentTarget.value
+    }
+    this.userService.payment(userId,foId,this.restaurantId,payment).subscribe(user => {
+    alert("Đơn hàng đã được xác nhận và giao đến khách hàng!")
+    })
+  }
 }

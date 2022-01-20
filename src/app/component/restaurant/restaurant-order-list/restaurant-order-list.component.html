@@ -66,10 +66,19 @@
                routerLink="/restaurant-detail/{{user.restaurantId}}" role="tab" aria-controls="pills-restaurant-info"
                aria-selected="false">Thông tin nhà hàng</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" id="pills-order-online-tab" data-toggle="pill"
-               routerLink="/restaurant-order-list"  [routerLinkActive]="['active']"  role="tab" aria-controls="pills-order-online"
-               aria-selected="true">Đơn Hàng</a>
+          <li class="nav-item" >
+            <a class="nav-link"
+               [routerLinkActive]="['active']"
+               data-toggle="pill"
+               routerLink="/restaurant-order-booking-list/{{restaurantId}}"  role="tab"
+               aria-controls="pills-order-online"
+               aria-selected="true">Đơn hàng</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" data-toggle="pill"
+               routerLink="/restaurant-order-list/{{restaurantId}}"  role="tab"
+               aria-controls="pills-order-online"
+               aria-selected="true">Lịch sử đơn hàng</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery"

@@ -84,7 +84,7 @@ export class RestaurantByFoodComponent implements OnInit {
     if (this.foodOrder.generalStatus.id == 5){
       alert("Giao dịch cũ vẫn tồn tại. Vui lòng xử lý trước khi tạo đơn hàng mới");
     }
-    else {
+    else if (this.foodOrder.generalStatus.id == 4) {
       // @ts-ignore
       this.foodId = event.target.id;
       console.log('foodid: ' + this.foodId);
@@ -120,24 +120,7 @@ export class RestaurantByFoodComponent implements OnInit {
     })
   }
 
-  payment() {
-    let totalP = this.getTotalPrice(this.foodOrder.foodList);
-    // @ts-ignore
-    let payment: Payment = {
-      totalPrice: totalP,
-    }
-    this.userService.payment(payment).subscribe(user => {
-      console.log('return: ' + JSON.stringify(user));
-      if (user.message != null) {
-        alert("Số tiền trong tài khoản không đủ để thực hiện giao dịch này.  \n Vui lòng nạp thêm tiền để tiếp tục sử dụng dịch vụ! ");
-      } else {
-        alert("Thực hiện thanh toán thành công!");
-        this.router.navigate(['/']).then(() => {
-          window.location.reload();
-        });
-      }
-    })
-  }
+
 
   getCurrentUserId() {
     this.userId = this.tokenService.getUserId();
