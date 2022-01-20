@@ -53,7 +53,8 @@ import { RestaurantCouponListComponent } from './component/restaurant/restaurant
 import { RestaurantCouponCreateComponent } from './component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component';
 import { RestaurantCouponDeleteComponent } from './component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component';
 import { RestaurantCouponEditComponent } from './component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component';
-
+import {ReveneueChartsComponent} from "./component/revenue/reveneue-charts/reveneue-charts.component";
+import {NgChartsModule} from "ng2-charts";
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { RestaurantCouponEditComponent } from './component/restaurant/restaurant
     RestaurantCouponListComponent,
     RestaurantCouponCreateComponent,
     RestaurantCouponDeleteComponent,
-    RestaurantCouponEditComponent
+    RestaurantCouponEditComponent,
+    ReveneueChartsComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -113,6 +115,7 @@ import { RestaurantCouponEditComponent } from './component/restaurant/restaurant
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    NgChartsModule,
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]
