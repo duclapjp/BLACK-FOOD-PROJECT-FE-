@@ -35,6 +35,7 @@ export class HomePageComponent implements OnInit {
   // @ts-ignore
   restaurant: Restaurant = {}
 
+  checkNull = false;
 
   constructor(
     private tokenService: TokenService,
@@ -57,6 +58,11 @@ export class HomePageComponent implements OnInit {
     this.userService.showCurrentFO().subscribe(fo => {
       this.foodOrder = fo;
       console.log('fo: ' + JSON.stringify(this.foodOrder));
+      if (fo.message == 'no order'){
+        this.checkNull = true;
+        console.log('checkNull: ' + this.checkNull);
+      }
+      console.log('message: ' + fo.message);
     })
   }
   getResByUser(){
@@ -123,18 +129,24 @@ export class HomePageComponent implements OnInit {
 
 
   addShopCart(event: any) {
-    // @ts-ignore
-    this.foodId = event.target.id;
-    console.log('foodid: ' + this.foodId);
-    // @ts-ignore
-    let food: Food = {
-      id: this.foodId
+    if (this.foodOrder.generalStatus.id == 5){
+      alert("Giao dịch cũ vẫn tồn tại. Vui lòng xử lý trước khi tạo đơn hàng mới");
     }
-    this.userService.addFood(food).subscribe(user => {
-      this.user = user;
-      this.getFoodOrder();
-      alert('Thêm vào giỏ hàng thành công');
-    });
+    else if (this.checkNull)  {
+      // @ts-ignore
+      this.foodId = event.target.id;
+      console.log('foodid: ' + this.foodId);
+      // @ts-ignore
+      let food: Food = {
+        id: this.foodId
+      }
+      this.userService.addFood(food).subscribe(user => {
+        this.user = user;
+        this.getFoodOrder();
+        alert('Thêm vào giỏ hàng thành công');
+      });
+    }
+
   }
 
   public getTotalPrice(foods: Food[]) {

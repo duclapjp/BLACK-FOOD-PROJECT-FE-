@@ -81,18 +81,24 @@ export class RestaurantByFoodComponent implements OnInit {
     })
   }
   addShopCart(event: any) {
-    // @ts-ignore
-    this.foodId = event.target.id;
-    console.log('foodid: ' + this.foodId);
-    // @ts-ignore
-    let food: Food = {
-      id: this.foodId
+    if (this.foodOrder.generalStatus.id == 5){
+      alert("Giao dịch cũ vẫn tồn tại. Vui lòng xử lý trước khi tạo đơn hàng mới");
     }
-    this.userService.addFood(food).subscribe(user => {
-      this.user = user;
-      this.getFoodOrder();
-      alert('Thêm vào giỏ hàng thành công');
-    });
+    else {
+      // @ts-ignore
+      this.foodId = event.target.id;
+      console.log('foodid: ' + this.foodId);
+      // @ts-ignore
+      let food: Food = {
+        id: this.foodId
+      }
+      this.userService.addFood(food).subscribe(user => {
+        this.user = user;
+        this.getFoodOrder();
+        alert('Thêm vào giỏ hàng thành công');
+      });
+    }
+
   }
   public getTotalPrice(foods: Food[]) {
     let sum = 0;

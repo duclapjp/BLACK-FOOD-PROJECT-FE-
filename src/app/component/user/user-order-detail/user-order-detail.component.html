@@ -9,10 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="home.html">Trang chủ <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="home.html">Đăng ký <span class="sr-only"></span></a>
+          <a class="nav-link" routerLink="/" >Trang chủ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown dropdown-cart">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -64,24 +61,26 @@
         <div class="bg-white p-4 shadow-lg mb-2">
           <div class="mb-2"><small>Mã đơn hàng #{{foodOrder.id}}<a class="float-right font-weight-bold" href="#"><i
             class="icofont-headphone-alt"></i> Trợ giúp</a></small></div>
-          <h6 class="mb-1 mt-1"><a  href="detail.html" class="text-black">{{restaurant.name}}
+          <h6 class="mb-1 mt-1"><a style="    font-size: 16px;" href="detail.html"
+                                   class="text-black">{{restaurant.name}}
           </a>
           </h6>
-          <p class="text-gray mb-0"><i class="icofont-clock-time"></i> {{foodOrder.time|date}} | {{foodOrder.foodList.length}} sản phẩm | {{getTotalPrice(foodOrder.foodList)|currency}} </p>
+          <p class="text-gray mb-0"><i class="icofont-clock-time"></i> {{foodOrder.time|date}}
+            | {{foodOrder.foodList.length}} sản phẩm | {{getTotalPrice(foodOrder.foodList)|currency}} </p>
         </div>
         <div class="bg-white p-4 shadow-lg">
           <div class="osahan-track-order-detail po">
-            <h5 class="mt-0 mb-3">Chi tiết đơn hàng</h5>
+            <h5 class="mt-0 mb-3" style="    font-size: 16px;">Chi tiết đơn hàng</h5>
             <div class="row">
               <div class="col-md-5">
                 <small>Cửa hàng</small>
-                <h6 class="mb-1 mt-1"><a href="detail.html" class="text-black"><i
+                <h6 class="mb-1 mt-1"><a href="detail.html" class="text-black" style="    font-size: 16px;"><i
                   class="icofont-food-cart"></i> {{restaurant.name}}
                 </a>
                 </h6>
                 <p class="text-gray mb-5">{{restaurant.address}}</p>
                 <small>Giao tới</small>
-                <h6 class="mb-1 mt-1"><span class="text-black"><i class="icofont-map-pins"></i>
+                <h6 class="mb-1 mt-1" style="font-size: 16px;"><span class="text-black"><i class="icofont-map-pins" ></i>
                   {{user.name}}
                                         </span>
                 </h6>
@@ -89,9 +88,11 @@
                 </p>
               </div>
               <div class="col-md-7">
-                <div class="mb-2"><small><i class="icofont-list"></i> {{foodOrder.foodList.length}} sản phẩm</small></div>
+                <div class="mb-2"><small><i class="icofont-list"></i> {{foodOrder.foodList.length}} sản phẩm</small>
+                </div>
                 <div *ngFor="let food of foodOrder.foodList">
-                  <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{food.name}} x 1 <span class="float-right text-secondary">{{food.price|currency}}</span></p>
+                  <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{food.name}} x 1 <span
+                    class="float-right text-secondary">{{food.price|currency}}</span></p>
 
                 </div>
                 <hr>
@@ -106,20 +107,27 @@
         </div>
         <div class="bg-white p-4 shadow-lg mt-2">
           <div class="row text-center">
-            <div class="col">
+            <div class="col" *ngIf="checkBookingStatus(foodOrder)">
               <i class="icofont-tasks icofont-3x text-info"></i>
               <p class="mt-1 font-weight-bold text-dark mb-0">Đã tiếp nhận đơn hàng</p>
               <small class="text-info mb-0">NOW</small>
             </div>
-            <div class="col">
-              <i class="icofont-check-circled icofont-3x text-success"></i>
-              <p class="mt-1 font-weight-bold text-dark mb-0">Đang lấy hàng</p>
-              <small class="text-success mb-0">NEXT</small>
+<!--            <div class="col" *ngIf="!checkFo(foodOrder)">-->
+<!--&lt;!&ndash;              <i class="icofont-tasks icofont-3x text-info"></i>&ndash;&gt;-->
+<!--              <p class="mt-1 font-weight-bold text-dark mb-0">Giỏ hàng trống</p>-->
+<!--&lt;!&ndash;              <small class="text-info mb-0">NOW</small>&ndash;&gt;-->
+<!--            </div>-->
+            <div class="col" *ngIf="!checkBookingStatus(foodOrder)">
+              <i class="icofont-delivery-time icofont-3x text-success" style="color: #3ecf8e"></i>
+              <p class="mt-1 font-weight-bold text-dark mb-0"><button mat-stroked-button color="primary"  style="width: 150px;color:#3ecf8e " class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" (click)="bookingOrder()" >Đặt hàng
+              </button></p>
+              <small class="text-success mb-0" style="color: #3ecf8e">LATER (ET : 30min)</small>
             </div>
-            <div class="col">
-              <i class="icofont-delivery-time icofont-3x text-primary"></i>
-              <p class="mt-1 font-weight-bold text-dark mb-0">Đang giao hàng</p>
-              <small class="text-primary mb-0">LATER (ET : 30min)</small>
+            <div class="col" *ngIf="!checkFo(foodOrder)" >
+              <i class="icofont-close-circled" style="font-size: 3em;color: #dd646e "></i>
+              <p class="mt-1 font-weight-bold text-dark mb-0"><button mat-stroked-button color="accent"  style="width: 150px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" (click)="cancelOrder()">Hủy đơn
+              </button></p>
+              <small class="text-primary mb-0">Cancel</small>
             </div>
           </div>
         </div>
@@ -131,7 +139,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h5 class="m-0">Bạn có cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt nhất cho khách hàng</a></h5>
+        <h5 class="m-0">Bạn có cửa hàng? <a href="login.html">Gia nhập với chúng tôi cùng cung cấp sản phẩm tốt nhất cho
+          khách hàng</a></h5>
       </div>
     </div>
   </div>
@@ -203,15 +212,20 @@
         <div class="search-links">
           <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> | <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> | <a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
-          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a> | <a href="#">Pizza</a> | <a
+          href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a> |<a href="#">Gà rán</a> | <a href="#">Nem chua rán</a>
+          | <a href="#">Pizza</a> | <a
           href="#">Highland</a> | <a href="#">Starbuck</a> | <a href="#">Bánh bèo</a> | <a
           href="#">Tôm alaska</a> | <a href="#">Tôm hoàng đế</a>
         </div>

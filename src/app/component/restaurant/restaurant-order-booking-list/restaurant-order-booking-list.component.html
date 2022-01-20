@@ -64,8 +64,9 @@
           </li>
           <li class="nav-item" >
             <a class="nav-link"  data-toggle="pill"
-               routerLink="/restaurant-order-booking-list/{{restaurantId}}"  role="tab"
+               routerLink="/restaurant-order-booking-list"  role="tab"
                aria-controls="pills-order-online"
+               [routerLinkActive]="['active']"
                aria-selected="true">Đơn hàng</a>
           </li>
           <li class="nav-item" >
@@ -94,25 +95,6 @@
             <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food"
                role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
           </li>
-          <li class="nav-item">
-            <mat-form-field appearance="outline" style="width: 200px; height: 20px">
-              <mat-label>Nhập tên món...</mat-label>
-              <input
-
-                [(ngModel)]="search"
-                matInput
-                placeholder="Placeholder"
-              >
-
-              <mat-icon color="accent" matSuffix (click)="onSearchFood()">search</mat-icon>
-              <!--              <button mat-stroked-button color="accent"   style="width: 50px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Tìm kiếm-->
-              <!--              </button>-->
-            </mat-form-field>
-          </li>
-<!--          <div style="height: 50px; margin-top: 10px">-->
-<!--            <input type="text" placeholder="Nhập tên món" [(ngModel)]="search">-->
-<!--            <button (click)="onSearchFood()">Tìm kiếm</button>-->
-<!--          </div>-->
         </ul>
       </div>
     </div>
@@ -127,48 +109,71 @@
             <div class="tab-pane fade show active" id="pills-order-online" role="tabpanel"
                  aria-labelledby="pills-order-online-tab">
               <div id="#menu" class="row">
+                <mat-card >
+                  <table class="table table-hover" style="text-align: center">
+                    <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Thời gian</th>
+                      <th scope="col">Ghi chú</th>
+                      <th scope="col">Tổng tiền</th>
+                      <th scope="col">Xác Nhận</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let fo of foodOrderList, index as i">
+                    <tr>
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{fo.time|date}}</td>
+                      <td>{{fo.note}}</td>
+                      <td>{{getTotalPrice(fo.foodList)|currency}}</td>
+                      <td><button mat-stroked-button color="accent"  style="width: 150px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2">Xác nhận
+                      </button></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </mat-card>
                 <!-- <h5 class="mb-4 mt-3 col-md-12">Bán chạy</h5> -->
-                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let food of foods">
-                  <div
-                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                      <!-- <div class="star position-absolute"><span class="badge badge-success"><i
-                                  class="icofont-star"></i> 3.1 (300+)</span></div> -->
-                      <div class="favourite-heart text-danger position-absolute"><a
-                        href="#"><i class="icofont-heart"></i></a></div>
-                      <div class="member-plan position-absolute"><span
-                        class="badge badge-dark">Promoted</span></div>
-                      <a routerLink="/restaurant-detail-food/{{food.id}}">
-                        <img [src]="food.image" class="img-fluid item-img" alt="lon">
-                      </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                      <div class="list-card-body">
-                        <!--                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>-->
-<!--                        <h6 class="mb-1" style="font-weight: 500;    font-size: 1rem;line-height: 1.2;">-->
-<!--                          <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn"-->
-<!--                                                                                                            style="font-size: 20px; cursor: pointer"-->
-<!--                                                                                                            routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon-->
-                        <h6 class="mb-1">
-                          <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px; cursor: pointer" routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon
-                            routerLink="/restaurant-delete-food/{{food.id}}" color="warn"
-                            style="font-size: 20px;cursor: pointer">delete</mat-icon></span></p>
-                        </h6>
-                        <p class="text-gray mb-2">Mã số cửa hàng: {{food.restaurantId}}  </p>
-                        <p class="text-gray time mb-0"><a
-                          class="btn btn-link btn-sm text-black" href="#">{{food.price|currency}}<span
-                          class="badge badge-success">5% Giảm</span></a>
-                           <span
-                          class="float-right">
-                                                            <a id="{{food.id}}" (click)="addShopCart($event)" class="btn btn-outline-secondary btn-sm" >Mua
-                                                                ngay</a>
-                                                        </span>
-                          <a class="btn btn-outline-secondary btn-sm" href="#">Mua ngay</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<!--                <div class="col-md-4 col-sm-6 mb-4" *ngFor="let food of foods">-->
+<!--                  <div-->
+<!--                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">-->
+<!--                    <div class="list-card-image">-->
+<!--                      &lt;!&ndash; <div class="star position-absolute"><span class="badge badge-success"><i-->
+<!--                                  class="icofont-star"></i> 3.1 (300+)</span></div> &ndash;&gt;-->
+<!--                      <div class="favourite-heart text-danger position-absolute"><a-->
+<!--                        href="#"><i class="icofont-heart"></i></a></div>-->
+<!--                      <div class="member-plan position-absolute"><span-->
+<!--                        class="badge badge-dark">Promoted</span></div>-->
+<!--                      <a routerLink="/restaurant-detail-food/{{food.id}}">-->
+<!--                        <img [src]="food.image" class="img-fluid item-img" alt="lon">-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                    <div class="p-3 position-relative">-->
+<!--                      <div class="list-card-body">-->
+<!--                        &lt;!&ndash;                        <h6 class="mb-1"><a href="#" class="text-black">{{food.name}}   <mat-icon color="warn">edit</mat-icon><mat-icon color="warn">delete</mat-icon></a></h6>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                        <h6 class="mb-1" style="font-weight: 500;    font-size: 1rem;line-height: 1.2;">&ndash;&gt;-->
+<!--                        &lt;!&ndash;                          <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                                                                            style="font-size: 20px; cursor: pointer"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                                                                                            routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon&ndash;&gt;-->
+<!--                        <h6 class="mb-1">-->
+<!--                          <p class="mb-2"> {{food.name}}<span class="float-right text-secondary"> <mat-icon color="warn" style="font-size: 20px; cursor: pointer" routerLink="/restaurant-edit-food/{{food.id}}">edit</mat-icon><mat-icon-->
+<!--                            routerLink="/restaurant-delete-food/{{food.id}}" color="warn"-->
+<!--                            style="font-size: 20px;cursor: pointer">delete</mat-icon></span></p>-->
+<!--                        </h6>-->
+<!--                        <p class="text-gray mb-2">Mã số cửa hàng: {{food.restaurantId}}  </p>-->
+<!--                        <p class="text-gray time mb-0"><a-->
+<!--                          class="btn btn-link btn-sm text-black" href="#">{{food.price|currency}}<span-->
+<!--                          class="badge badge-success">5% Giảm</span></a>-->
+<!--                          <span-->
+<!--                            class="float-right">-->
+<!--                                                            <a id="{{food.id}}" (click)="addShopCart($event)" class="btn btn-outline-secondary btn-sm" >Mua-->
+<!--                                                                ngay</a>-->
+<!--                                                        </span>-->
+<!--                          <a class="btn btn-outline-secondary btn-sm" href="#">Mua ngay</a>-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
                 <!--                <div class="col-md-4 col-sm-6 mb-4">-->
                 <!--                  <div-->
                 <!--                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">-->

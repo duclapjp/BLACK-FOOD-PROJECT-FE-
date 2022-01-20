@@ -47,6 +47,7 @@ import {RestaurantCouponCreateComponent} from "./component/restaurant/restaurant
 import {RestaurantCouponDeleteComponent} from "./component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component";
 import {RestaurantCouponEditComponent} from "./component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component";
 import {UserOrderDetailComponent} from "./component/user/user-order-detail/user-order-detail.component";
+import {RestaurantOrderBookingListComponent} from "./component/restaurant/restaurant-order-booking-list/restaurant-order-booking-list.component";
 
 const routes: Routes = [
   {
@@ -68,6 +69,7 @@ const routes: Routes = [
   {path: 'restaurant-detail/:id', component: RestaurantDetailComponent},
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'restaurant-order-list', component: RestaurantOrderListComponent},
+  {path: 'restaurant-order-booking-list/:id', component: RestaurantOrderBookingListComponent},
   {path: 'restaurant-create', component: RestaurantCreateComponent},
   {path: 'restaurant-delete', component: RestaurantDeleteComponent},
   {path: 'restaurant-edit', component: RestaurantEditComponent},

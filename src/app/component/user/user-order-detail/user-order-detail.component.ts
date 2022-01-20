@@ -31,6 +31,7 @@ export class UserOrderDetailComponent implements OnInit {
         this.user = user;
         this.userService.showCurrentFO().subscribe(fo => {
           this.foodOrder = fo;
+          console.log("fo: " + JSON.stringify(this.foodOrder));
           console.log("foods: " + JSON.stringify(this.foodOrder.foodList));
           this.foodOrder.foodList.forEach(food => {
             let resId = food.restaurantId;
@@ -57,5 +58,31 @@ export class UserOrderDetailComponent implements OnInit {
     }
     return sum;
   }
+  checkBookingStatus(foodOrder: FoodOrder){
+    if (foodOrder.generalStatus.id == 5){
+      return true;
+    }
+    return false
+  }
+  checkFo(foodOrder: FoodOrder){
+    if (foodOrder.id == null){
+      return true
+    }
+    return false
+  }
 
+  bookingOrder() {
+    this.userService.bookingOrder().subscribe(user => {
+      alert('Đặt hàng thành công!');
+      window.location.reload();
+    })
+  }
+
+  cancelOrder() {
+    this.userService.cancelOrder().subscribe(user => {
+      alert('Hủy đặt hàng thành công');
+      window.location.reload();
+
+    })
+  }
 }

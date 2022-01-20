@@ -33,8 +33,8 @@ return this.http.get<User>(API_LOCAL+'users/'+id);
   addFood(food: Food): Observable<User>{
     return this.http.put<User>(API_LOCAL+'users/addFood',food);
   }
-  showCurrentFO():Observable<FoodOrder>{
-    return this.http.get<FoodOrder>(API_LOCAL+'users/currentFO');
+  showCurrentFO():Observable<any>{
+    return this.http.get<any>(API_LOCAL+'users/currentFO');
   }
   updateFoodList(foods: Food[]): Observable<User>{
     return this.http.put<User>(API_LOCAL+'users/updateFoodList',foods);
@@ -45,4 +45,11 @@ return this.http.get<User>(API_LOCAL+'users/'+id);
   showAllUser():Observable<User []>{
     return this.http.get<User[]>(API_LOCAL+'users')
   }
+  bookingOrder():Observable<any>{
+  return this.http.get(API_LOCAL+'users/bookingOrder');
+  }
+  cancelOrder():Observable<any>{
+    return this.http.get(API_LOCAL+'users/cancelFO');
+  }
 }
+
