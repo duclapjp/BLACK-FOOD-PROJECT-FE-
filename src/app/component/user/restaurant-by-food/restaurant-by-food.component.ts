@@ -1,21 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {FoodService} from "../../../service/food.service";
+import { Component, OnInit } from '@angular/core';
+import {Restaurant} from "../../../model/restaurant";
+import {User} from "../../../model/User";
 import {Food} from "../../../model/food";
+import {FoodOrder} from "../../../model/food-order";
+import {FoodService} from "../../../service/food.service";
 import {TokenService} from "../../../service/token.service";
 import {UserService} from "../../../service/user.service";
-import {User} from "../../../model/User";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {FoodOrder} from "../../../model/food-order";
-import {Payment} from "../../../model/Payment";
-import {Restaurant} from "../../../model/restaurant";
 import {RestaurantService} from "../../../service/restaurant.service";
+import {Payment} from "../../../model/Payment";
 
 @Component({
-  selector: 'app-restaurant-homepage',
-  templateUrl: './restaurant-homepage.component.html',
-  styleUrls: ['./restaurant-homepage.component.css']
+  selector: 'app-restaurant-by-food',
+  templateUrl: './restaurant-by-food.component.html',
+  styleUrls: ['./restaurant-by-food.component.css']
 })
-export class RestaurantHomepageComponent implements OnInit {
+export class RestaurantByFoodComponent implements OnInit {
   userId: number = 0;
   restaurantId: number = 0;
   // @ts-ignore
@@ -35,7 +35,7 @@ export class RestaurantHomepageComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private restaurantService: RestaurantService
+    private restaurantService: RestaurantService,
   ) {
     this.activeRoute.params.subscribe((params: Params)=>{
       this.restaurantId = params['id'];
@@ -81,18 +81,24 @@ export class RestaurantHomepageComponent implements OnInit {
     })
   }
   addShopCart(event: any) {
-    // @ts-ignore
-    this.foodId = event.target.id;
-    console.log('foodid: ' + this.foodId);
-    // @ts-ignore
-    let food: Food = {
-      id: this.foodId
+    if (this.foodOrder.generalStatus.id == 5){
+      alert("Giao dịch cũ vẫn tồn tại. Vui lòng xử lý trước khi tạo đơn hàng mới");
     }
-    this.userService.addFood(food).subscribe(user => {
-      this.user = user;
-      this.getFoodOrder();
-      alert('Thêm vào giỏ hàng thành công');
-    });
+    else if (this.foodOrder.generalStatus.id == 4) {
+      // @ts-ignore
+      this.foodId = event.target.id;
+      console.log('foodid: ' + this.foodId);
+      // @ts-ignore
+      let food: Food = {
+        id: this.foodId
+      }
+      this.userService.addFood(food).subscribe(user => {
+        this.user = user;
+        this.getFoodOrder();
+        alert('Thêm vào giỏ hàng thành công');
+      });
+    }
+
   }
   public getTotalPrice(foods: Food[]) {
     let sum = 0;
@@ -115,6 +121,7 @@ export class RestaurantHomepageComponent implements OnInit {
   }
 
 
+
   getCurrentUserId() {
     this.userId = this.tokenService.getUserId();
     console.log('userId o token: ' + this.userId);
@@ -127,5 +134,9 @@ export class RestaurantHomepageComponent implements OnInit {
   toRestaurantDetail() {
     console.log('a')
     this.router.navigate(['/restaurant-detail/' + this.restaurantId], {queryParams: {userId: this.userId}});
+  }
+
+  orderDetail() {
+
   }
 }

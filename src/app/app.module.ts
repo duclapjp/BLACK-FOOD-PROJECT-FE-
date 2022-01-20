@@ -49,12 +49,15 @@ import { ShowRestaurantComponent } from './component/home/show-restaurant/show-r
 import { AdminHomepageComponent } from './component/admin/admin-homepage/admin-homepage.component';
 import { AdminRoleVerifyComponent } from './component/admin/admin-role-verify/admin-role-verify.component';
 import { AdminBusinessVerifyComponent } from './component/admin/admin-business-verify/admin-business-verify.component';
+import { RestaurantByFoodComponent } from './component/user/restaurant-by-food/restaurant-by-food.component';
 import { RestaurantCouponListComponent } from './component/restaurant/restaurant-coupon-list/restaurant-coupon-list.component';
 import { RestaurantCouponCreateComponent } from './component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component';
 import { RestaurantCouponDeleteComponent } from './component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component';
 import { RestaurantCouponEditComponent } from './component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component';
 import {ReveneueChartsComponent} from "./component/revenue/reveneue-charts/reveneue-charts.component";
 import {NgChartsModule} from "ng2-charts";
+import { UserOrderDetailComponent } from './component/user/user-order-detail/user-order-detail.component';
+import { RestaurantOrderBookingListComponent } from './component/restaurant/restaurant-order-booking-list/restaurant-order-booking-list.component';
 
 
 @NgModule({
@@ -93,11 +96,14 @@ import {NgChartsModule} from "ng2-charts";
     AdminHomepageComponent,
     AdminRoleVerifyComponent,
     AdminBusinessVerifyComponent,
+    RestaurantByFoodComponent,
     RestaurantCouponListComponent,
     RestaurantCouponCreateComponent,
     RestaurantCouponDeleteComponent,
     RestaurantCouponEditComponent,
-    ReveneueChartsComponent
+    ReveneueChartsComponent,
+    UserOrderDetailComponent,
+    RestaurantOrderBookingListComponent
   ],
   imports: [
     ReactiveFormsModule,

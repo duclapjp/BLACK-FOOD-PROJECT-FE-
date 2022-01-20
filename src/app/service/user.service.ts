@@ -33,16 +33,26 @@ return this.http.get<User>(API_LOCAL+'users/'+id);
   addFood(food: Food): Observable<User>{
     return this.http.put<User>(API_LOCAL+'users/addFood',food);
   }
-  showCurrentFO():Observable<FoodOrder>{
-    return this.http.get<FoodOrder>(API_LOCAL+'users/currentFO');
+  showCurrentFO():Observable<any>{
+    return this.http.get<any>(API_LOCAL+'users/currentFO');
   }
   updateFoodList(foods: Food[]): Observable<User>{
     return this.http.put<User>(API_LOCAL+'users/updateFoodList',foods);
   }
-  payment(payment: Payment):Observable<any>{
-    return this.http.put(API_LOCAL+'users/payment',payment);
+  payment(userId: number,foId:number,resId: number,payment: Payment):Observable<any>{
+    return this.http.put(API_LOCAL+'users/'+userId+'/'+foId+'/'+resId+'/payment',payment);
   }
   showAllUser():Observable<User []>{
     return this.http.get<User[]>(API_LOCAL+'users')
   }
+  bookingOrder():Observable<any>{
+  return this.http.get(API_LOCAL+'users/bookingOrder');
+  }
+  cancelOrder():Observable<any>{
+    return this.http.get(API_LOCAL+'users/cancelFO');
+  }
+  merchantRegister():Observable<any>{
+    return this.http.get(API_LOCAL+'users/merchantRegister');
+  }
 }
+

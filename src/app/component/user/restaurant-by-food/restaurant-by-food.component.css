@@ -7,26 +7,4 @@ body{
   padding-right: 15px;
   padding-left: 15px;
 }
-.rounded {
-  border-radius: 6px !important;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-}
-.p-2 {
-  padding: 0.5rem!important;
-}
-.mb-2, .my-2 {
-  margin-bottom: 0.5rem!important;
-}
-.rounded {
-  border-radius: 0.25rem!important;
-}
-.bg-white {
-  background-color: #fff!important;
-}
-*, ::after, ::before {
-  box-sizing: border-box;
-}
-user agent stylesheet
-div {
-  display: block;
-}
+
