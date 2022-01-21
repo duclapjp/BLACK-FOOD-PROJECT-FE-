@@ -72,6 +72,11 @@ export class HomePageComponent implements OnInit {
     })
   }
 
+  getResByFood(resId: number){
+    this.restaurantService.findRestaurantById(resId).subscribe(res => {
+      return res.name;
+    })
+  }
   check() {
     const token = this.tokenService.getToken();
     if (token != null) {

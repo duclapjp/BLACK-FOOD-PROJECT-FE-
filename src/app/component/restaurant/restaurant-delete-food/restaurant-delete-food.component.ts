@@ -12,6 +12,7 @@ export class RestaurantDeleteFoodComponent implements OnInit {
   // @ts-ignore
   food: Food={}
   id: number=0;
+  resId = 0;
   constructor(private foodService: FoodService,
               private activeRouter:ActivatedRoute,
               private route: Router) {
@@ -19,6 +20,7 @@ export class RestaurantDeleteFoodComponent implements OnInit {
       this.id=param['id']
      this.foodService.findById(this.id).subscribe(food=>{
        this.food=food;
+       this.resId = food.restaurantId;
        console.log(this.food);
      })
     })
@@ -29,11 +31,11 @@ export class RestaurantDeleteFoodComponent implements OnInit {
 
   delete(id: number) {
     this.foodService.delete(id).subscribe(()=>{
-      this.route.navigate(['/restaurant-homepage'])
+      this.route.navigate(['/restaurant-homepage/'+this.resId]);
     });
   }
 
   backHomePage() {
-    this.route.navigate(['/restaurant-homepage'])
+    this.route.navigate(['/restaurant-homepage/'+this.resId])
   }
 }

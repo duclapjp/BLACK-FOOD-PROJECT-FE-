@@ -145,13 +145,13 @@
             <form class="form-noborder">
               <div class="form-row">
                 <div class="col-lg-3 col-md-3 col-sm-12 form-group">
-                  <div class="location-dropdown">
-                    <!--                    <i class="icofont-location-arrow"></i>-->
-                    <select class="custom-select form-control-lg">
-                      <option> Quick Search</option>
-                      <option> Breakfast</option>
-                      <option> Lunch</option>
-                      <option> Dinner</option>
+                  <div class="location-dropdown" >
+
+                    <select class="custom-select form-control-lg" style="height: 50px">
+                      <option> Tìm kiếm nhanh</option>
+                      <option> Ăn sáng</option>
+                      <option> Ăn trưa</option>
+                      <option> Ăn tối</option>
                       <option> Coffee</option>
                     </select>
                   </div>
@@ -169,21 +169,100 @@
               </div>
             </form>
           </div>
-          <h6 class="mt-4 text-shadow text-white font-weight-normal">Ex. Pizzas, Fried Chicken,
-            Nem chua...</h6>
-          <div class="owl-carousel owl-carousel-category owl-theme" *ngFor="let food1 of foodList">
+          <h6 class="mt-4 text-shadow text-white font-weight-normal" style="font-family: 'Mulish', sans-serif;font-size: 16px">Ex. Pizzas, Fried Chicken...</h6>
+          <div class="owl-carousel owl-carousel-category owl-theme" >
+<!--            <div class="item">-->
+<!--              <div class="osahan-category-item">-->
+<!--                <a href="#">-->
+<!--                  <img class="img-fluid"-->
+<!--                       [src]="food1.image"-->
+<!--                       alt="faild">-->
+<!--                  <h6>{{food1.name}}</h6>-->
+<!--                  <p>{{food1.price|currency}}</p>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--            </div>-->
             <div class="item">
               <div class="osahan-category-item">
                 <a href="#">
-                  <img class="img-fluid"
-                       [src]="food1.image"
-                       alt="faild">
-                  <h6>{{food1.name}}</h6>
-                  <p>{{food1.price|currency}}</p>
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/7_1642150970315?alt=media&token=c5b1607a-10f1-4407-a7bd-8f1f785e00e4" alt="">
+                  <h6>American</h6>
+                  <p>156</p>
                 </a>
               </div>
             </div>
-
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/2_1642151677953?alt=media&token=7a613bf0-0993-48a2-b532-012f89139e27" alt="">
+                  <h6>Pizza</h6>
+                  <p>120</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/4_1642267987954?alt=media&token=7322f8e8-d553-43ec-a547-0e22929fe456" alt="">
+                  <h6>Healthy</h6>
+                  <p>130</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/8_1642311062004?alt=media&token=e2f84f1c-0823-4b50-bdd2-93b7a71f8899" alt="">
+                  <h6>Vegetarian</h6>
+                  <p>120</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/9_1642687487156?alt=media&token=d6aa6caa-842a-457b-a7a4-47ac7be5b05c" alt="">
+                  <h6>Chinese</h6>
+                  <p>111</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/7_1642688062266?alt=media&token=bbfd674e-bc0e-499e-8bae-3ca0c72a9f23" alt="">
+                  <h6>Hamburgers</h6>
+                  <p>958</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/3_1642688456481?alt=media&token=72226636-53c0-438f-905b-3a7f2d135e97" alt="">
+                  <h6>Dessert</h6>
+                  <p>56</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/9_1642687487156?alt=media&token=d6aa6caa-842a-457b-a7a4-47ac7be5b05c" alt="">
+                  <h6>Chicken</h6>
+                  <p>40</p>
+                </a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="osahan-category-item">
+                <a href="#">
+                  <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/9_1642687487156?alt=media&token=d6aa6caa-842a-457b-a7a4-47ac7be5b05c" alt="">
+                  <h6>Indian</h6>
+                  <p>156</p>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -195,22 +274,22 @@
     <div class="row">
       <div class="col-md-3 col-6">
         <div class="products-box">
-          <a href="listing.html"><img alt="" src="img/pro1.jpg" class="img-fluid rounded"></a>
+          <a href="listing.html"><img alt="" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/pro1_1642728858717?alt=media&token=17964a6e-6178-445d-9aa0-6a6d9c81c7dd" class="img-fluid rounded"></a>
         </div>
       </div>
       <div class="col-md-3 col-6">
         <div class="products-box">
-          <a href="listing.html"><img alt="" src="img/pro2.jpg" class="img-fluid rounded"></a>
+          <a href="listing.html"><img alt="" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/pro2_1642728882305?alt=media&token=9b004401-86e4-44bb-8c23-e58e7f2e853b" class="img-fluid rounded"></a>
         </div>
       </div>
       <div class="col-md-3 col-6">
         <div class="products-box">
-          <a href="listing.html"><img alt="" src="img/pro3.jpg" class="img-fluid rounded"></a>
+          <a href="listing.html"><img alt="" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/pro3_1642728893631?alt=media&token=386a239d-33d6-4f04-a20f-b3bab876cdc8" class="img-fluid rounded"></a>
         </div>
       </div>
       <div class="col-md-3 col-6">
         <div class="products-box">
-          <a href="listing.html"><img alt="" src="img/pro4.jpg" class="img-fluid rounded"></a>
+          <a href="listing.html"><img alt="" src="https://firebasestorage.googleapis.com/v0/b/product-mangement.appspot.com/o/pro4_1642728905819?alt=media&token=cc5adcb5-0f6e-4ce9-b317-a56e7fc5317e" class="img-fluid rounded"></a>
         </div>
       </div>
     </div>
@@ -223,159 +302,7 @@
       <p>Những món ngon nhất, nhiều ưu đãi đang được mọi người quan tâm</p>
       <span class="line"></span>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="owl-carousel owl-carousel-four owl-theme">
-          <div class="item">
-            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
-                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i
-                  class="icofont-heart"></i></a></div>
-                <div class="member-plan position-absolute"><span class="badge badge-dark">KM</span>
-                </div>
-                <a href="detail.html">
-                  <img src="img/list/1.png" class="img-fluid item-img">
-                </a>
-              </div>
-              <div class="p-3 position-relative">
-                <div class="list-card-body">
-                  <h6 class="mb-1"><a href="detail.html" class="text-black">Ba rọi heo Rút Xương
-                    Loại 1kg</a></h6>
-                  <p class="text-gray mb-3">P. Bình Trị Đông, Bình Tân, TP. HCM</p>
-                  <p class="text-gray mb-3 time"><span
-                    class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                    class="icofont-wall-clock"></i> 20–25 min</span> <span
-                    class="float-right text-black-50"> 250.00O</span></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-success">Giảm</span> <small>65% | Coupon
-                  OSAHAN50</small>
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="item">
-            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
-                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i
-                  class="icofont-heart"></i></a></div>
-                <div class="member-plan position-absolute"><span class="badge badge-dark">KM</span>
-                </div>
-                <a href="detail.html">
-                  <img src="img/list/3.png" class="img-fluid item-img">
-                </a>
-              </div>
-              <div class="p-3 position-relative">
-                <div class="list-card-body">
-                  <h6 class="mb-1"><a href="detail.html" class="text-black">Cua gạch Cà Mau</a>
-                  </h6>
-                  <p class="text-gray mb-3"> P. 2, Quận 3, TP. HCM</p>
-                  <p class="text-gray mb-3 time"><span
-                    class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                    class="icofont-wall-clock"></i> 15–25 min</span> <span
-                    class="float-right text-black-50"> 300.000</span></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">Giảm</span> <small>65% | Coupon
-                  OSAHAN50</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
-                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i
-                  class="icofont-heart"></i></a></div>
-                <div class="member-plan position-absolute"><span
-                  class="badge badge-danger">KM</span></div>
-                <a href="detail.html">
-                  <img src="img/list/6.png" class="img-fluid item-img">
-                </a>
-              </div>
-              <div class="p-3 position-relative">
-                <div class="list-card-body">
-                  <h6 class="mb-1"><a href="detail.html" class="text-black">Bao tử heo G Kitchen -
-                    500gr
-                  </a>
-                  </h6>
-                  <p class="text-gray mb-3">P. 2, Quận 3, TP. HCM</p>
-                  <p class="text-gray mb-3 time"><span
-                    class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                    class="icofont-wall-clock"></i> 15–25 min</span> <span
-                    class="float-right text-black-50"> 250.000</span></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">Giảm</span> <small>65% | Coupon
-                  OSAHAN50</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
-                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i
-                  class="icofont-heart"></i></a></div>
-                <div class="member-plan position-absolute"><span
-                  class="badge badge-dark">Promoted</span></div>
-                <a href="detail.html">
-                  <img src="img/list/8.png" class="img-fluid item-img">
-                </a>
-              </div>
-              <div class="p-3 position-relative">
-                <div class="list-card-body">
-                  <h6 class="mb-1"><a href="detail.html" class="text-black">Cua thịt Y5
-                    (0,5-0,65kg/1con)
-                  </a>
-                  </h6>
-                  <p class="text-gray mb-3">496 Nguyễn Thị Minh Khai, P. 2</p>
-                  <p class="text-gray mb-3 time"><span
-                    class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                    class="icofont-wall-clock"></i> 15–25 min</span> <span
-                    class="float-right text-black-50"> 187.000</span></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">Giảm</span> <small>65% | Coupon
-                  OSAHAN50</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
-                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i
-                  class="icofont-heart"></i></a></div>
-                <div class="member-plan position-absolute"><span
-                  class="badge badge-dark">Promoted</span></div>
-                <a href="detail.html">
-                  <img src="img/list/9.png" class="img-fluid item-img">
-                </a>
-              </div>
-              <div class="p-3 position-relative">
-                <div class="list-card-body">
-                  <h6 class="mb-1"><a href="detail.html" class="text-black">Sò lông cồ (20-25
-                    con/kg)
-                  </a>
-                  </h6>
-                  <p class="text-gray mb-3">P. Bình Trị Đông, Bình Tân, TP. HCM</p>
-                  <p class="text-gray mb-3 time"><span
-                    class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                    class="icofont-wall-clock"></i> 15–25 min</span> <span
-                    class="float-right text-black-50"> 320.000</span></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">Giảm</span> <small>65% | Coupon
-                  OSAHAN50</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 <section class="section pt-5 pb-5 bg-white becomemember-section border-bottom">
   <div class="container">

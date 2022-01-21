@@ -14,6 +14,7 @@ export class RestaurantEditFoodComponent implements OnInit {
   foodId: number = 0;
   // @ts-ignore
   food: Food = {};
+  resId = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
     private foodService: FoodService,
@@ -23,6 +24,7 @@ export class RestaurantEditFoodComponent implements OnInit {
       this.foodId = params['id'];
       this.foodService.findById(this.foodId).subscribe(food => {
         this.food = food;
+        this.resId = food.restaurantId;
         console.log('food: ' + JSON.stringify(this.food));
       })
 
@@ -36,7 +38,7 @@ export class RestaurantEditFoodComponent implements OnInit {
     this.foodService.update(this.food).subscribe(food => {
       this.food = food;
       // console.log('foodUpdate: ' + JSON.stringify(this.food));
-      this.router.navigate(['/restaurant-homepage']);
+      this.router.navigate(['/restaurant-homepage/'+this.resId]);
     });
   }
 
