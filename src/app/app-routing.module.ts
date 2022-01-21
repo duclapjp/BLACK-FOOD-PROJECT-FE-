@@ -46,9 +46,9 @@ import {RestaurantCouponListComponent} from "./component/restaurant/restaurant-c
 import {RestaurantCouponCreateComponent} from "./component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component";
 import {RestaurantCouponDeleteComponent} from "./component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component";
 import {RestaurantCouponEditComponent} from "./component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component";
+import {ReveneueChartsComponent} from "./component/revenue/reveneue-charts/reveneue-charts.component";
 import {UserOrderDetailComponent} from "./component/user/user-order-detail/user-order-detail.component";
 import {RestaurantOrderBookingListComponent} from "./component/restaurant/restaurant-order-booking-list/restaurant-order-booking-list.component";
-
 const routes: Routes = [
   {
     path: '',
@@ -92,8 +92,8 @@ const routes: Routes = [
   {path: 'restaurant-create-voucher',component: RestaurantCouponCreateComponent},
   {path: 'restaurant-coupon-delete/:id',component: RestaurantCouponDeleteComponent},
   {path: 'restaurant-coupon-edit/:id',component: RestaurantCouponEditComponent},
+  {path:'revenue-charts',component:ReveneueChartsComponent},
   {path: 'user-order-detail/:id',component: UserOrderDetailComponent},
-
 ];
 
 @NgModule({

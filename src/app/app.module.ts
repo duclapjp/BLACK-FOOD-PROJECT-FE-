@@ -54,9 +54,10 @@ import { RestaurantCouponListComponent } from './component/restaurant/restaurant
 import { RestaurantCouponCreateComponent } from './component/restaurant/restaurant-coupon-create/restaurant-coupon-create.component';
 import { RestaurantCouponDeleteComponent } from './component/restaurant/restaurant-coupon-delete/restaurant-coupon-delete.component';
 import { RestaurantCouponEditComponent } from './component/restaurant/restaurant-coupon-edit/restaurant-coupon-edit.component';
+import {ReveneueChartsComponent} from "./component/revenue/reveneue-charts/reveneue-charts.component";
+import {NgChartsModule} from "ng2-charts";
 import { UserOrderDetailComponent } from './component/user/user-order-detail/user-order-detail.component';
 import { RestaurantOrderBookingListComponent } from './component/restaurant/restaurant-order-booking-list/restaurant-order-booking-list.component';
-
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import { RestaurantOrderBookingListComponent } from './component/restaurant/rest
     RestaurantCouponCreateComponent,
     RestaurantCouponDeleteComponent,
     RestaurantCouponEditComponent,
+    ReveneueChartsComponent,
     UserOrderDetailComponent,
     RestaurantOrderBookingListComponent
   ],
@@ -119,6 +121,7 @@ import { RestaurantOrderBookingListComponent } from './component/restaurant/rest
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatProgressSpinnerModule,
     MatCheckboxModule,
+    NgChartsModule,
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]
