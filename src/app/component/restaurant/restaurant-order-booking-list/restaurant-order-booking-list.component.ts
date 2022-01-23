@@ -27,6 +27,7 @@ export class RestaurantOrderBookingListComponent implements OnInit {
       this.restaurantId = params['id'];
       this.restaurantService.showFOBookingListOfRes(this.restaurantId).subscribe(fos => {
         this.foodOrderList = fos;
+        console.log('fo: ' + this.foodOrderList);
       })
       this.restaurantService.findRestaurantById(this.restaurantId).subscribe(res => {
         this.restaurant = res;
@@ -56,7 +57,10 @@ export class RestaurantOrderBookingListComponent implements OnInit {
       totalPrice: event.currentTarget.value
     }
     this.userService.payment(userId,foId,this.restaurantId,payment).subscribe(user => {
-    alert("Đơn hàng đã được xác nhận và giao đến khách hàng!")
+    alert("Đơn hàng đã được xác nhận và giao đến khách hàng!");
+    window.location.reload();
     })
   }
+
+
 }

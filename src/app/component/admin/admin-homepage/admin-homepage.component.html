@@ -52,6 +52,10 @@
       <ul class="u-nav u-unstyled u-nav-1">
         <li class="u-nav-item"><a
           class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+          routerLink="/" style="padding: 10px 20px;" >Trang chủ</a>
+        </li>
+        <li class="u-nav-item"><a
+          class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
           routerLink="/admin-homepage" style="padding: 10px 20px;" [routerLinkActive]="['active']">Tài khoản</a>
         </li>
         <li class="u-nav-item"><a
@@ -70,7 +74,7 @@
   <div class="row">
     <div class="col-12" style="margin-top: 30px">
       <mat-card style="margin: 50px 0">
-        <table class="table table-hover" >
+        <table class="table table-hover"  style="text-align: center">
           <thead>
           <tr>
             <th scope="col">#</th>
@@ -86,12 +90,8 @@
           <tr>
             <td scope="row">{{i+1}}</td>
             <td>{{user.name}}</td>
-<!--            <td>{{user.address}}</td>-->
-<!--            <td *ngFor=" let role of user.roles">{{role.name}}</td>-->
-<!--            <td>{{user.status.name}}</td>-->
-<!--            <td *ngIf="checkVerify(user.status)"><button  routerLink="/admin-role-verify/{{user.id}}">Chi tiết</button></td>-->
-            <td><button  routerLink="/admin-role-verify/{{user.id}}">Chi tiết</button></td>
-<!--            <td><button>Block</button></td>-->
+            <td><button mat-stroked-button color="accent"  style="width: 110px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2"  routerLink="/admin-role-verify/{{user.id}}">Chi tiết
+            </button></td>
           </tr>
           </tbody>
         </table>

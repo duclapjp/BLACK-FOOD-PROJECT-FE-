@@ -58,6 +58,7 @@ import {ReveneueChartsComponent} from "./component/revenue/reveneue-charts/reven
 import {NgChartsModule} from "ng2-charts";
 import { UserOrderDetailComponent } from './component/user/user-order-detail/user-order-detail.component';
 import { RestaurantOrderBookingListComponent } from './component/restaurant/restaurant-order-booking-list/restaurant-order-booking-list.component';
+import { DetailComponent } from './component/restaurant/restaurant-order-booking-list/detail/detail.component';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import { RestaurantOrderBookingListComponent } from './component/restaurant/rest
     RestaurantCouponEditComponent,
     ReveneueChartsComponent,
     UserOrderDetailComponent,
-    RestaurantOrderBookingListComponent
+    RestaurantOrderBookingListComponent,
+    DetailComponent
   ],
   imports: [
     ReactiveFormsModule,

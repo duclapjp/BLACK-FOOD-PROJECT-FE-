@@ -5,6 +5,8 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {UserService} from "../../../service/user.service";
 import {User} from "../../../model/User";
 import {TokenService} from "../../../service/token.service";
+import {Restaurant} from "../../../model/restaurant";
+import {RestaurantService} from "../../../service/restaurant.service";
 
 @Component({
   selector: 'app-restaurant-create-food',
@@ -25,14 +27,21 @@ export class RestaurantCreateFoodComponent implements OnInit {
 }
 resId = 0;
   // @ts-ignore
+  restaurant: Restaurant = {};
+  // @ts-ignore
   user: User = {}
   constructor(private foodService:FoodService,
               private route: Router,
               private userService: UserService,
               private tokenStorage: TokenService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private restaurantService: RestaurantService) {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.resId = params['id'];
+      this.restaurantService.findRestaurantById(this.resId).subscribe(res => {
+        this.restaurant = res;
+      })
+
     })
   }
 

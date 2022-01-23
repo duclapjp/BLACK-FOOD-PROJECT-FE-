@@ -3,6 +3,10 @@ import {User} from "../../../model/User";
 import {UserService} from "../../../service/user.service";
 import {TokenService} from "../../../service/token.service";
 import {ChartConfiguration, ChartData, ChartEvent, ChartType} from "chart.js";
+import {FoodOrder} from "../../../model/food-order";
+import {ActivatedRoute, Params} from "@angular/router";
+import {RestaurantService} from "../../../service/restaurant.service";
+import {Restaurant} from "../../../model/restaurant";
 
 @Component({
   selector: 'app-reveneue-charts',
@@ -13,6 +17,11 @@ export class ReveneueChartsComponent implements OnInit {
   // @ts-ignore
   user: User={}
   userId=0;
+  // @ts-ignore
+  foodOrder: FoodOrder[] [];
+  // @ts-ignore
+  restaurant: Restaurant = {};
+  restaurantId: number = 0;
 
   public barChartOptions: ChartConfiguration['options'] = {
     elements: {
@@ -24,21 +33,21 @@ export class ReveneueChartsComponent implements OnInit {
     scales: {
       x: {},
       y: {
-        min: 10
+        min: 1
       }
     },
     plugins: {
       legend: { display: true },
     }
   };
-  public barChartLabels: string[] = [ '1', '2', '3', '4', '5', '6', '7' ];
+  public barChartLabels: string[] = [ '15/1', '16/1', '17/1', '18/1', '19/1', '20/1', '21/1' ];
   public barChartType: ChartType = 'bar';
 
   public barChartData: ChartData<'bar'> = {
     labels: this.barChartLabels,
     datasets: [
-      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A' },
-      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
+      { data: [ 65, 59, 80, 81, 56, 55, 20 ], label: 'Revenue' },
+      { data: [ 10, 8, 9, 9, 6, 7, 5 ], label: 'Order' }
     ]
   };
 
@@ -56,10 +65,19 @@ export class ReveneueChartsComponent implements OnInit {
   }
 
   constructor(private userService: UserService,
-              private tokenService: TokenService) {
+              private tokenService: TokenService,
+              private activeRoute: ActivatedRoute,
+              private restaurantService: RestaurantService) {
     this.userId =  this.tokenService.getUserId();
     this.userService.getUserById(this.userId).subscribe(user=>{
       this.user = user;
+
+      this.activeRoute.params.subscribe((params: Params)=>{
+        this.restaurantId = params['id'];
+        this.restaurantService.findRestaurantById(this.restaurantId).subscribe(res => {
+          this.restaurant = res;
+        })
+      });
     })
   }
 

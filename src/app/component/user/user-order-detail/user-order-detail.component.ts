@@ -47,6 +47,12 @@ export class UserOrderDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
+checkCancel(foodOrder: FoodOrder){
+    if (foodOrder.generalStatus.id == 5){
+      return true;
+    }
+    return false;
+}
 
   public getTotalPrice(foods: Food[]) {
     let sum = 0;

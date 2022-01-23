@@ -18,7 +18,7 @@
 
 <section class="restaurant-detailed-banner">
   <div class="text-center">
-    <img class="img-fluid cover" src="https://resizer.otstatic.com/v2/photos/wide-huge/1/25022522.jpg">
+    <img class="img-fluid cover" [src]="restaurant.image">
   </div>
   <div class="restaurant-detailed-header">
     <div class="container">
@@ -52,7 +52,7 @@
         <ul class="nav" id="pills-tab" role="tablist">
           <li class="nav-item">
             <a class="nav-link" data-toggle="pill"
-               routerLink="/restaurant-homepage"  role="tab"
+               routerLink="/restaurant-homepage/{{restaurantId}}"  role="tab"
                aria-controls="pills-restaurant-info"
                aria-selected="false">Home</a>
           </li>
@@ -71,13 +71,13 @@
           </li>
           <li class="nav-item" >
             <a class="nav-link" id="pills-order-online-tab" data-toggle="pill"
-               routerLink="/restaurant-order-list" r role="tab"
+               routerLink="/restaurant-order-list//{{restaurantId}}" role="tab"
                aria-controls="pills-order-online"
                aria-selected="true">Lịch sử đơn hàng</a>
           </li>
           <li class="nav-item" >
             <a class="nav-link" id="pills-gallery-tab" data-toggle="pill" href="#pills-gallery"
-               role="tab" aria-controls="pills-gallery" routerLinkActive="active" aria-selected="false">Doanh Thu</a>
+               role="tab" aria-controls="pills-gallery"  routerLink="/revenue-charts" aria-selected="false">Doanh Thu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="pills-reviews-tab" data-toggle="pill" href="#pills-reviews" routerLink=""
@@ -92,7 +92,7 @@
                role="tab" aria-controls="pills-reviews" routerLinkActive="active" aria-selected="false">Hợp Đồng</a>
           </li>
           <li class="nav-item" >
-            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food"
+            <a class="nav-link" data-toggle="pill" href="#pills-reviews" routerLink="/restaurant-create-food/{{restaurant.id}}"
                role="tab" aria-controls="pills-reviews" aria-selected="false">Tạo Món</a>
           </li>
         </ul>
@@ -115,22 +115,85 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Thời gian</th>
-                      <th scope="col">Ghi chú</th>
+<!--                      <th scope="col">Ghi chú</th>-->
                       <th scope="col">Tổng tiền</th>
-                      <th scope="col">Xác Nhận</th>
+                      <th scope="col">Detail</th>
+<!--                      <th scope="col">Xác Nhận</th>-->
                     </tr>
                     </thead>
                     <tbody *ngFor="let fo of foodOrderList, index as i">
                     <tr>
                       <th scope="row">{{i+1}}</th>
                       <td>{{fo.time|date:'MMM d, y, h:mm:ss a'}}</td>
-                      <td>{{fo.note}}</td>
+<!--                      <td>{{fo.note}}</td>-->
                       <td>{{fo.totalPrice|currency}}</td>
-                      <td><button mat-stroked-button color="accent"  style="width: 110px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" value="{{fo.totalPrice}}" id="{{fo.id}}" name="{{fo.userId}}" (click)="paymentVerify($event)">Xác nhận
-                      </button></td>
+                      <td> <!-- Button trigger modal -->
+                        <button  style="width: 110px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aye">
+                          Chi tiết
+                        </button></td>
+<!--                      <td><button mat-stroked-button color="accent"  style="width: 110px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" value="{{fo.totalPrice}}" id="{{fo.id}}" name="{{fo.userId}}" (click)="paymentVerify($event)">Xác nhận-->
+<!--                      </button></td>-->
+
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="aye" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 24px;">Chi tiết đơn hàng</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="bg-white p-4 shadow-lg">
+                                <div class="osahan-track-order-detail po">
+                                  <h5 class="mt-0 mb-3" style="    font-size: 16px;">Chi tiết đơn hàng</h5>
+                                  <div class="row">
+                                    <div class="col-md-5">
+                                      <small>Cửa hàng</small>
+                                      <h6 class="mb-1 mt-1"><a href="detail.html" class="text-black" style="    font-size: 16px;"><i
+                                        class="icofont-food-cart"></i> {{restaurant.name}}
+                                      </a>
+                                      </h6>
+                                      <p class="text-gray mb-5">{{restaurant.address}}</p>
+                                      <small>Giao tới</small>
+                                      <h6 class="mb-1 mt-1" style="font-size: 16px;"><span class="text-black"><i class="icofont-map-pins" ></i>
+
+                                        </span>
+                                      </h6>
+                                      <p class="text-gray mb-0">
+                                      </p>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <div class="mb-2"><small><i class="icofont-list"></i> {{fo.foodList.length}} sản phẩm</small>
+                                      </div>
+                                      <div *ngFor="let food of fo.foodList">
+                                        <p class="mb-2"><i class="icofont-ui-press text-danger food-item"></i> {{food.name}} x 1 <span
+                                          class="float-right text-secondary">{{food.price|currency}}</span></p>
+
+                                      </div>
+                                      <hr>
+                                      <p class="mb-0 font-weight-bold text-black">Tổng thanh toán <span
+                                        class="float-right text-secondary">{{getTotalPrice(fo.foodList)|currency}}</span></p>
+                                      <!-- <p class="mb-0 text-info"><small>Paid via Credit/Debit card
+                                              <span class="float-right text-danger">$620 OFF</span></small>
+                                      </p> -->
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary"  value="{{fo.totalPrice}}" id="{{fo.id}}" name="{{fo.userId}}" (click)="paymentVerify($event)">Xác nhận</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </tr>
                     </tbody>
                   </table>
+
                 </mat-card>
 
               </div>

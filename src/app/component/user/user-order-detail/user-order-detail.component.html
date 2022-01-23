@@ -117,13 +117,13 @@
 <!--              <p class="mt-1 font-weight-bold text-dark mb-0">Giỏ hàng trống</p>-->
 <!--&lt;!&ndash;              <small class="text-info mb-0">NOW</small>&ndash;&gt;-->
 <!--            </div>-->
-            <div class="col" *ngIf="!checkBookingStatus(foodOrder)">
+            <div class="col" *ngIf="!checkBookingStatus(foodOrder) ">
               <i class="icofont-delivery-time icofont-3x text-success" style="color: #3ecf8e"></i>
               <p class="mt-1 font-weight-bold text-dark mb-0"><button mat-stroked-button color="primary"  style="width: 150px;color:#3ecf8e " class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" (click)="bookingOrder()" >Đặt hàng
               </button></p>
               <small class="text-success mb-0" style="color: #3ecf8e">LATER (ET : 30min)</small>
             </div>
-            <div class="col" *ngIf="!checkFo(foodOrder)" >
+            <div class="col" *ngIf="checkCancel(foodOrder)" >
               <i class="icofont-close-circled" style="font-size: 3em;color: #dd646e "></i>
               <p class="mt-1 font-weight-bold text-dark mb-0"><button mat-stroked-button color="accent"  style="width: 150px" class="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2" (click)="cancelOrder()">Hủy đơn
               </button></p>

@@ -92,7 +92,7 @@ const routes: Routes = [
   {path: 'restaurant-create-voucher',component: RestaurantCouponCreateComponent},
   {path: 'restaurant-coupon-delete/:id',component: RestaurantCouponDeleteComponent},
   {path: 'restaurant-coupon-edit/:id',component: RestaurantCouponEditComponent},
-  {path:'revenue-charts',component:ReveneueChartsComponent},
+  {path:'revenue-charts/:id',component:ReveneueChartsComponent},
   {path: 'user-order-detail/:id',component: UserOrderDetailComponent},
 ];
 
